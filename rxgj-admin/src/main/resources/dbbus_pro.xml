@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceBus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceBus.xsd" DataGroupId="writePay">
+	
+	<DataServiceEngine>com.gavin.plugin.database.BigDataEngine</DataServiceEngine>
+
+	<!-- 支付 -->
+	<DataGroup Id="readPay" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://readPay.www.mall.mysql:3306/pay?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>	
+	
+	<DataGroup Id="writePay" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://writePay.www.mall.mysql:3306/pay?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+
+	<DataGroup Id="readUser" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://readUser.www.mall.mysql:3306/user?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>		
+
+	<DataGroup Id="writeUser" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://writeUser.www.mall.mysql:3306/user?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+	
+	
+	<DataGroup Id="readShop" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://readShop.www.mall.mysql:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">	
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+	
+	<DataGroup Id="writeShop" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://writeShop.www.mall.mysql:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+	
+	<DataGroup Id="readGoods" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://readGoods.www.mall.mysql:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">	
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+	
+	<DataGroup Id="writeGoods" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://writeGoods.www.mall.mysql:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>	
+		
+	<DataGroup Id="readSystem" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://readSystem.www.mall.mysql:3306/system?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">	
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+	
+	<DataGroup Id="writeSystem" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
+		<Database URI="jdbc:mysql://writeSystem.www.mall.mysql:3306/system?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+			<User UserName="root" Password="root"/>
+			<ConnectionPool>
+				<MinConnectionCount>1</MinConnectionCount>
+				<MaxConnectionCount>2</MaxConnectionCount>
+			</ConnectionPool>
+		</Database>
+	</DataGroup>
+
+	<Plugin Resource="trans/system/plugin.xml" Encoding="utf-8"/>			
+	<Plugin Resource="trans/pay/plugin.xml" Encoding="utf-8"/>
+	<Plugin Resource="trans/user/plugin.xml" Encoding="utf-8"/>
+	<Plugin Resource="trans/shop/plugin.xml" Encoding="utf-8"/>
+	<Plugin Resource="trans/goods/plugin.xml" Encoding="utf-8"/>	
+	
+</ServiceBus>

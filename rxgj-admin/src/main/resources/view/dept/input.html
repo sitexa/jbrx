@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>新增部门信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+</head>
+<body>
+	<div>
+		<ul class="breadcrumb">
+			<li><a href="/admin/index">管理中心首页</a></li>
+			<li><a href="index">部门管理</a></li>
+			<li class="active">新增部门信息</li>
+		</ul>
+		<div class="page-content">
+			<div class="page-content-wrap">
+				<form id="form" class="form-horizontal" action="#(dept.id ?? ? 'update' : 'save' )" method="post">
+					<input type="hidden" name="dept.id" value="#(dept.id ?? -1)">
+					<div class="row">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>新增部门信息</strong>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">上级部门</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="dept.parentId">
+											<option value="0">顶级部门</option> 
+											#for(temp:depts)
+											#if(temp.id!=dept.id??)
+											<option value="#(temp.id??)" #((dept.parentId??==temp.id ??) ? 'selected="selected"':'')>#(temp.name??)</option> 
+											#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">机构或部门名称</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="name" class="form-control" name="dept.name" value="#(dept.name ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">所在省</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="dept.province" id="area1" onchange="getChild('area1','area2','')">
+											<option value="">---请选择---</option>
+											#for(area:areas)
+											<option value="#(area.areaCode??)" #((dept.province??==area.areaCode ??) ? 'selected="selected"':'')>#(area.areaName??)</option> 
+											#end
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">所在市</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="dept.city" id="area2" onchange="getChild('area2','area3','')">
+											<option value="">---请选择---</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">区县</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="dept.county" id="area3">
+											<option value="">---请选择---</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">村/街道</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="street" class="form-control" name="dept.street" value="#(dept.street ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">详细地址</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="address" class="form-control" name="dept.address" value="#(dept.address ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">状态</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="dept.status">
+											<option value="1" #((1==dept.status ??) ? 'selected="selected"':'')>启用</option> 
+											<option value="2" #((2==dept.status ??) ? 'selected="selected"':'')>禁用</option> 
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-primary" type="submit">保存</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="/static/joli/js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" >
+	function getChild(currentId,changeId,selected){
+		var options='<option value="">---请选择---</option>';
+		if(currentId=='area2'){
+			$('#area3').html(options);
+		}
+		if(currentId=='area1'){
+			$('#area3').html(options);
+			$('#area2').html(options);
+		}
+		if($("#"+currentId).val()==''){
+			return false;
+		}
+		$.ajax({
+			url: "/area/queryAreaByParentCode?area.parentCode="+$("#"+currentId).val(),
+			dataType: "json",
+			async: false,
+			success: function(data) {
+				if(data.length>0){
+					for(var i=0;i<data.length;i++){
+// 						var sele=(selected==data[i].areaCode)?"selected='selected'":"";
+						options+="<option value='"+data[i].areaCode+"' "+((selected==data[i].areaCode)?"selected='selected'":"")+">"+data[i].areaName+"</option>";
+					}
+					$("#"+changeId).html(options);
+				}
+			}
+		});
+	}
+	
+	getChild('area1','area2','#(dept.city??)');
+	getChild('area2','area3','#(dept.county??)');
+</script>

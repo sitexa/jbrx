@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServicePlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/com/gavin/plugin/xsd/ServiceBus.xsd">	
+	<ServiceConfig Name="UsersService">
+		<DataService Resource="trans/user/UsersService.xml" Encoding="utf-8"/>
+	</ServiceConfig>	
+	
+	<ServiceConfig Name="UsersPermissionService">
+		<DataService Resource="trans/user/UsersPermissionService.xml" Encoding="utf-8"/>
+	</ServiceConfig>	
+	
+	<ServiceConfig Name="LoginRecordService">
+		<DataService Resource="trans/user/LoginRecordService.xml" Encoding="utf-8"/>
+	</ServiceConfig>	
+	
+	<ServiceConfig Name="UsersAddressService">
+		<DataService Resource="trans/user/UsersAddressService.xml" Encoding="utf-8"/>
+	</ServiceConfig>
+	
+	<ServiceConfig Name="PublicWelfareRecordService">
+		<DataService Resource="trans/user/PublicWelfareRecordService.xml" Encoding="utf-8"/>
+	</ServiceConfig>	
+	
+</ServicePlugin>

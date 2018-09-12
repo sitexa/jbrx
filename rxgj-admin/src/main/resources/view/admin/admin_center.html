@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>管理中心 - Powered By 学乎网</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-brown.css"/>
+<style>
+
+   body { overflow-x: hidden; overflow-y: hidden; }
+</style>
+
+</head>
+<body>
+<div class="page-container">
+    <div class="page-sidebar">
+        <ul class="x-navigation">
+            <li class="xn-logo">
+                <a href="/static" target="_blank" style="font-size: 22px">Lighten new hopes</a>
+                <a href="#" class="x-navigation-control"></a>
+            </li>
+
+			#for(menu :resultData)
+            <li class="xn-openable">
+                <a href="#"><span class="#(menu.object.icon)"> </span><span class="xn-text">#(menu.object.name)</span> </a>
+                #for(children : menu.children)
+                <ul>
+                   	<li><a href="#(children.url)" target="iframe"><span class="#(children.icon)"></span>#(children.name)</a></li>
+                </ul>
+                #end
+            </li>
+            #end
+        </ul>
+    </div>
+    <div class="page-content">
+    	#include("/common/header.html")
+        <div>
+            <iframe id="iframe" name="iframe" height="500px" scrolling="auto" src="/admin" onLoad="loadIframeHeight(this)"  frameborder="0" style="padding: 0px; width: 100%;"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+    <div class="mb-container">
+        <div class="mb-middle">
+            <div class="mb-title"><span class="fa fa-sign-out"></span> 退出系统 </div>
+            <div class="mb-content">
+                <p>点击取消继续工作,点击确定注销当前用户.</p>
+                <p>Press No if you want to continue work. Press Yes to logout current user.</p>
+            </div>
+            <div class="mb-footer">
+                <div class="pull-right">
+                    <a href="/admin/logout" class="btn btn-success btn-lg">确定</a>
+                    <button class="btn btn-default btn-lg mb-control-close">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<audio id="audio-alert" src="/static/joli/audio/alert.mp3" preload="auto"></audio>
+<audio id="audio-fail" src="/static/joli/audio/fail.mp3" preload="auto"></audio>
+
+
+</body>
+</html>
+<script type="text/javascript" src="/static/joli/js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/joli/js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script type='text/javascript' src='/static/joli/js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="/static/joli/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="/static/joli/js/plugins/owl/owl.carousel.min.js"></script>
+
+<script type="text/javascript" src="/static/joli/js/settings.js"></script>
+<script type="text/javascript" src="/static/joli/js/plugins.js"></script>
+<script type="text/javascript" src="/static/joli/js/actions.js"></script>
+<script>
+    // iframe高度自适应的方法
+    function loadIframeHeight(iframe) {
+        var iframe = document.getElementById("iframe");
+        if (iframe) {
+            var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+            if (iframeWin.document.body) {
+                var header = document.getElementById("header");
+                var h = header.offsetHeight;  //高度
+                iframe.height = document.body.clientHeight-h-5;
+            }
+        }
+    };
+
+    //显示界面样式设置
+    var settings_block = document.createElement('div');
+    settings_block.className = "theme-settings";
+    settings_block.innerHTML = site_settings;
+    document.body.appendChild(settings_block);
+</script>
+
+

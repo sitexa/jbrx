@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增角色资源 -->
+	<SQLTrans TransFlag="1" TransName="saveRoleAction" DataGroupId="writeSystem">
+		<!-- 将当前角色资源下所有权限置为禁用 -->
+		<Delete RecordCountId="{count}">
+			<OutputSQL>delete from roleAction where roleId={roleId}</OutputSQL>
+		</Delete>
+		<For Count="{roleActions.length}" FromIndex="0" IndexId="{i}">
+			<Insert>
+				<OutputSQL>insert into roleAction (roleId,actionId,status,createTime) values({roleActions[i].roleId},{roleActions[i].actionId},1,{currentTime})</OutputSQL>
+			</Insert>
+		</For>
+
+		<OnException>
+			<Return Code="-1" Info="新增角色资源数据库异常" Text="新增角色资源数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增角色资源成功" Text="新增角色资源成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="0" TransName="updateRoleAction" DataGroupId="writeSystem">
+		<Update>
+			<OutputSQL>update role set roleName={roleName},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改角色资源数据库异常" Text="修改角色资源数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改角色资源成功" Text="修改角色资源成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询角色资源 -->
+	<SQLTrans TransFlag="0" TransName="queryRoleActionPage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from roleAction where roleId={roleId} </OutputSQL>
+		</SelectField>
+		<SelectRecordSet OutputId="{roles}">
+			<OutputSQL>select * from roleAction  ra left join role r on r.id=ra.roleId left join action a on ra.actionId=a.id  where roleId={roleId} limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询角色资源信息异常" Info="RoleActionService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询角色资源信息成功" Info="查询角色资源信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{roles}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryRoleActionById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{role}">
+			<OutputSQL>select * from roleAction where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询角色资源信息异常" Info="RoleActionService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询角色资源信息成功" Info="查询角色资源信息成功">
+			<ReturnItem FieldId="{role}" ValueId="{role}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<!-- 查询角色对应的菜单权限 -->
+	<SQLTrans TransFlag="0" TransName="queryAllRoleMenuAction"  DataGroupId="readSystem">
+		<SelectRecordSet OutputId="{menuActions}">
+			<OutputSQL>
+				select m.name menuName,m.parentId,m.id menuId,ra.actionId selectId from menu m 
+				left join roleAction ra on ra.actionId=m.id and m.status=1  and ra.roleId={roleId}  
+				where m.status=1 order by m.parentId,m.sort,m.createTime asc				
+			</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Info="查询菜单权限异常" Text="查询菜单权限异常"/>
+		</OnException>
+		<Return Code="0" Info="查询菜单成功" Text="查询菜单成功">
+			<ReturnItem FieldId="{list}" ValueId="{menuActions}"/>
+		</Return>
+	</SQLTrans>	
+</DataService>

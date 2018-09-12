@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增员工 -->
+	<SQLTrans TransFlag="1" TransName="saveEmployee" DataGroupId="writeSystem">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(empNo) from employee where idCard={idCard} or mobilePhone={mobilePhone}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="身份证号|手机号已存在" Text="身份证号|手机号已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into employee (deptId,name,idCard,mobilePhone,email,gender,birthday,idCardPic,status,joinTime,createTime) values({deptId},{name},{idCard},{mobilePhone},{email|''},{gender},{birthday},{idCardPic|''},{status|1},{joinTime},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增员工数据库异常" Text="新增员工数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增员工成功" Text="新增员工成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateEmployee" DataGroupId="writeSystem">
+		<Update>
+			<OutputSQL>update employee set deptId={deptId},name={name},idCard={idCard},mobilePhone={mobilePhone},email={email|''},gender={gender},birthday={birthday},joinTime={joinTime},status={status} where empNo={empNo} and status!=3</OutputSQL>
+		</Update>
+		<Update RecordCountId="{count}">
+			<OutputSQL>update admins set status={status} where empNo={empNo}</OutputSQL>
+		</Update>		
+		<OnException>
+			<Return Code="-1" Info="修改员工数据库异常" Text="修改员工数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改员工成功" Text="修改员工成功"/>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="1" TransName="leaveEmployee" DataGroupId="writeSystem">
+		<Update RecordCountId="{count}">
+			<OutputSQL>update employee set leaveTime={currentTime},status=3 where empNo={empNo}</OutputSQL>
+		</Update>
+		<If Value1="{count}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="修改失败" Text="修改失败"/>
+			</Then>
+		</If>	
+		<Update RecordCountId="{count}">
+			<OutputSQL>update admins set status=3 where empNo={empNo}</OutputSQL>
+		</Update>
+		<If Value1="{count}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="修改失败" Text="修改失败"/>
+			</Then>
+		</If>				
+		<OnException>
+			<Return Code="-1" Info="修改员工数据库异常" Text="修改员工数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改员工成功" Text="修改员工成功"/>
+	</SQLTrans>
+	
+	<!-- 分页查询员工 -->
+	<SQLTrans TransFlag="0" TransName="queryEmployeePage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from employee e where 1=1 </OutputSQL>
+			<SQLIf Value1="{name}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and e.name like '%{r:name}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{employees}">
+			<OutputSQL>select e.*,d.name deptName from employee  e left join dept d on e.deptId=d.id where 1=1 </OutputSQL>
+			<SQLIf Value1="{name}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and e.name like '%{r:name}%'</OutputSQL></SQLThen>
+			</SQLIf>		
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询员工信息异常" Info="EmployeeService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询员工信息成功" Info="查询员工信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{employees}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryEmployeeById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{employee}">
+			<OutputSQL>select * from employee where empNo={empNo} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询员工信息异常" Info="EmployeeService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询员工信息成功" Info="查询员工信息成功">
+			<ReturnItem FieldId="{employee}" ValueId="{employee}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

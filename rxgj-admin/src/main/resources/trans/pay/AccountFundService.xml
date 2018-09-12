@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 根据出入账用户查询账户资金 -->
+	<SQLTrans TransName="queryAccountFundByOutInUser" TransFlag="0" DataGroupId="readPay">
+		<SelectRecordSet OutputId="{accountFunds}">
+			<OutputSQL>select * from accountFund where userId={inUserId} or userId={outUserId} </OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Info="查询账户资金成功数据库异常" Text="查询账户资金成功数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="查询账户资金成功" Text="查询账户资金成功">
+			<ReturnItem FieldId="{accountFunds}" ValueId="{accountFunds}"/>
+		</Return>
+	</SQLTrans>
+
+	<SQLTrans TransFlag="0" TransName="queryAccountFundByUserId" DataGroupId="readPay" >
+		<SelectRecord OutputId="{accountfund}">
+			<OutputSQL>select * from accountFund where userId={userId} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Accountfund信息异常" Info="AccountfundService.xml.queryAccountFundByUserId(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Accountfund信息成功" Info="查询Accountfund信息成功">
+			<ReturnItem FieldId="{accountfund}" ValueId="{accountfund}"/>
+		</Return>
+	</SQLTrans>	
+
+</DataService>

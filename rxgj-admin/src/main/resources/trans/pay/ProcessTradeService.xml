@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<SQLTrans TransName="queryPreTrade11" TransFlag="0" DataGroupId="readShop">
+		<SelectRecordSet OutputId="{trades}">
+			<OutputSQL>select * from trade where state='11' limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Info="查询预下单数据库异常" Text="查询预下单数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="查询预下单成功" Text="查询预下单成功">
+			<ReturnItem FieldId="{trades}" ValueId="{trades}"/>
+		</Return>
+	</SQLTrans>
+</DataService>

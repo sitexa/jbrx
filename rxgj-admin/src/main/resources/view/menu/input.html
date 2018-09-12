@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>新增行业信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme"
+	href="/static/joli/css/theme-default.css" />
+</head>
+<body>
+	<div>
+		<ul class="breadcrumb">
+			<li><a href="/admin/index">管理中心首页</a></li>
+			<li><a href="index">菜单管理</a></li>
+			<li class="active">新增菜单信息</li>
+		</ul>
+		<div class="page-content">
+			<div class="page-content-wrap">
+				<form id="form" class="form-horizontal" action="#(menu.id ?? ? 'update' : 'save' )" method="post">
+					<input type="hidden" name="yless.id" value="#(menu.id ?? -1)">
+					<div class="row">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>新增菜单信息</strong>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">上级菜单</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="yless.parentId">
+											#for(menus :list ??)
+												#if(menus.id!=menu.id ??)
+												<option value="#(menus.id)" #((menus.id==menu.parentId ??) ? 'selected="selected"':'')>#(menus.name)</option> 
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">菜单名称</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="菜单名称" class="form-control" name="yless.name" value="#(menu.name ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">权限编码</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="权限编码" class="form-control" name="yless.visitCode" value="#(menu.visitCode ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">按钮类型</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="yless.type">
+											<option value="0" #((menu.type??==0)?'selected="selected"':'')>不可点击</option> 
+											<option value="1" #((menu.type??==1)?'selected="selected"':'')>链接</option>
+											<option value="2" #((menu.type??==2)?'selected="selected"':'')>按钮</option>
+											<option value="3" #((menu.type??==3)?'selected="selected"':'')>导入按钮</option>
+											<option value="4" #((menu.type??==4)?'selected="selected"':'')>导出按钮</option>
+											<option value="5" #((menu.type??==5)?'selected="selected"':'')>上传按钮</option>
+										</select>
+									</div>
+								</div>								
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">菜单图标</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="菜单图标" class="form-control" name="yless.icon" value="#(menu.icon ??)"/>
+									</div>
+								</div>
+								
+
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">排序号</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="yless.sort" placeholder="排序号">
+											#for(i=0;i<21;i++)
+												<option value="#(i)" #((i==menu.sort ??) ? 'selected="selected"':'')>#(i)</option>
+											#end	
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">菜单路径</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="菜单路径" class="form-control" name="yless.url" value="#(menu.url ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">是否启用</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="yless.status">
+											<option value="1" #((1==menu.status ??) ? 'selected="selected"':'')>启用</option> 
+											<option value="2" #((2==menu.status ??) ? 'selected="selected"':'')>禁用</option> 
+										</select>
+									</div>
+								</div>								
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-primary" type="submit">保存</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="/static/joli/js/plugins/jquery/jquery.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap-datepicker.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap-select.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/tagsinput/jquery.tagsinput.min.js"/>
+<script type='text/javascript' src='/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js'/>
+<script type='text/javascript' src='/static/joli/js/plugins/validationengine/jquery.validationEngine.js'/>
+<script type="text/javascript" src="/static/joli/js/plugins/fileinput/fileinput.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/filetree/jqueryFileTree.js"/>
+
+

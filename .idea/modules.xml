@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/rxgj.iml" filepath="$PROJECT_DIR$/rxgj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-admin/rxgj-admin.iml" filepath="$PROJECT_DIR$/rxgj-admin/rxgj-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-api/rxgj-api.iml" filepath="$PROJECT_DIR$/rxgj-api/rxgj-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-common/rxgj-common.iml" filepath="$PROJECT_DIR$/rxgj-common/rxgj-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-facade/rxgj-facade.iml" filepath="$PROJECT_DIR$/rxgj-facade/rxgj-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-message-facade/rxgj-message-facade.iml" filepath="$PROJECT_DIR$/rxgj-message-facade/rxgj-message-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-message-service/rxgj-message-service.iml" filepath="$PROJECT_DIR$/rxgj-message-service/rxgj-message-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxgj-service/rxgj-service.iml" filepath="$PROJECT_DIR$/rxgj-service/rxgj-service.iml" />
+    </modules>
+  </component>
+</project>

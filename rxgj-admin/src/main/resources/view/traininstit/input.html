@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>新增TrainInstit_信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+</head>
+<body>
+	<div>
+		<ul class="breadcrumb">
+			<li><a href="/admin/index">管理中心首页</a></li>
+			<li><a href="index">TrainInstit_管理</a></li>
+			<li class="active">新增TrainInstit_信息</li>
+		</ul>
+		<div class="page-content">
+			<div class="page-content-wrap">
+				<form id="form" class="form-horizontal" action="#(trainInstit.id ?? ? 'update' : 'save' )" method="post">
+					<input type="hidden" name="trainInstit.id" value="#(trainInstit.id ?? -1)">
+					<div class="row">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>新增TrainInstit_信息</strong>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">上级</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="">
+											<option value="0">一级</option> 
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">id</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="id" class="form-control" name="trainInstit.id" value="#(trainInstit.id ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">parentId</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="parentId" class="form-control" name="trainInstit.parentId" value="#(trainInstit.parentId ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">brandId</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="brandId" class="form-control" name="trainInstit.brandId" value="#(trainInstit.brandId ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">cnName</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="cnName" class="form-control" name="trainInstit.cnName" value="#(trainInstit.cnName ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">enName</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="enName" class="form-control" name="trainInstit.enName" value="#(trainInstit.enName ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">businessMode</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="businessMode" class="form-control" name="trainInstit.businessMode" value="#(trainInstit.businessMode ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">synopsis</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="synopsis" class="form-control" name="trainInstit.synopsis" value="#(trainInstit.synopsis ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">category</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="category" class="form-control" name="trainInstit.category" value="#(trainInstit.category ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">slogan</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="slogan" class="form-control" name="trainInstit.slogan" value="#(trainInstit.slogan ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">province</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="province" class="form-control" name="trainInstit.province" value="#(trainInstit.province ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">city</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="city" class="form-control" name="trainInstit.city" value="#(trainInstit.city ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">county</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="county" class="form-control" name="trainInstit.county" value="#(trainInstit.county ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">street</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="street" class="form-control" name="trainInstit.street" value="#(trainInstit.street ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">address</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="address" class="form-control" name="trainInstit.address" value="#(trainInstit.address ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">lon</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="lon" class="form-control" name="trainInstit.lon" value="#(trainInstit.lon ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">lat</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="lat" class="form-control" name="trainInstit.lat" value="#(trainInstit.lat ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">logo</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="logo" class="form-control" name="trainInstit.logo" value="#(trainInstit.logo ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">state</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="state" class="form-control" name="trainInstit.state" value="#(trainInstit.state ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">spotAuth</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="spotAuth" class="form-control" name="trainInstit.spotAuth" value="#(trainInstit.spotAuth ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">authSalesman</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="authSalesman" class="form-control" name="trainInstit.authSalesman" value="#(trainInstit.authSalesman ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">woaQr</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="woaQr" class="form-control" name="trainInstit.woaQr" value="#(trainInstit.woaQr ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">industryLevel</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="industryLevel" class="form-control" name="trainInstit.industryLevel" value="#(trainInstit.industryLevel ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">institLogo</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="institLogo" class="form-control" name="trainInstit.institLogo" value="#(trainInstit.institLogo ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">website</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="website" class="form-control" name="trainInstit.website" value="#(trainInstit.website ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">establishTime</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="establishTime" class="form-control" name="trainInstit.establishTime" value="#(trainInstit.establishTime ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">createTime</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="createTime" class="form-control" name="trainInstit.createTime" value="#(trainInstit.createTime ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">updateTime</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="updateTime" class="form-control" name="trainInstit.updateTime" value="#(trainInstit.updateTime ??)"/>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-primary" type="submit">保存</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="/static/joli/js/plugins/jquery/jquery.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap-datepicker.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap-select.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/tagsinput/jquery.tagsinput.min.js"/>
+<script type='text/javascript' src='/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js'/>
+<script type='text/javascript' src='/static/joli/js/plugins/validationengine/jquery.validationEngine.js'/>
+<script type="text/javascript" src="/static/joli/js/plugins/fileinput/fileinput.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/filetree/jqueryFileTree.js"/>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>分配角色</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">系统管理</a></li>
+		<li class="/industry">管理员列表</li>
+		<li class="active">分配角色</li>
+	</ul>
+	<div class="page-content">
+		<div class="page-content-wrap">
+			<form id="form" class="form-horizontal" action="saveUserRole" method="post">
+				<input type="hidden" name="userId" value="#(userId)">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<strong>分配角色</strong>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="form-group" id="dataRow">
+								<label class="col-md-2 col-xs-12 control-label">角色信息：</label>
+								<label class="col-md-9 col-xs-12 control-label" style="text-align: left;"> 
+									#for(roleUser : roleUsers??)
+										#(roleUser.roleName)</a><input value="#(roleUser.id)" name="roleIds" type="checkbox" #(roleUser.selectRoleId??==roleUser.id?'checked="checked"':'')> |
+									#end
+								</label>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<button class="btn btn-primary" type="submit">保存</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,107 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>行业列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">菜单管理</a></li>
+		<li class="active">菜单列表</li>
+	</ul>
+	<div class="page-content-wrap">
+
+
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">
+				
+				<form class="am-form form-inline" id="listForm" action="/menu" method="post">
+
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="菜单名称" type="text" name="name" value="#(name)">
+	                	</div>
+	               	</div>
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+				<div class="col-md-1 pull-left">
+					<button class="btn btn-success btn-rounded" type="submit" onclick="location.href='/menu/input'">添加菜单</button>
+				</div> 					
+									
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>菜单名称</th>
+										<th>上下级</th>
+										<th>菜单路径</th>
+										<th>菜单图标</th>
+										<th>权限编码</th>
+										<th>层级</th>
+										<th>类型</th>
+										<th>序号</th>
+										<th>时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(page!=null) #for(menu : page.list ??)
+									<tr>
+										<td>#(menu.level==2?'<span style="color: #ce8a01;">(菜单权限)</span>':(menu.level==3?'<span style="color: red;">(操作权限)</span>':'<span style="color: #0ecc82;">(一级菜单)</span>'))#(menu.name)</td>
+										<td>#(menu.parentId)>>#(menu.id)</td>
+										<td>#(menu.url)</td>
+										<td>#(menu.icon)</td>
+										<td>#(menu.visitCode)</td>
+										<td title="#(menu.levelCode??)">#(menu.level??)级</td>
+										<td>
+											#if(menu.type==0)
+											不可点击
+											#elseif(menu.type==1)
+											连接
+											#elseif(menu.type==2)
+											按钮
+											#elseif(menu.type==3)
+											导入按钮
+											#elseif(menu.type==4)
+											导出按钮
+											#elseif(menu.type==5)
+											上传按钮
+											#end
+										</td>
+										<td>#(menu.sort)</td>
+										<td>#(menu.createTime)<br/>#(menu.updateTime)</td>
+										<td>#(menu.status==1?'启用':'禁用')</td>
+										<td><a href="/menu/input?id=#(menu.id)">修改</a>|#if(menu.level==2)<a href="/menu/actionInput?menuId=#(menu.id)">资源</a>#else <a href="#" style="color: grey;">资源</a>#end</td>
+									</tr>
+									#end #end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/page.html")
+		</div>
+	</div>
+</body>
+</html>
+
+
+

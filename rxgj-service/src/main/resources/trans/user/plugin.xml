@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServicePlugin
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="/com/gavin/plugin/xsd/ServiceBus.xsd">
+	<ServiceConfig Name="UsersService">
+		<DataService Resource="trans/user/UsersService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+
+	<ServiceConfig Name="PlatformService">
+		<DataService Resource="trans/user/PlatformService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+
+	<ServiceConfig Name="TacticsService">
+		<DataService Resource="trans/user/TacticsService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+	
+	<!-- 视频 -->
+	<ServiceConfig Name="VideoService">
+		<DataService Resource="trans/user/VideoService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+	
+	<!-- 视频评论 -->
+	<ServiceConfig Name="CommentService">
+		<DataService Resource="trans/user/CommentService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+	
+	<!-- 用户点赞 -->
+	<ServiceConfig Name="ThumbService">
+		<DataService Resource="trans/user/ThumbService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+	
+	<!-- web用户 -->
+	<ServiceConfig Name="AdminsService">
+		<DataService Resource="trans/user/AdminsService.xml" Encoding="utf-8"/>
+	</ServiceConfig>
+
+
+	<!-- 上传平台用户 -->
+	<ServiceConfig Name="UploadUserPlatformService">
+		<DataService Resource="trans/user/UploadUserPlatformService.xml"
+			 Encoding="utf-8" />
+	</ServiceConfig>
+
+	<!-- 上传策略用户 -->
+	<ServiceConfig Name="UploadUserTacticsService">
+		<DataService Resource="trans/user/UploadUserTacticsService.xml"
+			 Encoding="utf-8" />
+	</ServiceConfig>
+	<!-- Banner -->
+	<ServiceConfig Name="BannerService">
+		<DataService Resource="trans/user/BannerService.xml" Encoding="utf-8"/>
+	</ServiceConfig>
+</ServicePlugin>

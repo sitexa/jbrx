@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增Users -->
+	<SQLTrans TransFlag="1" TransName="saveUsers" DataGroupId="writeSystem">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from users where usersname={usersname}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="Users已存在" Text="Users已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into users (usersname,status,createTime) values({usersname},{status|1},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增Users数据库异常" Text="新增Users数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增Users成功" Text="新增Users成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateUsers" DataGroupId="writeSystem">
+		<Update>
+			<OutputSQL>update users set usersname={usersname},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Users数据库异常" Text="修改Users数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Users成功" Text="修改Users成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Users -->
+	<SQLTrans TransFlag="0" TransName="queryUsersPage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from users where 1=1 </OutputSQL>
+			<SQLIf Value1="{usersname}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and usersname like '%{r:usersname}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{userss}">
+			<OutputSQL>select id,userName,nikeName,mobilePhone,avatar,email,gender,birthday,idCard,idAuth,phoneAuth,payAuth,realAuth,status,createTime,updateTime from users where 1=1 </OutputSQL>
+			<SQLIf Value1="{usersname}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and usersname like '%{r:usersname}%'</OutputSQL></SQLThen>
+			</SQLIf>			
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Users信息异常" Info="UsersService.xml.queryUsersPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Users信息成功" Info="查询Users信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{userss}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryUsersById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{users}">
+			<OutputSQL>select * from users where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Users信息异常" Info="UsersService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Users信息成功" Info="查询Users信息成功">
+			<ReturnItem FieldId="{users}" ValueId="{users}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<SQLTrans TransFlag="0" TransName="findByUserName" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{users}">
+			<OutputSQL>select * from users where userName={userName} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Users信息异常" Info="UsersService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Users信息成功" Info="查询Users信息成功">
+			<ReturnItem FieldId="{users}" ValueId="{users}"/>
+		</Return>
+	</SQLTrans>	
+</DataService>

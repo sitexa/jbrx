@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增Goods -->
+	<SQLTrans TransFlag="1" TransName="saveGoods" DataGroupId="writeShop">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from goods where </OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="Goods已存在" Text="Goods已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into goods (id,shopId,isSpecial,goodsName,goodsDesc,marketPrice,price,priceArea,scoreDiscount,goodsCategory,goodsPics,goodsParams,goodsDetail,totalStock,totalSales,totalEvaluate,buyLimit,status,createTime,updateTime,status,create_time) values({id},{shopId},{isSpecial},{goodsName},{goodsDesc},{marketPrice},{price},{priceArea},{scoreDiscount},{goodsCategory},{goodsPics},{goodsParams},{goodsDetail},{totalStock},{totalSales},{totalEvaluate},{buyLimit},{status},{createTime},{updateTime},{status|1},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增Goods数据库异常" Text="新增Goods数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增Goods成功" Text="新增Goods成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateGoods" DataGroupId="writeShop">
+		<Update>
+			<OutputSQL>update goods set goodsName={goodsName},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Goods数据库异常" Text="修改Goods数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Goods成功" Text="修改Goods成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Goods -->
+	<SQLTrans TransFlag="0" TransName="queryGoodsPage" DataGroupId="readShop" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from goods where status=1 </OutputSQL>
+			<SQLIf Value1="{title}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and title like '%{r:title}%'</OutputSQL></SQLThen>
+			</SQLIf>
+			<SQLIf Value1="{categoryId}" Type="Long" Operator="EXIST">
+				<SQLThen><OutputSQL>  and categoryId={categoryId}</OutputSQL></SQLThen>
+			</SQLIf>			
+		</SelectField>
+		<SelectRecordSet OutputId="{goodss}">
+			<OutputSQL>select * from goods where status=1 </OutputSQL>
+			<SQLIf Value1="{title}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and title like '%{title}%'</OutputSQL></SQLThen>
+			</SQLIf>			
+			<SQLIf Value1="{categoryId}" Type="Long" Operator="EXIST">
+				<SQLThen><OutputSQL>  and categoryId={categoryId}</OutputSQL></SQLThen>
+			</SQLIf>				
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Goods信息异常" Info="GoodsService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Goods信息成功" Info="查询Goods信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{goodss}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryGoodsById" DataGroupId="readShop" >
+		<SelectRecord OutputId="{goods}">
+			<OutputSQL>select * from goods where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Goods信息异常" Info="GoodsService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Goods信息成功" Info="查询Goods信息成功">
+			<ReturnItem FieldId="{goods}" ValueId="{goods}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<!-- 分页查询Goods -->
+	<SQLTrans TransFlag="0" TransName="queryGoogsByShopId" DataGroupId="readShop" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from goods where shopId={shopId} </OutputSQL>
+		</SelectField>
+		<SelectRecordSet OutputId="{list}">
+			<OutputSQL>select * from goods where shopId={shopId} </OutputSQL>
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Goods信息异常" Info="GoodsService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Goods信息成功" Info="查询Goods信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{list}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

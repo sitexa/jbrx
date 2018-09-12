@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增Admins -->
+	<SQLTrans TransFlag="1" TransName="saveAdmins" DataGroupId="writeSystem">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(empNo) from admins where empNo!={empNo} and userName={userName}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="该帐号已存在" Text="该帐号已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into admins (empNo,userName,nikeName,avatar,email,password,salt,groupCode,remark,loginTime,status,createTime) values({empNo},{userName},{nikeName|''},{avatar|''},{email|''},{password},{salt},{empNo},{remark|''},{currentTime},{status|1},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增Admins数据库异常" Text="新增Admins数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增Admins成功" Text="新增Admins成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateAdmins" DataGroupId="writeSystem">
+		<Update>
+			<OutputSQL>update admins set nikeName={nikeName},email={email},remark={remark},status={status} where empNo={empNo} and status!=3</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Admins数据库异常" Text="修改Admins数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Admins成功" Text="修改Admins成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Admins -->
+	<SQLTrans TransFlag="0" TransName="queryAdminsPage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from admins where 1=1 </OutputSQL>
+			<SQLIf Value1="{userName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and userName like '%{r:userName}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{adminss}">
+			<OutputSQL>
+				select * from admins where 1=1 
+ 			</OutputSQL>
+			<SQLIf Value1="{userName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and userName like '%{r:userName}%'</OutputSQL></SQLThen>
+			</SQLIf>	
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Admins信息异常" Info="AdminsService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Admins信息成功" Info="查询Admins信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{adminss}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryAdminsById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{admins}">
+			<OutputSQL>select empNo,userName,nikeName,avatar,email,groupCode,status,loginTime,createTime,updateTime from admins where empNo={empNo} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Admins信息异常" Info="AdminsService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Admins信息成功" Info="查询Admins信息成功">
+			<ReturnItem FieldId="{admins}" ValueId="{admins}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryAdminsByUserName" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{admins}">
+			<OutputSQL>select * from admins where userName={userName} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Admins信息异常" Info="AdminsService.xml.queryAdminsByUserName(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Admins信息成功" Info="查询Admins信息成功">
+			<ReturnItem FieldId="{admins}" ValueId="{admins}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="1" TransName="enableDisable" DataGroupId="writeSystem">
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update admins set status={status} where empNo={empNo}</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+			<Then><Return Code="1" Info="修改失败" Text="修改失败"></Return></Then>
+		</If>
+		<OnException>
+			<Return Code="-1" Info="修改数据库异常" Text="修改数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改成功" Text="修改成功"/>
+	</SQLTrans>		
+	
+</DataService>

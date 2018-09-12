@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 创建预下单交易 -->
+	<SQLTrans TransName="insertOrderTrade" TransFlag="1" DataGroupId="writePay">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from trade where orderSn={orderSn}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="=" Value2="1">
+			<Then>
+				<Return Code="1" Info="订单编号已存在" Text="订单编号已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>
+				insert into trade (businessId,userId,orderSn,tradeType,totalStep,currentStep,serviceType,status,notifystatus,callback,subject,tradeDesc,attach,scheduleTime,orderTime,doneTime,createTime)
+				values({businessId},{userId},{orderSn},{tradeType},{totalStep},{currentStep},{serviceType},{status},0,{callback},{subject},{tradeDesc},{attach},{createTime},{createTime},{createTime},{createTime})
+			</OutputSQL>
+		</Insert>
+		
+		<SelectField OutputId="{tradeId}">
+				<OutputSQL>select @@IDENTITY trade</OutputSQL>
+		</SelectField>
+		
+		<If Value1="{fundChange}" Type="Boolean" Operator="EXIST">
+			<Then>
+				<Update RecordCountId="{updateCount}">
+					<OutputSQL>update accountFund set {r:fundChange.outFundType}={r:fundChange.outFundType}-{fundChange.money},score=score-{fundChange.score} where userId={fundChange.outUserId} and score>={fundChange.score} and {r:fundChange.outFundType}>={fundChange.money}</OutputSQL>
+				</Update>
+				<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+					<Then><Return Code="1" Info="账户资金不足" Text="账户资金不足"></Return></Then>
+				</If>
+				
+				<Update RecordCountId="{updateCount}">
+					<OutputSQL>update accountFund set {r:fundChange.inFundType}={r:fundChange.inFundType}+{fundChange.money},score=score+{fundChange.score} where userId={fundChange.inUserId}</OutputSQL>
+				</Update>
+				<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+					<Then><Return Code="1" Info="入账账户不存在" Text="入账账户不存在"></Return></Then>
+				</If>				
+				<Insert>
+					<OutputSQL>
+						insert into accountFundDetail (orderSn,subject,inUserId,outUserId,money,score,inFundType,outFundType,createTime)
+						values({orderSn},{subject},{fundChange.inUserId},{fundChange.outUserId},{fundChange.money},{fundChange.score},{fundChange.inFundType},{fundChange.outFundType},{createTime})
+					</OutputSQL>
+				</Insert>
+			</Then>
+		</If>		
+		
+		<For IndexId="{i}" FromIndex="0" Count="{tradeDetails.length}">
+			<Insert>
+				<OutputSQL>
+					insert into tradeDetail(tradeId,tradeType,totalMoney,money,score,orderSn,tradeSn,thirdType,status,isclosed,inUserId,inFundType,inAccountType,outUserId,outFundType,outAccountType,tradeDesc,currentStep,scheduleTime,orderTime,doneTime,createTime)
+					values({tradeId},{tradeDetails[i].tradeType},{tradeDetails[i].money},{tradeDetails[i].money},{tradeDetails[i].score},{orderSn},{tradeDetails[i].tradeSn},{tradeDetails[i].thirdType},{tradeDetails[i].status},1,{tradeDetails[i].inUserId},{tradeDetails[i].inFundType},{tradeDetails[i].inAccountType},{tradeDetails[i].outUserId},{tradeDetails[i].outFundType},{tradeDetails[i].outAccountType},{tradeDetails[i].tradeDesc},{tradeDetails[i].currentStep},{createTime},{createTime},{createTime},{createTime})
+				</OutputSQL>
+			</Insert>
+		</For>
+		<OnException>
+			<Return Code="-1" Info="创建交易失败" Text="创建交易失败"/>
+		</OnException>
+		<Return Code="0" Info="创建交易成功" Text="创建交易成功"/>
+	</SQLTrans>	
+	
+	<!-- 修改预下单交易 -->
+	<SQLTrans TransFlag="1" TransName="updateOrderTrade" DataGroupId="writePay">
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update trade  set serviceType={serviceType},callback={callback},subject={subject},tradeDesc={tradeDesc},attach={attach},updateTime={createTime} where userId={userId} and orderSn={orderSn} and currentStep=1 and status in (10,20)</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="订单交易信息异常（1）" Text="订单交易信息异常（1）"/>
+			</Then>
+		</If>	
+		
+		<For IndexId="{i}" FromIndex="0" Count="{tradeDetailsChange.length}">
+				<Update RecordCountId="{updateCount}">
+					<OutputSQL>update tradeDetail set status={tradeDetailsChange[i].newStatus} where status={tradeDetailsChange[i].status} and id={tradeDetailsChange[i].id}</OutputSQL>
+				</Update>
+				<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+					<Then><Return Code="1" Info="订单交易信息异常（2）" Text="订单交易信息异常（2）"></Return></Then>
+				</If>
+		</For>
+		
+		<If Value1="{fundChange}" Type="Boolean" Operator="EXIST">
+			<Then>
+				<Update RecordCountId="{updateCount}">
+					<OutputSQL>update accountFund set {r:fundChange.outFundType}={r:fundChange.outFundType}-{fundChange.money},score=score-{fundChange.score} where userId={fundChange.outUserId} and score>={fundChange.score} and {r:fundChange.outFundType}>={fundChange.money}</OutputSQL>
+				</Update>
+				<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+					<Then><Return Code="1" Info="账户资金不足" Text="账户资金不足"></Return></Then>
+				</If>
+				<Insert>
+					<OutputSQL>
+						insert into accountFundDetail (orderSn,subject,inUserId,outUserId,money,score,inFundType,outFundType,createTime)
+						values({orderSn},{subject},{fundChange.inUserId},{fundChange.outUserId},{fundChange.money},{fundChange.score},{fundChange.inFundType},{fundChange.outFundType},{createTime})
+					</OutputSQL>
+				</Insert>
+			</Then>
+		</If>		
+		
+		<For IndexId="{i}" FromIndex="0" Count="{tradeDetails.length}">
+			<Insert>
+				<OutputSQL>
+					insert into tradeDetail(tradeId,tradeType,totalMoney,money,score,orderSn,tradeSn,thirdType,status,isclosed,inUserId,inFundType,inAccountType,outUserId,outFundType,outAccountType,tradeDesc,currentStep,scheduleTime,orderTime,doneTime,createTime)
+					values({tradeId},{tradeDetails[i].tradeType},{tradeDetails[i].money},{tradeDetails[i].money},{tradeDetails[i].score},{orderSn},{tradeDetails[i].tradeSn},{tradeDetails[i].thirdType},{tradeDetails[i].status},1,{tradeDetails[i].inUserId},{tradeDetails[i].inFundType},{tradeDetails[i].inAccountType},{tradeDetails[i].outUserId},{tradeDetails[i].outFundType},{tradeDetails[i].outAccountType},{tradeDetails[i].tradeDesc},{tradeDetails[i].currentStep},{createTime},{createTime},{createTime},{createTime})
+				</OutputSQL>
+			</Insert>
+		</For>
+		
+		<OnException>
+			<Return Code="-1" Info="创建交易失败" Text="创建交易失败"/>
+		</OnException>
+		<Return Code="0" Info="创建交易成功" Text="创建交易成功"/>
+	</SQLTrans>	
+	
+	<!-- 查询订单编号是否存在 -->
+	<SQLTrans TransFlag="0" TransName="queryOrderTradeExistWithSN" DataGroupId="readPay">
+		<SelectRecord OutputId="{trade}">
+			<OutputSQL>select * from trade where orderSn={orderSn}</OutputSQL>
+		</SelectRecord>
+		<If Value1="{trade}" Type="Boolean" Operator="EXIST">
+			<Then>
+				<Return Code="1" Info="交易已存在" Text="交易已存在"/>
+			</Then>
+		</If>
+		<OnException>
+			<Return Code="-1" Info="查询交易失败" Text="查询交易失败"/>
+		</OnException>
+		<Return Code="0" Info="查询交易成功" Text="查询交易成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="0" TransName="queryOrderTradeBySN" DataGroupId="readPay">
+		<SelectRecord OutputId="{trade}">
+			<OutputSQL>select * from trade where orderSn={orderSn}</OutputSQL>
+		</SelectRecord>
+		<If Value1="{trade}" Type="Boolean" Operator="NOTEXIST">
+			<Then>
+				<Return Code="0" Info="交易不存在" Text="交易不存在"/>
+			</Then>
+		</If>
+		<SelectRecordSet OutputId="{tradeDetail}">
+			<OutputSQL>select id,status,orderSn from tradeDetail where orderSn={orderSn} and 199>status</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Info="查询交易失败" Text="查询交易失败"/>
+		</OnException>
+		<Return Code="0" Info="查询交易成功" Text="查询交易成功">
+			<ReturnItem FieldId="{tradeDetail}" ValueId="{tradeDetail}"/>
+			<ReturnItem FieldId="{trade}" ValueId="{trade}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<!-- 根据交易流水号获取交易信息 -->
+	<SQLTrans TransName="queryOrderTradeByTradeSn" TransFlag="0" DataGroupId="readPay">
+		<SelectRecord OutputId="{tradeDetail}">
+			<OutputSQL>select * from tradeDetail where tradeSn={tradeSn}</OutputSQL>
+		</SelectRecord>
+		
+		<SelectRecord OutputId="{trade}">
+			<OutputSQL>select * from trade where orderSn={tradeDetail.orderSn}</OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Info="根据交易流水号获取交易信息数据库异常" Text="根据交易流水号获取交易信息数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="根据交易流水号获取交易信息成功" Text="根据交易流水号获取交易信息成功">
+			<ReturnItem FieldId="{trade}" ValueId="{trade}"/>
+			<ReturnItem FieldId="{tradeDetail}" ValueId="{tradeDetail}"/>
+		</Return>
+	</SQLTrans>
+	
+	<!-- 修改交易结果
+	<SQLTrans TransFlag="1" TransName="updateOrderTradeSuccess" DataGroupId="writePay">
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update trade  set serviceType={serviceType},callback={callback},subject={subject},tradeDesc={tradeDesc},attach={attach},updateTime={createTime} where userId={userId} and orderSn={orderSn} and currentStep=1 and status in (10,20)</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="订单交易信息异常（1）" Text="订单交易信息异常（1）"/>
+			</Then>
+		</If>	
+		
+		<For IndexId="{i}" FromIndex="0" Count="{tradeDetailsChange.length}">
+				<Update RecordCountId="{updateCount}">
+					<OutputSQL>update tradeDetail set status={tradeDetailsChange[i].newStatus} where status={tradeDetailsChange[i].status} and id={tradeDetailsChange[i].id}</OutputSQL>
+				</Update>
+				<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+					<Then><Return Code="1" Info="订单交易信息异常（2）" Text="订单交易信息异常（2）"></Return></Then>
+				</If>
+		</For>
+		
+		<If Value1="{fundChange}" Type="Boolean" Operator="EXIST">
+			<Then>
+				<Update RecordCountId="{updateCount}">
+					<OutputSQL>update accountFund set {r:fundChange.outFundType}={r:fundChange.outFundType}-{fundChange.money},score=score-{fundChange.score} where userId={fundChange.outUserId} and score>={fundChange.score} and {r:fundChange.outFundType}>={fundChange.money}</OutputSQL>
+				</Update>
+				<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+					<Then><Return Code="1" Info="账户资金不足" Text="账户资金不足"></Return></Then>
+				</If>
+				<Insert>
+					<OutputSQL>
+						insert into accountFundDetail (orderSn,subject,inUserId,outUserId,money,score,inFundType,outFundType,createTime)
+						values({orderSn},{subject},{fundChange.inUserId},{fundChange.outUserId},{fundChange.money},{fundChange.score},{fundChange.inFundType},{fundChange.outFundType},{createTime})
+					</OutputSQL>
+				</Insert>
+			</Then>
+		</If>		
+		
+		<For IndexId="{i}" FromIndex="0" Count="{tradeDetails.length}">
+			<Insert>
+				<OutputSQL>
+					insert into tradeDetail(tradeId,tradeType,totalMoney,money,score,orderSn,tradeSn,thirdType,status,isclosed,inUserId,inFundType,inAccountType,outUserId,outFundType,outAccountType,tradeDesc,currentStep,scheduleTime,orderTime,doneTime,createTime)
+					values({tradeId},{tradeDetails[i].tradeType},{tradeDetails[i].money},{tradeDetails[i].money},{tradeDetails[i].score},{orderSn},{tradeDetails[i].tradeSn},{tradeDetails[i].thirdType},{tradeDetails[i].status},1,{tradeDetails[i].inUserId},{tradeDetails[i].inFundType},{tradeDetails[i].inAccountType},{tradeDetails[i].outUserId},{tradeDetails[i].outFundType},{tradeDetails[i].outAccountType},{tradeDetails[i].tradeDesc},{tradeDetails[i].currentStep},{createTime},{createTime},{createTime},{createTime})
+				</OutputSQL>
+			</Insert>
+		</For>
+		
+		<OnException>
+			<Return Code="-1" Info="创建交易失败" Text="创建交易失败"/>
+		</OnException>
+		<Return Code="0" Info="创建交易成功" Text="创建交易成功"/>
+	</SQLTrans>	
+	 -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 交易成功修改订单交易状态
+	<SQLTrans TransName="updatePreTradeSuccessResult" TransFlag="1" DataGroupId="writePay">
+		<Update RecordCountId="{count}">
+			<OutputSQL>
+				update trade set status={status},money={money},thirdTradeSN={thirdTradeSN},doneTime={doneTime},resultCode={resultCode|''},resultDesc={resultDesc|''},notifyStatus='10' where tradeSN={tradeSN} and status={formstatus}
+			</OutputSQL>
+		</Update>	
+		<If Value1="{count}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="该订单交易状态已改变" Text="该订单交易状态已改变"/>
+			</Then>
+		</If>
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>
+				update user_count set score=score-{score}  where user_id={userId} and score>={score}
+			</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="用户的积分不足" Text="用户的积分不足"/>
+			</Then>
+		</If>		
+		<OnException>
+			<Return Code="-1" Info="录入三方数据记录异常" Text="录入三方数据记录异常"/>
+		</OnException>
+		<Return Code="0" Info="ok"/>
+	</SQLTrans>	
+	
+	<SQLTrans TransName="updatePreTradeFailResult" TransFlag="1" DataGroupId="writePay">
+		<Update RecordCountId="{count}">
+			<OutputSQL>
+				update trade set status={status},money={money},thirdTradeSN={thirdTradeSN},doneTime={doneTime},resultCode={resultCode|''},resultDesc={resultDesc|''},notifyStatus='10' where tradeSN={tradeSN} and status={formstatus}
+			</OutputSQL>
+		</Update>	
+		<If Value1="{count}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="该订单交易状态已改变" Text="该订单交易状态已改变"/>
+			</Then>
+		</If>
+		<OnException>
+			<Return Code="-1" Info="录入三方数据记录异常" Text="录入三方数据记录异常"/>
+		</OnException>
+		<Return Code="0" Info="ok"/>
+	</SQLTrans>		
+	
+	<SQLTrans TransName="updatePreTrade" TransFlag="1" DataGroupId="writePay">
+		<Update RecordCountId="{count}">
+			<OutputSQL>
+				update trade set status='11' where orderSN={orderSN} and status in ('10','11')
+			</OutputSQL>
+		</Update>	
+		<If Value1="{count}" Type="Long" Operator="=" Value2="0">
+			<Then>
+				<Return Code="1" Info="该订单交易状态已改变" Text="该订单交易状态已改变"/>
+			</Then>
+		</If>		
+		<Insert>
+			<OutputSQL>
+				insert into trade_data_record (orderSN,dataType,userId,thirdType,tradeType,thirdData,createTime)values({orderSN},{dataType},{userId},{thirdType},{tradeType},{thirdData},{currentTime})
+			 </OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="录入三方数据记录异常" Text="录入三方数据记录异常"/>
+		</OnException>
+		<Return Code="0" Info="ok"/>
+	</SQLTrans>	
+	
+
+	<SQLTrans TransName="queryPreTrade" TransFlag="0" DataGroupId="readPay">
+		<SelectRecord OutputId="{trade}">
+			<OutputSQL>select * from trade where orderSN={orderSN}</OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Info="查询预下单数据库异常" Text="查询预下单数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="查询预下单成功" Text="查询预下单成功">
+			<ReturnItem FieldId="{trade}" ValueId="{trade}"/>
+		</Return>
+	</SQLTrans> -->
+	
+	<!-- 将预处理的交易重置为待执行 
+	<SQLTrans TransName="updatePreTrade10" TransFlag="1" DataGroupId="writePay">
+		<Update RecordCountId="{count}">
+			<OutputSQL>
+				update trade set status='10',resultCode={resultCode|''},resultDesc={resultDesc|''}  where id={id} and status='11'
+			</OutputSQL>
+		</Update>	
+		<OnException>
+			<Return Code="-1" Info="录入三方数据记录异常" Text="录入三方数据记录异常"/>
+		</OnException>
+		<Return Code="0" Info="ok"/>
+	</SQLTrans>		
+	-->
+	
+</DataService>

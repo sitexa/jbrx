@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+	
+	<!-- 新增Banner -->
+	<SQLTrans TransFlag="1" TransName="saveBanner" DataGroupId="writeSystem">
+		<Insert>
+			<OutputSQL>insert into banner (bannerName,bannerType,bannerPic,redirectType,redirectUrl,startTime,endTime,status,createTime,updateTime) values({bannerName},{bannerType},{bannerPic},{redirectType},{redirectUrl|''},{startTime|'2018-01-01 01:01:01'},{endTime|'2099-01-01 01:01:01'},{status|1},{currentTime},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="保存数据异常" Text="保存数据异常"/>
+		</OnException>
+		<Return Code="0" Info="保存成功" Text="保存成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateBanner" DataGroupId="writeSystem">
+		<Update>
+			<OutputSQL>update banner set bannerName={bannerName},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改数据异常" Text="修改数据异常"/>
+		</OnException>
+		<Return Code="0" Info="修改成功" Text="修改成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Banner -->
+	<SQLTrans TransFlag="0" TransName="queryBannerPage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from banner where 1=1 </OutputSQL>
+			<SQLIf Value1="{bannerName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and bannerName like '%{r:bannerName}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{banners}">
+			<OutputSQL>select * from banner where 1=1 </OutputSQL>
+			<SQLIf Value1="{bannerName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and bannerName like '%{r:bannerName}%'</OutputSQL></SQLThen>
+			</SQLIf>			
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询异常" Info="查询异常"></Return>
+		</OnException>
+		<Return Code="0" Text="查询成功" Info="查询成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{banners}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryBannerById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{banner}">
+			<OutputSQL>select * from banner where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询异常" Info="BannerService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询成功" Info="查询成功">
+			<ReturnItem FieldId="{banner}" ValueId="{banner}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<!-- 查询广告列表-最多8条  -->
+	<SQLTrans TransFlag="0" TransName="queryBannerList" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{banners}">
+			<OutputSQL>select * from banner where {currentTime}>startTime and endTime>{currentTime} AND bannerType={bannerType} and status=1 </OutputSQL>
+			<SQLIf Value1="{position}" Type="Integer" Operator="EXIST">
+				<SQLThen>
+					<OutputSQL> and position={position} </OutputSQL>
+				</SQLThen>
+			</SQLIf>
+			<OutputSQL> order by sort limit 8</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Banner信息异常" Info="BannerService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Banner信息成功" Info="查询Banner信息成功">
+			<ReturnItem FieldId="{list}" ValueId="{banners}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<SQLTrans TransFlag="0" TransName="queryBanner" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{banner}">
+			<OutputSQL>select * from banner where {currentTime}>startTime and endTime>{currentTime} and status=1 and position={position|1} order by sort limit 1</OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Banner信息异常" Info="BannerService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Banner信息成功" Info="查询Banner信息成功">
+			<ReturnItem FieldId="{banner}" ValueId="{banner}"/>
+		</Return>
+	</SQLTrans>			
+	
+	<SQLTrans TransFlag="1" TransName="enableDisable" DataGroupId="writeSystem">
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update banner set status={status} where id={id}</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+			<Then><Return Code="1" Info="修改失败" Text="修改失败"></Return></Then>
+		</If>
+		<OnException>
+			<Return Code="-1" Info="修改数据库异常" Text="修改数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改成功" Text="修改成功"/>
+	</SQLTrans>		
+</DataService>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>雇员列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">雇员管理</a></li>
+		<li class="active">雇员列表</li>
+	</ul>
+	<div class="page-content-wrap">
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">				
+				<form class="am-form form-inline" id="listForm" action="/employee" method="post">
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="雇员名称" type="text" name="name" value="#(name)">
+	                	</div>
+	               	</div>
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+				<div class="col-md-1 pull-left">
+					<button class="btn btn-success btn-rounded" type="submit" onclick="location.href='/employee/input'">添加雇员</button>
+				</div> 					
+									
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>所属部门</th>
+										<th>姓名/员工编号</th>
+										<th>身份证号/性别</th>
+										<th>手机号码/email</th>
+										<th>状态</th>
+										<th>加入时间</br>离开时间</th>
+										<th>创建时间</br>修改时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(page!=null) #for(employee : page.list ??)
+									<tr>
+										<td>#(employee.deptName)</td>
+										<td>#(employee.name)</br>#(employee.empNo)</td>
+										<td>#(employee.idCard)</br>#(employee.gender==1?'男':(employee.gender==0?'女':'未知'))</td>
+										<td>#(employee.mobilePhone)</br>#(employee.email)</td>
+										<td>#(employee.status==1?'启用':(employee.status==2?'禁用':'离职'))</td>
+										<td>-#(employee.joinTime)<br/>-#(employee.leaveTime)</td>
+										<td>-#(employee.createTime)</br>-#(employee.updateTime)</td>
+										<td>
+										#if(employee.status==3)
+											<a href="#" style="color: gray;">修改</a>
+											<a href="#" style="color: gray;">离职</a>
+										#else
+											<a href="/employee/input?empNo=#(employee.empNo)">修改</a></br>
+											<a href="#" onclick="javascript:if(confirm('请确认将该员工改为离职，该操作不能撤销？')){window.location.href='/employee/leave?empNo=#(employee.empNo)'}">离职</a></br>
+										#end
+										#if(employee.systemAdmins==2 && employee.status==1)
+											<a href="/admins/input?routePath=employee&empNo=#(employee.empNo)&loginName=#(employee.mobilePhone??)&nikeName=#(employee.name??)">建帐号</a>
+										#end	
+										
+										</td>
+									</tr>
+									#end #end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/page.html")
+		</div>
+	</div>
+</body>
+</html>

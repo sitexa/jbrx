@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>地区列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">地区管理</a></li>
+		<li class="active">地区列表</li>
+	</ul>
+	<div class="page-content-wrap">
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">				
+				<form class="am-form form-inline" id="listForm" action="/area" method="post">
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="地区名称" type="text" name="name">
+	                	</div>
+	               	</div>
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+				<div class="col-md-1 pull-left">
+					<button class="btn btn-success btn-rounded" type="submit" onclick="location.href='/area/input'">添加地区</button>
+				</div> 					
+									
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>地区名称</th>
+										<th>地区编码</th>
+										<th>父级编码</th>
+										<th>地区类型</th>
+										<th>经纬度</th>
+										<th>状态</th>
+										<th>创建时间</th>
+										<th>修改时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(page!=null) #for(area : page.list ??)
+									<tr>
+										<td>#(area.areaName)</td>
+										<td>#(area.areaCode)</td>
+										<td>#(area.parentCode)</td>
+										<td>
+											#if(area.areaLevel==1)
+											省级
+											#elseif(area.areaLevel==2)
+											市级
+											#elseif(area.areaLevel==3)
+											区县级
+											#elseif(area.areaLevel==4)
+											乡镇级
+											#elseif(area.areaLevel==5)
+											村级
+											#end
+										</td>
+										<td>#(area.lat)-#(area.lon)</td>
+										<td>
+											#if(area.status==1)
+											正常显示
+											#else
+											不显示
+											#end
+										</td>
+										<td>#(area.createTime)</td>
+										<td>#(area.updateTime)</td>
+										<td><a href="/area/enableDisable?id=#(area.id)&status=#(area.status)">启停</a></td>
+									</tr>
+									#end #end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/page.html")
+		</div>
+	</div>
+</body>
+</html>

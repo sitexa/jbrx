@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 登录时 查询系统菜单信息-需增加缓存 -->
+	<SQLTrans TransFlag="0" TransName="queryMenuListByLevel12" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{menus}">
+			<OutputSQL>select * from menu m where m.status=1 and level in(1,2) order by m.parentId asc,m.sort asc </OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询菜单信息异常" Info="MenuService.xml.queryMenuList(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询菜单信息成功" Info="查询菜单信息成功">
+			<ReturnItem FieldId="{menus}" ValueId="{menus}"/>
+		</Return>
+	</SQLTrans>
+	
+	<!-- 查询一级菜单 -->
+	<SQLTrans TransFlag="0" TransName="queryMenuParentList" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{menus}">
+			<OutputSQL>select * from menu m where m.status=1 and 3>level -- and parentId=0 </OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询菜单信息异常" Info="MenuService.xml.queryMenuList(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询菜单信息成功" Info="查询菜单信息成功">
+			<ReturnItem FieldId="{list}" ValueId="{menus}"/>
+		</Return>
+	</SQLTrans>	
+	
+	
+	<!-- 新增菜单 -->
+	<SQLTrans TransFlag="1" TransName="saveMenu" DataGroupId="writeSystem">
+		<Insert>
+			<OutputSQL>insert into menu (parentId,name,icon,url,status,type,visitCode,level,sort,createTime) values({parentId|0},{name},{icon|''},{url|''},{status|1},{type|0},{visitCode|''},{level},{sort|0},{currentTime})</OutputSQL>
+		</Insert>
+			<SelectField OutputId="{id}">
+				<OutputSQL>select @@IDENTITY menu</OutputSQL>
+			</SelectField>
+			<SelectRecord OutputId="{menu}">
+				<OutputSQL>select * from menu where id={id}</OutputSQL>
+			</SelectRecord>
+			<Update>
+				<OutputSQL>update menu set levelCode=CONCAT_WS('_',{levelCode},{id}) where id={id}</OutputSQL>
+			</Update>		
+		<OnException>
+			<Return Code="-1" Info="新增菜单数据库异常" Text="新增菜单数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增菜单成功" Text="新增菜单成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateMenu" DataGroupId="writeSystem">
+		<Update RecordCountId="{count}">
+			<OutputSQL>update menu set parentId={parentId|0},name={name},icon={icon},url={url},type={type},visitCode={visitCode|''},level={level},levelCode={levelCode},status={status|1},sort={sort} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改菜单数据库异常" Text="修改菜单数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改菜单成功" Text="修改菜单成功"/>
+	</SQLTrans>	
+
+	<SQLTrans TransFlag="0" TransName="queryMenuByParentId" DataGroupId="readSystem">
+		<SelectRecord OutputId="{menu}">
+			<OutputSQL>select * from menu where id={parentId}</OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Info="查询异常" Text="查询异常"/>
+		</OnException>
+		<Return Code="0" Info="查询成功" Text="查询成功">
+			<ReturnItem FieldId="{menu}" ValueId="{menu}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<!-- 分页查询菜单 -->
+	<SQLTrans TransFlag="0" TransName="queryMenuPage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from menu where id>0 </OutputSQL>
+			<SQLIf Value1="{name}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and name like '%{r:name}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{menus}">
+			<OutputSQL>select * from menu where id>0 </OutputSQL>
+			<SQLIf Value1="{name}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL> and name like '%{r:name}%'</OutputSQL></SQLThen>
+			</SQLIf>
+			<OutputSQL> order by levelCode asc limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询菜单信息异常" Info="MenuService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询菜单信息成功" Info="查询菜单信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{menus}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{menu}">
+			<OutputSQL>select * from menu where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询菜单信息异常" Info="MenuService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询菜单信息成功" Info="查询菜单信息成功">
+			<ReturnItem FieldId="{menu}" ValueId="{menu}"/>
+		</Return>
+	</SQLTrans>	
+	
+	
+	<SQLTrans TransFlag="1" TransName="saveMenus" DataGroupId="writeSystem" >
+		<For Count="{menus.length}" FromIndex="0" IndexId="{i}">
+			<Insert>
+				<OutputSQL>insert into menu(parentId,name,icon,url,level,status,sort,type,visitCode,createTime) values({menus[i].parentId},{menus[i].name},{menus[i].icon},{menus[i].url},{menus[i].level},{menus[i].status|1},{menus[i].sort|0},{menus[i].type|1},{menus[i].visitCode|''},{currentTime})</OutputSQL>
+			</Insert>
+			<SelectField OutputId="{id}">
+				<OutputSQL>select @@IDENTITY menu</OutputSQL>
+			</SelectField>
+			
+			<SelectField OutputId="{parentLevelCode}">
+				<OutputSQL>select levelCode from menu where id={menus[i].parentId}</OutputSQL>
+			</SelectField>
+			
+			<Update>
+				<OutputSQL>update menu set levelCode=CONCAT_WS('_',{parentLevelCode},{id}) where id={id}</OutputSQL>
+			</Update>
+			
+		</For>
+		<OnException>
+			<Return Code="-1" Text="保存菜单权限信息异常" Info="MenuService.xml.saveMenus(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="保存菜单权限信息成功" Info="保存菜单权限信息成功"/>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryMenuByUser" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{menus}">
+			<OutputSQL>
+				SELECT * from menu where id in (
+				SELECT actionId from roleAction WHERE roleId in (
+				SELECT roleId from userRole where userId={empNo} and status=1
+				) and  status=1
+				) and status=1 
+			</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Admins信息异常" Info="AdminsService.xml.queryMenuByUser(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Admins信息成功" Info="查询Admins信息成功">
+			<ReturnItem FieldId="{list}" ValueId="{menus}"/>
+		</Return>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="0" TransName="queryUserMenu"  DataGroupId="readSystem">
+		<SelectRecordSet OutputId="{menus}">
+			<OutputSQL>
+				select * from menu where status=1 and level in (1,2)
+			</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Admins信息异常" Info="AdminsService.xml.queryMenuByUser(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Admins信息成功" Info="查询Admins信息成功">
+			<ReturnItem FieldId="{list}" ValueId="{menus}"/>
+		</Return>		
+	</SQLTrans>
+	
+</DataService>

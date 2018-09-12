@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+	
+	<!-- 新增Area -->
+	<SQLTrans TransFlag="1" TransName="saveArea" DataGroupId="writeSystem">
+		<SelectRecord OutputId="{parent}">
+			<OutputSQL>select * from area where areaCode={parentCode}</OutputSQL>
+		</SelectRecord>
+		<If Value1="{parent}" Type="Boolean" Operator="NOTEXIST">
+			<Then>
+				<Return Code="1" Info="上级地区不存在，请检查" Text="上级地区不存在，请检查"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into area (areaName,areaCode,parentCode,areaLevel,status,lon,lat,createTime) values({areaName},{areaCode},{parentCode},{parent.areaLevel}+1,{status|1},{lon|''},{lat|''},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增Area数据库异常" Text="新增Area数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增Area成功" Text="新增Area成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateArea" DataGroupId="writeSystem">
+		<Update >
+			<OutputSQL>update area set areaName={areaName},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Area数据库异常" Text="修改Area数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Area成功" Text="修改Area成功"/>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="1" TransName="enableDisable" DataGroupId="writeSystem">
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update area set status={status} where id={id}</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+			<Then><Return Code="1" Info="修改失败" Text="修改失败"></Return></Then>
+		</If>
+		<OnException>
+			<Return Code="-1" Info="修改数据库异常" Text="修改数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改成功" Text="修改成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Area -->
+	<SQLTrans TransFlag="0" TransName="queryAreaPage" DataGroupId="readSystem" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from area where 1=1 </OutputSQL>
+			<SQLIf Value1="{areaName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and areaName like '%{r:areaName}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{areas}">
+			<OutputSQL>select * from area where 1=1 </OutputSQL>
+			<SQLIf Value1="{areaName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and areaName like '%{r:areaName}%'</OutputSQL></SQLThen>
+			</SQLIf>		
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Area信息异常" Info="AreaService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Area信息成功" Info="查询Area信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{areas}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryAreaById" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{area}">
+			<OutputSQL>select * from area where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Area信息异常" Info="AreaService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Area信息成功" Info="查询Area信息成功">
+			<ReturnItem FieldId="{area}" ValueId="{area}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<SQLTrans TransFlag="0" TransName="queryAreaByType" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{list}">
+			<OutputSQL>select * from area where areaLevel={areaLevel|1}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Area信息异常" Info="AreaService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Area信息成功" Info="查询Area信息成功">
+			<ReturnItem FieldId="{list}" ValueId="{list}"/>
+		</Return>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="0" TransName="queryAreaByParentCode" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{list}">
+			<OutputSQL>select * from area where parentCode={parentCode|''}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Area信息异常" Info="AreaService.xml.queryAreaByParentCode(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Area信息成功" Info="查询Area信息成功">
+			<ReturnItem FieldId="{list}" ValueId="{list}"/>
+		</Return>
+	</SQLTrans>	
+</DataService>

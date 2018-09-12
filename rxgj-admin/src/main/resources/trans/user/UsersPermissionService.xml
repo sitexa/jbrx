@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增UsersPermission -->
+	<SQLTrans TransFlag="1" TransName="saveUsersPermission" DataGroupId="writeUser">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from usersPermission where </OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="UsersPermission已存在" Text="UsersPermission已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into usersPermission (id,userId,visitCodes,createTime,updateTime,state,createTime) values({id},{userId},{visitCodes},{createTime},{updateTime},{state|1},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增UsersPermission数据库异常" Text="新增UsersPermission数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增UsersPermission成功" Text="新增UsersPermission成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateUsersPermission" DataGroupId="writeUser">
+		<Update>
+			<OutputSQL>update usersPermission set usersPermissionName={usersPermissionName},state={state} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改UsersPermission数据库异常" Text="修改UsersPermission数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改UsersPermission成功" Text="修改UsersPermission成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询UsersPermission -->
+	<SQLTrans TransFlag="0" TransName="queryUsersPermissionPage" DataGroupId="readUser" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from usersPermission where 1=1 </OutputSQL>
+			<SQLIf Value1="{usersPermissionName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and usersPermissionName like '%{r:usersPermissionName}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{usersPermissions}">
+			<OutputSQL>select * from usersPermission where 1=1 </OutputSQL>
+			<SQLIf Value1="{usersPermissionName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and usersPermissionName like '%{r:usersPermissionName}%'</OutputSQL></SQLThen>
+			</SQLIf>			
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询UsersPermission信息异常" Info="UsersPermissionService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询UsersPermission信息成功" Info="查询UsersPermission信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{usersPermissions}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryUsersPermissionById" DataGroupId="readUser" >
+		<SelectRecord OutputId="{usersPermission}">
+			<OutputSQL>select * from usersPermission where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询UsersPermission信息异常" Info="UsersPermissionService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询UsersPermission信息成功" Info="查询UsersPermission信息成功">
+			<ReturnItem FieldId="{usersPermission}" ValueId="{usersPermission}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

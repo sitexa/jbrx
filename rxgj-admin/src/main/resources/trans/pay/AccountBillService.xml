@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 根据用户查询账户账单 -->
+	<SQLTrans TransFlag="0" TransName="queryFundBill" DataGroupId="readPay" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from accountBill where userId={userId}</OutputSQL>
+		</SelectField>
+		<SelectRecordSet OutputId="{accountBills}">
+			<OutputSQL>select * from accountBill where userId={userId}  limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询AccountFundDetail信息异常" Info="AccountFundDetailService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询AccountFundDetail信息成功" Info="查询AccountFundDetail信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{accountBills}"/>
+		</Return>
+	</SQLTrans>	
+
+</DataService>

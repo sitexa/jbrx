@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增Comment -->
+	<SQLTrans TransFlag="1" TransName="saveComment" DataGroupId="writeUser">
+		<Insert>
+			<OutputSQL>insert into comment (videoId,userId,userName,content,state,iscomment,createTime) values({videoId},{userId},{userName},{content},{state},{iscomment},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="保存数据异常" Text="保存数据异常"/>
+		</OnException>
+		<Return Code="0" Info="保存成功" Text="保存成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateComment" DataGroupId="writeUser">
+		<Update>
+			<OutputSQL>update comment set state={state} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改数据异常" Text="修改数据异常"/>
+		</OnException>
+		<Return Code="0" Info="修改成功" Text="修改成功"/>
+	</SQLTrans>	
+	
+	<!-- 查询当前视频的评论，并显示评论的点赞数 -->
+	<SQLTrans TransFlag="0" TransName="queryPageCommentByVideoId" DataGroupId="readUser" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from comment where 1=1 </OutputSQL>
+			<SQLIf Value1="{id}" Type="Long" Operator="EXIST">
+				<SQLThen><OutputSQL>  and videoId = {id} </OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{comments}">
+			<OutputSQL>select * from comment where 1=1 </OutputSQL>
+			<SQLIf Value1="{id}" Type="Long" Operator="EXIST">
+				<SQLThen><OutputSQL>  and videoId = {id} </OutputSQL></SQLThen>
+			</SQLIf>			
+			<OutputSQL> order by createTime desc limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询异常" Info="CommentService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询成功" Info="查询成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{comments}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryCommentById" DataGroupId="readUser" >
+		<SelectRecord OutputId="{comment}">
+			<OutputSQL>select * from comment where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询异常" Info="CommentService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询成功" Info="查询成功">
+			<ReturnItem FieldId="{comment}" ValueId="{comment}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<!-- 分页查询Comment -->
+	<SQLTrans TransFlag="0" TransName="queryCommentByVideoId" DataGroupId="readUser" >
+		<SelectRecord OutputId="{totalCount}">
+			<OutputSQL>select count(*) as totalCount from comment where 1=1 and videoId = {id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询异常" Info="ThumbService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询成功" Info="查询成功">
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<!-- 查询当前用户是否评论过 -->
+	<SQLTrans TransFlag="0" TransName="queryByUserComment" DataGroupId="readUser" >
+		<SelectRecord OutputId="{comment}">
+			<OutputSQL>select * from comment where 1=1 and videoId = {videoId} and userId={userId} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询异常" Info="ThumbService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询成功" Info="查询成功">
+			<ReturnItem FieldId="{comment}" ValueId="{comment}"/>
+		</Return>
+	</SQLTrans>
+	
+
+</DataService>

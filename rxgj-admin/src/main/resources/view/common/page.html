@@ -1,0 +1,55 @@
+<div class="col-md-12">
+	
+	#set(pageNumber=page.pageNumber ?? 0)
+	#set(totalCount=page.totalCount ?? 0)
+	#set(totalPage=page.totalPage ?? 0)
+	<input type="hidden" name="pageNumber" id="pageNumber" value="#(pageNumber)" />
+	<div class="dataTables_info pull-left" id="customers2_info" role="status" aria-live="polite" style="padding: 10px 10px 0 0;">#(totalCount)条记录 , 第#(pageNumber+1)页/共#(totalPage)页</div>
+	
+	
+	<div class="dataTables_paginate paging_simple_numbers pull-left" id="customers2_paginate" style="padding: 10px 0;">
+		#if(pageNumber <=0)
+		<a href="javascript:void(0);" style="color: #a5a5a5;margin-left: 0;" class="paginate_button previous disabled" aria-controls="customers2" data-dt-idx="0" tabindex="0">首页</a>
+		<a href="javascript:void(0);" style="color: #a5a5a5;" class="paginate_button previous disabled" aria-controls="customers2" data-dt-idx="0" tabindex="0">上一页</a>
+		#else
+		<a href="javascript:window.location.href='?pageNumber=0'" class="paginate_button previous disabled" style="margin-left: 0;" aria-controls="customers2" data-dt-idx="0" tabindex="0" id="first">首页</a>
+		<a href="javascript:window.location.href='?pageNumber=#(pageNumber-1)'" class="paginate_button next" aria-controls="customers2" data-dt-idx="7" tabindex="0" id="previous">上一页</a>
+		#end
+
+
+		#if(pageNumber+1==totalPage || totalPage==0)
+		<a href="javascript:void(0);" style="color: #a5a5a5;" class="paginate_button previous disabled" aria-controls="customers2" data-dt-idx="0" tabindex="0">下一页</a>
+		<a href="javascript:void(0);" style="color: #a5a5a5;" class="paginate_button previous disabled" aria-controls="customers2" data-dt-idx="0" tabindex="0">尾页</a>
+		#else
+
+		<a href="javascript:window.location.href='?pageNumber=#(pageNumber+1)'" class="paginate_button next" aria-controls="customers2" data-dt-idx="7" tabindex="0" id="next">下一页</a>
+		<a href="javascript:window.location.href='?pageNumber=#(totalPage-1)'" class="paginate_button next" aria-controls="customers2" data-dt-idx="7" tabindex="0" id="last">尾页</a>
+		#end
+
+	</div>
+	<div class="dataTables_paginate paging_simple_numbers pull-left" id="operat_result" style="padding: 11px 0;min-width: 100px;">
+		#if(result??==0)
+		<span style="text-align:center;width: 100%;padding: 5px 10px;font-size: 12px;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;float: left;text-decoration: none;background-color:#3da109;color:white;margin-left: 3px;">#(message??'success') <span id="tc">5</span></span>
+		#end
+		#if(result??!=0)
+		#if(message)
+		<span style="text-align:center;width: 100%;padding: 5px 10px;font-size: 12px;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;float: left;text-decoration: none;background-color:#a13409;color:white;margin-left: 3px;">#(message??'') <span id="tc">5</span></span>
+		#end
+		#end		
+	</div>
+</div>
+<script language="javascript">
+var times=5;
+var timers = {
+or: function () {
+times--;
+if(times<=0){
+document.getElementById("operat_result").style.display="none";
+clearInterval(timers);
+}else{
+document.getElementById("tc").innerHTML='<span id="tc">'+times+'</span>';
+}
+}
+};
+setInterval(function () { timers.or()}, 1000);
+</script>

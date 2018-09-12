@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>InstitScore列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">InstitScore管理</a></li>
+		<li class="active">InstitScore列表</li>
+	</ul>
+	<div class="page-content-wrap">
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">				
+				<form class="am-form form-inline" id="listForm" action="/institScore" method="post">
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="InstitScore名称" type="text" name="name">
+	                	</div>
+	               	</div>
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+				<div class="col-md-1 pull-left">
+					<button class="btn btn-success btn-rounded" type="submit" onclick="location.href='/institScore/input'">添加institScore</button>
+				</div> 					
+									
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>centerId</th>
+										<th>institId</th>
+										<th>brandId</th>
+										<th>evaluateScore</th>
+										<th>state</th>
+										<th>createTime</th>
+										<th>updateTime</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(resultState==0) #for(institScore : resultData.institScores ??)
+									<tr>
+										<td>#(institScore.id)</td>
+										<td>#(institScore.centerId)</td>
+										<td>#(institScore.institId)</td>
+										<td>#(institScore.brandId)</td>
+										<td>#(institScore.evaluateScore)</td>
+										<td>#(institScore.state)</td>
+										<td>#(institScore.createTime)</td>
+										<td>#(institScore.updateTime)</td>
+										<td>#(institScore.createTime)</td>
+										<td><a href="/institScore/input?id=#(institScore.id)">修改</a></td>
+									</tr>
+									#end #end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/pager.html")
+		</div>
+	</div>
+</body>
+</html>

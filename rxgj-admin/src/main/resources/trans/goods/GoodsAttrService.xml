@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增Goodsattr -->
+	<SQLTrans TransFlag="1" TransName="saveGoodsattr" DataGroupId="writeShop">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from goodsattr where </OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="Goodsattr已存在" Text="Goodsattr已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into goodsattr (id,shopId,title,attrs,price,totalStock,pic,status,createTime,updateTime,status,create_time) values({id},{shopId},{title},{attrs},{price},{totalStock},{pic},{status},{createTime},{updateTime},{status|1},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增Goodsattr数据库异常" Text="新增Goodsattr数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增Goodsattr成功" Text="新增Goodsattr成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updateGoodsattr" DataGroupId="writeShop">
+		<Update>
+			<OutputSQL>update goodsattr set goodsattrName={goodsattrName},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Goodsattr数据库异常" Text="修改Goodsattr数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Goodsattr成功" Text="修改Goodsattr成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Goodsattr -->
+	<SQLTrans TransFlag="0" TransName="queryGoodsattrPage" DataGroupId="readShop" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from goodsattr where 1=1 </OutputSQL>
+			<SQLIf Value1="{goodsattrName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and goodsattrName like '%{r:goodsattrName}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{goodsattrs}">
+			<OutputSQL>select * from goodsattr where 1=1 </OutputSQL>
+			<SQLIf Value1="{goodsattrName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and goodsattrName like '%{r:goodsattrName}%'</OutputSQL></SQLThen>
+			</SQLIf>			
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Goodsattr信息异常" Info="GoodsattrService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Goodsattr信息成功" Info="查询Goodsattr信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{goodsattrs}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryGoodsattrById" DataGroupId="readShop" >
+		<SelectRecord OutputId="{goodsattr}">
+			<OutputSQL>select * from goodsattr where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Goodsattr信息异常" Info="GoodsattrService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Goodsattr信息成功" Info="查询Goodsattr信息成功">
+			<ReturnItem FieldId="{goodsattr}" ValueId="{goodsattr}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

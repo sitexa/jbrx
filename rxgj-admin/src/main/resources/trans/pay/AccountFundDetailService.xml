@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 分页查询AccountFundDetail -->
+	<SQLTrans TransFlag="0" TransName="queryAccountFundDetailPage" DataGroupId="readPay" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from accountFundDetail where inUserId={userId} or outUserId={userId} </OutputSQL>
+		</SelectField>
+		<SelectRecordSet OutputId="{accountFundDetails}">
+			<OutputSQL>select * from accountFundDetail where  inUserId={userId} or outUserId={userId}  limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询AccountFundDetail信息异常" Info="AccountFundDetailService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询AccountFundDetail信息成功" Info="查询AccountFundDetail信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{accountFundDetails}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryAccountFundDetailById" DataGroupId="readPay" >
+		<SelectRecord OutputId="{accountFundDetail}">
+			<OutputSQL>select * from accountFundDetail where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询AccountFundDetail信息异常" Info="AccountFundDetailService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询AccountFundDetail信息成功" Info="查询AccountFundDetail信息成功">
+			<ReturnItem FieldId="{accountFundDetail}" ValueId="{accountFundDetail}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

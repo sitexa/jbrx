@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 划拨-同步操作 -->
+	<SQLTrans TransName="insertFundTransferTrade" TransFlag="1" DataGroupId="writePay">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from trade where orderSn={orderSn}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="=" Value2="1">
+			<Then>
+				<Return Code="1" Info="交易编号已存在" Text="交易编号已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>
+				insert into trade (businessId,userId,orderSn,tradeType,totalStep,currentStep,serviceType,status,notifystatus,callback,subject,tradeDesc,attach,scheduleTime,orderTime,doneTime,createTime)
+				values({businessId},{userId},{orderSn},{tradeType},{totalStep},{currentStep},{serviceType},{status},{notifystatus},{callback},{subject},{tradeDesc},{attach},{createTime},{createTime},{createTime},{createTime})
+			</OutputSQL>
+		</Insert>
+		
+		<SelectField OutputId="{tradeId}">
+				<OutputSQL>select @@IDENTITY trade</OutputSQL>
+		</SelectField>
+				
+		<!-- 插入交易详细信息 -->
+		<For IndexId="{i}" FromIndex="0" Count="{tradeDetails.length}">
+			<Insert>
+				<OutputSQL>
+					insert into tradeDetail(tradeId,tradeType,totalMoney,money,score,orderSn,tradeSn,thirdType,status,isclosed,inUserId,inFundType,inAccountType,outUserId,outFundType,outAccountType,tradeDesc,currentStep,scheduleTime,orderTime,doneTime,createTime)
+					values({tradeId},{tradeDetails[i].tradeType},{tradeDetails[i].money},{tradeDetails[i].money},{tradeDetails[i].score},{orderSn},{tradeDetails[i].tradeSn},{tradeDetails[i].thirdType},{tradeDetails[i].status},1,{tradeDetails[i].inUserId},{tradeDetails[i].inFundType},{tradeDetails[i].inAccountType},{tradeDetails[i].outUserId},{tradeDetails[i].outFundType},{tradeDetails[i].outAccountType},{tradeDetails[i].tradeDesc},{tradeDetails[i].currentStep},{createTime},{createTime},{createTime},{createTime})
+				</OutputSQL>
+			</Insert>
+		</For>
+		
+		<!-- 资金变动  出账 -->
+		<Insert>
+			<OutputSQL>
+				insert into accountFundDetail (orderSn,subject,inUserId,outUserId,money,score,inFundType,outFundType,createTime)
+				values({orderSn},{outFund.subject},{outFund.inUserId},{outFund.outUserId},{outFund.money},{outFund.score},{outFund.inFundType},{outFund.outFundType},{createTime})
+			</OutputSQL>
+		</Insert>
+		
+		<!-- 出账 -->
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update accountFund set {r:outFund.outFundType}={r:outFund.outFundType}-{outFund.money},score=score-{outFund.score} where userId={outFund.outUserId} and score>={outFund.score} and {r:outFund.outFundType}>={outFund.money}</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+			<Then><Return Code="1" Info="账户资金不足" Text="账户资金不足"></Return></Then>
+		</If>
+		<!-- 入账 -->
+		<Update RecordCountId="{updateCount}">
+			<OutputSQL>update accountFund set {r:outFund.inFundType}={r:outFund.inFundType}+{outFund.money},score=score+{outFund.score} where userId={outFund.inUserId}</OutputSQL>
+		</Update>
+		<If Value1="{updateCount}" Type="Integer" Operator="=" Value2="0">
+			<Then><Return Code="1" Info="入账失败" Text="入账失败"></Return></Then>
+		</If>
+
+		<OnException>
+			<Return Code="-1" Info="交易失败-err" Text="交易失败-err"/>
+		</OnException>
+		<Return Code="0" Info="交易成功" Text="交易成功"/>
+	</SQLTrans>	
+	
+	
+</DataService>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利优国际Banner接口</title>
+</head>
+<body>
+
+<pre>
+	<a href="#0001">0001  获取Banner列表接口</a>
+	<a href="#0002">0002  查询Banner列表接口</a>
+	<a href="#0003">0003  保存新建Banner接口</a>
+	<a href="#0004">0004  保存修改Banner接口</a>
+	<a href="#0005">0005  删除Banner接口</a>
+	<a href="#0006">0006  批量删除Banner接口</a>
+    <a href="#0007">0007  修改Banner的Status接口</a>
+    <a href="#0008">0008  批量修改Banner的Status接口</a>
+    <a href="#0009">0009  点击增加Banner的Count接口</a>
+
+	在admin上，url为 /manage/banner/method
+	在api上，url为 /app/banner/method
+
+	<b>0001  获取Banner列表接口</b>
+	<i id='0001'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/getBanners
+	  请求报文:
+		"param"：{
+			"pageNumber":"1",	//页码
+			"pageSize":"10"     //页长
+			}
+	  返回报文：
+	    {
+		"data": {
+			"list": [
+				{
+					"area": "湖南长沙",
+					"aurl": "/action?id=1002",
+					"category": "index",
+					"count": 0,
+					"createTime": "2018-09-11 16:27:08",
+					"createUser": 1,
+					"endDate": "2018-09-20 00:00:00",
+					"id": 33,
+					"murl": "/media?id=1001",
+					"startDate": "2018-09-15 00:00:00",
+					"status": 1
+				},
+				...
+			],
+			"pageNumber": 1,
+			"pageSize": 10,
+			"totalCount": 14,
+			"totalPage": 2
+		},
+		"message": "OK",
+		"result": 0
+		}
+	</i>
+
+    <b>0002  查询Banner列表接口</b>
+	<i id='0002'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/queryBanners
+	  请求报文:
+		"param"：{
+			"pageNumber":"1", 			//页码
+			"pageSize":"3",   			//页长
+			"status":"1",	  			//开启状态
+			"category":"index",			//栏目分类
+			"startDate":"2018-8-30", 	//开始时间
+			"endDate":"2018-10-30",		//结束时间
+			"area":"湖南长沙"				//所属地区
+		}
+	  返回报文：
+	    {
+			"data": {
+				"list": [
+					{
+						"area": "湖南长沙",
+						"aurl": "/action?id=1002",
+						"category": "index",
+						"count": 0,
+						"createTime": "2018-09-11 16:27:08",
+						"createUser": 1,
+						"endDate": "2018-09-20 00:00:00",
+						"id": 33,
+						"list": [],
+						"murl": "/media?id=1001",
+						"startDate": "2018-09-15 00:00:00",
+						"status": 1
+					},
+					...
+				],
+				"pageNumber": 1,
+				"pageSize": 3,
+				"totalCount": 5,
+				"totalPage": 2
+			},
+			"message": "OK",
+			"result": 0
+		}
+	</i>
+
+	<b>0003  保存新建Banner接口</b>
+	<i id='0003'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/saveBanner
+	  请求报文(用户登录后才能查看，后台会拿当前登录用户ID):
+		"param"：{
+			"category":"index",			//栏目分类
+			"area":"湖南长沙",			//所属地区
+			"status":"1",				//开启状态
+			"startDate":"2018-9-15",	//开始时间
+			"endDate":"2018-9-20",		//结束时间
+			"murl":"/media?id=1001",	//媒介url，图片或视频url
+			"aurl":"/action?id=1002"	//链接url，点击后跳转url
+			}
+	  返回报文：
+	    {
+			"pageNumber":0,
+			"pageSize":10,
+			"totalCount":1,
+			"list":[
+				{
+					"path":"test",
+					"createTime":"2018-08-27 19:12:25",
+					"count":1,
+					"updateTime":"2018-08-27 19:12:25",
+					"id":1,
+					"img":"xxx" //图片地址
+					"state":1,
+					"title":"dd",
+					"userId":1,
+					"userName":"ss", //对应的用户昵称
+					"userPic":"xx"  //用户头像地址
+				}
+			]
+		}
+	</i>
+
+	<b>0004  保存修改Banner接口</b>
+	<i id='0004'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/updateBanner
+	  请求报文:
+		"param"：{
+			"id":"25",					//
+			"category":"index",			//栏目分类
+			"area":"湖南长沙",			//所属地区
+			"status":"0",				//开启状态
+			"startDate":"2018-9-15",	//开始时间
+			"endDate":"2018-9-20",		//结束时间
+			"murl":"/media?id=1001",	//媒介url，图片或视频url
+			"aurl":"/action?id=1002"	//链接url，点击后跳转url
+		}
+	  返回报文：
+	    {
+			"message": "更新成功",
+			"result": 0
+		}
+	</i>
+
+	<b>0005  删除Banner接口</b>
+	<i id='0005'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/deleteBanner
+	  请求报文:
+		"param"：{
+			"id":"25"	//Banner id
+			}
+	  返回报文：
+	    {
+			"message": "删除成功",
+    		"result": 0
+		}
+	</i>
+
+	<b>0006  批量删除Banner接口</b>
+		<i id='0006'>
+		  请求URI：http://192.168.1.19:10003/manage/banner/deleteBannerList
+		  请求报文:
+			"param"：[
+				{
+					"id":"18"	//Banner id
+				},
+				{
+					"id":"19"	//Banner id
+				}
+				...
+			]
+		  返回报文：
+			{
+				"message": "删除成功",
+    			"result": 0
+			}
+		</i>
+
+    <b>0007  修改Banner的Status接口</b>
+	<i id='0007'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/changeStatus
+	  请求报文:
+		"param"：{
+			"id":"20"	//banner id
+			}
+	  返回报文：
+	    {
+			"message": "修改成功",
+			"result": 0
+		}
+	</i>
+
+	<b>0008  批量修改Banner的Status接口</b>
+	<i id='0008'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/changeStatusList
+	  请求报文
+		"param"：[
+			{
+				"id":"25",
+				"status":"1"
+			},
+			{
+				"id":"24",
+				"status":"1"
+			},
+			{
+				"id":"23",
+				"status":"1"
+			}
+			...
+		]
+	  返回报文：
+	    {
+			"message": "修改成功",
+    		"result": 0
+		}
+	</i>
+
+	<b>0009  点击增加Banner的Count接口</b>
+	<i id='0009'>
+	  请求URI：http://192.168.1.19:10003/manage/banner/incCount
+	  请求报文
+		"param"：{
+			"id":"20" //ID,
+			}
+	  返回报文：
+	    {
+			"message": "修改成功",
+    		"result": 0
+		}
+	</i>
+</pre>
+</body>
+</html>

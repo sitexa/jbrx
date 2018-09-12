@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>app升级列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">系统升级管理</a></li>
+		<li class="active">系统升级列表</li>
+	</ul>
+	<div class="page-content-wrap">
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">				
+				<form class="am-form form-inline" id="listForm" action="/upgrade" method="post">
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="app升级名称" type="text" name="name">
+	                	</div>
+	               	</div>
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+				<div class="col-md-1 pull-left">
+					<button class="btn btn-success btn-rounded" type="submit" onclick="location.href='/upgrade/input'">发布新版本</button>
+				</div> 					
+									
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>版本号（版本顺序号）</th>
+										<th>升级描述</th>
+										<th>ios地址</th>
+										<th>安卓地址</th>
+										<th>升级方式</th>
+										<th>状态</th>
+										<th>创建时间</th>
+										<th>修改时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(page!=null) #for(upgrade : page.list ??)
+									<tr>
+										<td>#(upgrade.verName)（#(upgrade.verCode)）</td>
+										<td>#(upgrade.verDesc)</td>
+										<td>#(upgrade.iosUrl)</td>
+										<td>#(upgrade.aosUrl)</td>
+										<td>#(upgrade.upType ?? ==1?'部分更新':(upgrade.upType ?? ==2?'强制更新':'非强制更新'))</td>
+										<td>#(upgrade.status ?? ==1?'已发布':(upgrade.status ?? ==2?'暂存':'已撤销'))</td>
+										<td>#(upgrade.createTime)</td>
+										<td>#(upgrade.updateTime)</td>
+										<td>
+											#if(upgrade.status??==1)
+											<a href="/upgrade/revoke?id=#(upgrade.id)" onclick= "if(confirm( '确定发布?')==false)return   false; ">撤销</a>
+											#elseif(upgrade.status??==2)
+											<a href="/upgrade/release?id=#(upgrade.id)">发布</a>
+											#else
+											No operation
+											#end
+										</td>
+									</tr>
+									#end #end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/page.html")
+		</div>
+	</div>
+</body>
+</html>

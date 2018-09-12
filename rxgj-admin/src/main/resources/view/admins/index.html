@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>管理员列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">管理员管理</a></li>
+		<li class="active">管理员列表</li>
+	</ul>
+	<div class="page-content-wrap">
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">				
+				<form class="am-form form-inline" id="listForm" action="/admins" method="post">
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="登陆名" type="text" name="userName">
+	                	</div>
+	               	</div>
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>用户编号</th>
+										<th>登录名</th>
+										<th>显示名</th>
+										<th>email</th>
+										<th>组编码</th>
+										<th>状态</th>
+										<th>角色</th>
+										<th>最近登录时间</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(page!=null) #for(admins : page.list ??)
+									<tr>
+										<td>#(admins.empNo)</td>
+										<td>#(admins.userName)</td>
+										<td>#(admins.nikeName)</td>
+										<td>#(admins.email)</td>
+										<td>#(admins.groupCode)</td>
+										<td>
+											#if(admins.status==1)
+											可用
+											#elseif(admins.status==2)
+											禁用
+											#elseif(admins.status==3)
+											离职
+											#end
+										</td>
+										<td>#(admins.roleName)</td>
+										<td>#(admins.loginTime)</td>
+										<td>#(admins.createTime)</td>
+										<td>
+											#if(admins.status==3)
+												<a href="#" style="color: gray;">修改</a>
+											#else
+												<a href="#" onclick="javascript:if(confirm('请确认执行该操作？')){window.location.href='/admins/enableDisable?empNo=#(admins.empNo)&status=#(admins.status)'}">禁启用</a>|<a href="/admins/input?empNo=#(admins.empNo)">修改</a>|<a href="/admins/roleinput?userId=#(admins.empNo)">角色分配</a>
+											#end
+										</td>
+									</tr>
+									#end #end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/page.html")
+		</div>
+	</div>
+</body>
+</html>

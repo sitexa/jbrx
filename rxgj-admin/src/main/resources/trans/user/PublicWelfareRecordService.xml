@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<!-- 新增Publicwelfarerecord -->
+	<SQLTrans TransFlag="1" TransName="savePublicwelfarerecord" DataGroupId="writeUser">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from publicwelfarerecord where </OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="Publicwelfarerecord已存在" Text="Publicwelfarerecord已存在"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>insert into publicwelfarerecord (id,userName,rechargeAmount,benevolence,createTime,updateTime,status,create_time) values({id},{userName},{rechargeAmount},{benevolence},{createTime},{updateTime},{status|1},{currentTime})</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-1" Info="新增Publicwelfarerecord数据库异常" Text="新增Publicwelfarerecord数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="新增Publicwelfarerecord成功" Text="新增Publicwelfarerecord成功"/>
+	</SQLTrans>
+	
+	<SQLTrans TransFlag="1" TransName="updatePublicwelfarerecord" DataGroupId="writeUser">
+		<Update>
+			<OutputSQL>update publicwelfarerecord set publicwelfarerecordName={publicwelfarerecordName},status={status} where id={id}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Publicwelfarerecord数据库异常" Text="修改Publicwelfarerecord数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Publicwelfarerecord成功" Text="修改Publicwelfarerecord成功"/>
+	</SQLTrans>	
+	
+	<!-- 分页查询Publicwelfarerecord -->
+	<SQLTrans TransFlag="0" TransName="queryPublicwelfarerecordPage" DataGroupId="readUser" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from publicwelfarerecord where 1=1 </OutputSQL>
+			<SQLIf Value1="{publicwelfarerecordName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and publicwelfarerecordName like '%{r:publicwelfarerecordName}%'</OutputSQL></SQLThen>
+			</SQLIf>
+		</SelectField>
+		<SelectRecordSet OutputId="{publicwelfarerecords}">
+			<OutputSQL>select * from publicwelfarerecord where 1=1 </OutputSQL>
+			<SQLIf Value1="{publicwelfarerecordName}" Type="String" Operator="EXIST">
+				<SQLThen><OutputSQL>  and publicwelfarerecordName like '%{r:publicwelfarerecordName}%'</OutputSQL></SQLThen>
+			</SQLIf>			
+			<OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Publicwelfarerecord信息异常" Info="PublicwelfarerecordService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Publicwelfarerecord信息成功" Info="查询Publicwelfarerecord信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{publicwelfarerecords}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryPublicwelfarerecordById" DataGroupId="readUser" >
+		<SelectRecord OutputId="{publicwelfarerecord}">
+			<OutputSQL>select * from publicwelfarerecord where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Publicwelfarerecord信息异常" Info="PublicwelfarerecordService.xml.queryById(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Publicwelfarerecord信息成功" Info="查询Publicwelfarerecord信息成功">
+			<ReturnItem FieldId="{publicwelfarerecord}" ValueId="{publicwelfarerecord}"/>
+		</Return>
+	</SQLTrans>		
+	
+	<SQLTrans TransFlag="0" TransName="queryPublicWelfareRecordList" DataGroupId="readUser" >
+		<SelectField OutputId="{totalCount}">
+			<OutputSQL>select count(*) from publicwelfarerecord</OutputSQL>
+		</SelectField>
+		<SelectRecordSet OutputId="{publicwelfarerecords}">
+			<OutputSQL>select * from publicwelfarerecord  order by createTime desc  limit 20</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询Publicwelfarerecord信息异常" Info="PublicwelfarerecordService.xml.queryPage(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询Publicwelfarerecord信息成功" Info="查询Publicwelfarerecord信息成功">
+			<ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+			<ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+			<ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+			<ReturnItem FieldId="{list}" ValueId="{publicwelfarerecords}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

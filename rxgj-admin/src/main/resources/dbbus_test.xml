@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceBus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceBus.xsd" DataGroupId="writePay">
+	
+	<DataServiceEngine>com.gavin.plugin.database.BigDataEngine</DataServiceEngine>
+	
+</ServiceBus>

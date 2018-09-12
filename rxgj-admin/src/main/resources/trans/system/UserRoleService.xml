@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DataService.xsd">
+	
+	<SQLTrans TransFlag="1" TransName="saveUserRoles" DataGroupId="writeSystem">
+		<Update>
+			<OutputSQL>update userRole set status=2 where userId={userId}</OutputSQL>
+		</Update>
+		<Update>
+			<OutputSQL>update admins set roleName={roleNames|''} where empNo={userId}</OutputSQL>
+		</Update>
+		<For Count="{userRoles.length}" FromIndex="0" IndexId="{i}">
+			<Insert>
+				<OutputSQL>insert into userRole (userId,roleId,status,createTime) values({userRoles[i].userId},{userRoles[i].roleId},{status|1},{currentTime})</OutputSQL>
+			</Insert>
+		</For>
+		<OnException>
+			<Return Code="-1" Info="分配角色数据库异常" Text="分配角色数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="分配角色成功" Text="分配角色成功"/>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryUserRole" DataGroupId="readSystem" >
+		<SelectRecordSet OutputId="{roleUsers}">
+			<OutputSQL>select r.*,ur.roleId selectRoleId from role r left join userRole ur on ur.roleId=r.id and ur.status=1 and ur.userId={userId} where r.status=1</OutputSQL>
+		</SelectRecordSet>
+		<OnException>
+			<Return Code="-1" Text="查询角色和用户选择的角色信息异常" Info="RoleService.xml.queryUserRole(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询角色和用户选择的角色成功" Info="查询角色和用户选择的角色成功">
+			<ReturnItem FieldId="{list}" ValueId="{roleUsers}"/>
+		</Return>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="0" TransName="queryRoleNameByIds" DataGroupId="readSystem" >
+		<SelectRecord OutputId="{roleUsers}">
+			<OutputSQL>select group_CONCAT(roleName) as roleName from role  where id in ({r:roleIds})</OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询角色和用户选择的角色信息异常" Info="RoleService.xml.queryUserRole(i)"></Return>
+		</OnException>
+		<Return Code="0" Text="查询角色和用户选择的角色成功" Info="查询角色和用户选择的角色成功">
+			<ReturnItem FieldId="{roleUsers}" ValueId="{roleUsers}"/>
+		</Return>
+	</SQLTrans>		
+</DataService>

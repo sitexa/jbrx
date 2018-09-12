@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>行业列表</title>
+<link rel="icon" href="/static/joli/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+
+</head>
+<body>
+	<ul class="breadcrumb" style="">
+		<li><a href="/admin/center" target="_parent">管理中心首页</a></li>
+		<li><a href="#">行业管理</a></li>
+		<li class="active">行业列表</li>
+	</ul>
+	<div class="page-content-wrap">
+
+
+		<div class="row" style="margin-bottom: 6px;">
+			<div class="form-group">
+				
+				<form class="am-form form-inline" id="listForm" action="/industry" method="post">
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="行业名称" type="text" value="#(name)" name="name">
+	                	</div>
+	               	</div>
+	                <div class="col-md-2 pull-left">
+	                	<div class="input-group ">
+		                	<input class="form-control" placeholder="行业编码" type="text" value="#(code)" name="code">
+	                	</div>
+	               	</div> 
+					<div class="col-md-1 pull-left">
+						<button type="submit" class="btn btn-primary btn-rounded active"><span class="fa fa-search"></span>查询</button>
+					</div>	                                     
+	            </form>   	
+				<div class="col-md-1 pull-left">
+					<button class="btn btn-success btn-rounded" type="submit" onclick="location.href='/industry/input'">添加行业</button>
+				</div> 					
+									
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default" style="margin-bottom:0">
+					<div class="panel-body panel-body-table">
+						<div class="table-responsive">
+							<table class="table datatable_simple">
+								<thead>
+									<tr>
+										<th>行业名称</th>
+										<th>上下级</th>
+										<th>行业编码</th>
+										<th>创建时间</th>
+										<th>修改时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									#if(resultState==0) 
+									#for(industry : resultData.industrys ??)
+									<tr>
+										<td>#(industry.name)</td>
+										<td>#(industry.parentId)>>#(industry.id)</td>
+										<td>#(industry.code)</td>
+										<td>#(industry.createTime)</td>
+										<td>#(industry.updateTime)</td>
+										<td>#(industry.state==1?'启用':'禁用')</td>
+										<td><a href="/industry/input?id=#(industry.id)">修改</a>|<a href="/industry/queryBrandByIndustryId?id=#(industry.id)&industryName=#(industry.name)">行业品牌</a></td>
+									</tr>
+									#end 
+									#else
+									<tr><td colspan="5">无数据或查询异常</td></tr>
+									#end
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			#include("/common/pager.html")
+		</div>
+	</div>
+</body>
+</html>
+
+
+

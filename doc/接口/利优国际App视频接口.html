@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>利优国际App视频接口</title>
+
+<style>
+.new {
+	color: red;
+}
+</style>
+
+</head>
+<body>
+ <pre>
+	<a href="#0001">0001  上传视频接口</a>
+	<a href="#0002">0002  添加视频接口</a>
+	<a href="#0003">0003  分页查询我的视频接口</a>
+	<a href="#0004">0004  分页查询推荐视频接口</a>
+	<a href="#0005">0005  记录观看视频接口</a>  
+	<a href="#0006">0006  用户为视频点赞接口</a>
+    <a href="#0007">0007  用户进入视频页面接口</a>
+    <a href="#0008">0008  推荐视频接口</a> 
+    <a href="#0009">0009  查询当前视频的评论接口</a>
+	<a href="#0010">0010  添加当前视频的评论接口</a>
+	<a href="#0011">0011  当前用户是否已评论接口</a>
+	
+	<b>0001  上传视频接口</b>
+	<i id='0001'>
+	  请求URI：http://192.168.1.127:8091/upload
+	  请求报文:
+		file 文件，与利优图片上传一样
+	  返回报文：
+	    与利优图片上传一样
+	</i>
+
+    <b>0002  添加视频接口</b>
+	<i id='0002'>
+	  请求URI：http://192.168.1.200:10002/video/manage/upload
+	  请求报文(用户登录后才能上传,用户ID为后台获取):
+		"param"：{   
+			"title":"xxx",	//标题
+			"path":"",    //上传视频路径
+			"times":"09:00-21:00" //视频时长
+			"img":"xxx" //图片地址
+			}
+	  返回报文：
+	    {
+			"data":{
+				"data":"{}",
+				"message":"保存成功",
+				"result":0
+			},
+			"message":"ok",
+			"result":0
+		}
+	</i>
+	
+	<b>0003  分页查询我的视频接口</b>
+	<i id='0003'>
+	  请求URI：http://192.168.1.200:10002/video/manage/queryPageByMyVideo
+	  请求报文(用户登录后才能查看，后台会拿当前登录用户ID):
+		"param"：{   
+			"pageNumber":0,	//当前页
+			"pageSize":10,    //页面大小
+			}
+	  返回报文：
+	    {
+			"pageNumber":0,
+			"pageSize":10,
+			"totalCount":1,
+			"list":[
+				{
+					"path":"test",
+					"createTime":"2018-08-27 19:12:25",
+					"count":1,
+					"updateTime":"2018-08-27 19:12:25",
+					"id":1,
+					"img":"xxx" //图片地址
+					"state":1,
+					"title":"dd",
+					"userId":1,
+					"userName":"ss", //对应的用户昵称
+					"userPic":"xx"  //用户头像地址
+				}
+			]
+		}
+	</i>
+	
+	<b>0004  分页查询推荐视频接口</b>
+	<i id='0004'>
+	  请求URI：http://192.168.1.200:10002/video/manage/queryPageByVideo
+	  请求报文:
+		"param"：{   
+			"pageNumber":0,	//当前页
+			"pageSize":10,    //页面大小
+			}
+	  返回报文：
+	    {
+			"pageNumber":0,
+			"pageSize":10,
+			"totalCount":1,
+			"list":[
+				{
+					"path":"test",
+					"createTime":"2018-08-27 19:12:25",
+					"count":1,
+					"updateTime":"2018-08-27 19:12:25",
+					"id":1,
+					"img":"xxx" //图片地址
+					"state":1,
+					"title":"dd",
+					"userId":1，
+					"userName":"ss", //对应的用户昵称
+					"userPic":"xx"  //用户头像地址
+				}
+			]
+		}
+	</i>
+ 
+	<b>0005  记录观看视频接口</b>
+	<i id='0005'>
+	  请求URI：http://192.168.1.200:10002/video/manage/updateCountVideo
+	  请求报文:
+		"param"：{   
+			"id":0,	//当前视频的ID
+			}
+	  返回报文：
+	    {
+			"data":{
+				"data":"{}",
+				"message":"修改成功",
+				"result":0
+			},
+			"message":"ok",
+			"result":0
+		}
+	</i>
+	
+	<b>0006  用户为视频点赞接口</b>
+		<i id='0006'>
+		  请求URI：http://192.168.1.200:10002/video/manage/videoThumb
+		  请求报文(type:1--视频点赞，2--评论点赞 ,userId:手机端唯一编号):
+			"param"：{   
+				"userId":ddd,	//手机端唯一编号
+				"type":1 //1--视频点赞，2--评论点赞
+				"aId":aaa //视频ID或评论ID，与上面的type对应
+				}
+		  返回报文：
+			{
+				"data":{
+					"data":"{}",
+					"message":"修改成功",
+					"result":0
+				},
+				"message":"ok",
+				"result":0
+			}
+		</i>
+
+    <b>0007  用户进入具体的视频页面接口</b>
+	<i id='0007'>
+	  请求URI：http://192.168.1.200:10002/video/manage/queryVideoThumb
+	  请求报文(userId:手机端唯一编号):
+		"param"：{   
+			"deviceId":"ddd",	
+			"id":1 
+			}
+	  返回报文：
+	    {
+			"data": {
+				"id": 1,
+				"isThumb": true,
+				"userId": 1,
+				"videoCount": 2
+			},
+			"message": "OK",
+			"result": 0
+		}
+	</i>
+
+	<b>0008  推荐视频接口</b>
+	<i id='0008'>
+	  请求URI：http://192.168.1.200:10002/video/manage/queryRecommendVideo
+	  请求报文
+		"param"：{   
+			"pageNumber":1,	
+			"pageSize":10
+			}
+	  返回报文：
+	    {
+			"data": {
+				"list": [
+					{
+						"count": 2,
+						"createTime": "2018-08-28 10:31:28",
+						"id": 1,
+						"isThumb": false,
+						"path": "test",
+						"state": 1,
+						"img":"xxx" //图片地址
+						"title": "dd",
+						"updateTime": "2018-08-28 10:31:28",
+						"userId": 1，
+						"userName":"ss", //对应的用户昵称
+					    "userPic":"xx"  //用户头像地址
+					}
+				],
+				"pageNumber": 1,
+				"pageSize": 10,
+				"totalCount": 3,
+				"totalPage": 1
+			},
+			"message": "OK",
+			"result": 0
+		}
+	</i>
+
+	<b>0009  查询当前视频的评论接口</b>
+	<i id='0009'>
+	  请求URI：http://192.168.1.200:10002/video/manage/queryPageCommentByVideoId
+	  请求报文
+		"param"：{   
+			"pageNumber":1,	
+			"pageSize":10,
+			"id":1 //视频ID,
+			"deviceId":"xx"  查询点赞专用,手机的唯一编号
+			}
+	  返回报文：
+	    {
+			"data": {
+				"list": [
+					{
+						"commentThumb": 0, //点赞的总数
+						"content": "test", //标题
+						"createTime": "2018-08-27 20:09:10",
+						"id": 3,
+						"isThumb": false,  //是否点赞：false 没有，true:已点
+						"iscomment": 1,   //
+						"state": 1,
+						"updateTime": "2018-08-27 20:08:58",
+						"userId": 1,
+						"videoId": 1，
+						"userName":"ss", //对应的用户昵称
+					    "userPic":"xx"  //用户头像地址
+					}
+				],
+				"pageNumber": 1,
+				"pageSize": 10,
+				"totalCount": 1,
+				"totalPage": 1
+			},
+			"message": "OK",
+			"result": 0
+		}
+	</i>
+	
+	<b>0010  添加当前视频的评论接口</b>
+	<i id='0010'>
+	  请求URI：http://192.168.1.200:10002/video/manage/addComment
+	  请求报文(用户登录后才能评论,用户ID为后台获取):
+		"param"：{   
+			"videoId":1,	//当前视频的ID
+			"content":“dasfdsf” //评论内容
+			"iscomment":1,	是否评论过：1--为已评论，0--为未评论
+			}
+	  返回报文：
+	    {
+			"data":{
+				"data":"{}",
+				"message":"保存成功",
+				"result":0
+			},
+			"message":"ok",
+			"result":0
+		}
+	</i>
+	
+	<b>0011  当前用户是否已评论接口</b>
+	<i id='0011'>
+	  请求URI：http://192.168.1.200:10002/video/manage/isComment
+	  请求报文(用户登录后才能评论,用户ID为后台获取):
+		"param"：{   
+			"videoId":1,	//当前视频的ID
+			}
+	  返回报文：
+	    {
+			"data":{
+				"data":true,   //true - 已点赞,false-未点赞
+				"message":"查询成功",
+				"result":0
+			},
+			"message":"ok",
+			"result":0
+		}
+
+	</i>
+  </pre>
+ 
+</body>
+</html>

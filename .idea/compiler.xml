@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rxgj-admin" />
+        <module name="rxgj-api" />
+        <module name="rxgj-common" />
+        <module name="rxgj-facade" />
+        <module name="rxgj-message-facade" />
+        <module name="rxgj-message-service" />
+        <module name="rxgj-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="rxgj" target="1.5" />
+      <module name="rxgj-admin" target="1.8" />
+      <module name="rxgj-api" target="1.8" />
+      <module name="rxgj-common" target="1.8" />
+      <module name="rxgj-facade" target="1.8" />
+      <module name="rxgj-message-facade" target="1.8" />
+      <module name="rxgj-message-service" target="1.8" />
+      <module name="rxgj-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

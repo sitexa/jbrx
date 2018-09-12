@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>新增LoginLog_信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+</head>
+<body>
+	<div>
+		<ul class="breadcrumb">
+			<li><a href="/admin/index">管理中心首页</a></li>
+			<li><a href="index">LoginLog_管理</a></li>
+			<li class="active">新增LoginLog_信息</li>
+		</ul>
+		<div class="page-content">
+			<div class="page-content-wrap">
+				<form id="form" class="form-horizontal" action="#(loginLog.id ?? ? 'update' : 'save' )" method="post">
+					<input type="hidden" name="loginLog.id" value="#(loginLog.id ?? -1)">
+					<div class="row">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>新增LoginLog_信息</strong>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">上级</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="">
+											<option value="0">一级</option> 
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">id</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="id" class="form-control" name="loginLog.id" value="#(loginLog.id ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">employeeId</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="employeeId" class="form-control" name="loginLog.employeeId" value="#(loginLog.employeeId ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">loginIp</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="loginIp" class="form-control" name="loginLog.loginIp" value="#(loginLog.loginIp ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">loginTime</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="loginTime" class="form-control" name="loginLog.loginTime" value="#(loginLog.loginTime ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">state</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="state" class="form-control" name="loginLog.state" value="#(loginLog.state ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">createTime</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="createTime" class="form-control" name="loginLog.createTime" value="#(loginLog.createTime ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">updateTime</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="updateTime" class="form-control" name="loginLog.updateTime" value="#(loginLog.updateTime ??)"/>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-primary" type="submit">保存</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="/static/joli/js/plugins/jquery/jquery.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap-datepicker.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/bootstrap/bootstrap-select.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/tagsinput/jquery.tagsinput.min.js"/>
+<script type='text/javascript' src='/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js'/>
+<script type='text/javascript' src='/static/joli/js/plugins/validationengine/jquery.validationEngine.js'/>
+<script type="text/javascript" src="/static/joli/js/plugins/fileinput/fileinput.min.js"/>
+<script type="text/javascript" src="/static/joli/js/plugins/filetree/jqueryFileTree.js"/>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/DataService.xsd">
+	
+	<SQLTrans TransFlag="1" TransName="insertMessageRecord" DataGroupId="writeMessage" >
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(messageSn) from messageRecord where receiver={receiver} and serviceType={serviceType} and messageDate={messageDate}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="&gt;" Value2="15">
+			<Then><Return Code="1" Info="你当天发送短信次数已超限" Text="你当天发送短信次数已超限"/></Then>
+		</If>
+		<Insert>
+			<OutputSQL>
+				insert into messageRecord (messageSn,messageType,serviceType,receiver,title,content,status,messageDate,createTime) values
+				({messageSn},{messageType},{serviceType},{receiver},{title},{content},{status},{currentTime},{currentTime})
+			</OutputSQL>
+		</Insert>
+		<OnException>
+			<Return Code="-4" Text="创建订单异常" Info="创建订单异常"></Return>
+		</OnException>
+		<Return Code="0" Text="创建订单成功" Info="创建订单成功"/>
+	</SQLTrans>	
+	
+	<SQLTrans TransFlag="1" TransName="updateMessageRecord" DataGroupId="writeMessage" >
+		<Update>
+			<OutputSQL>update messageRecord set thirdSn={thirdSn},status=1,sendTime={currentTime} where messageSn={messageSn}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-4" Text="创建订单异常" Info="创建订单异常"></Return>
+		</OnException>
+		<Return Code="0" Text="创建订单成功" Info="创建订单成功"/>
+	</SQLTrans>		
+	
+</DataService>

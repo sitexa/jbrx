@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>发布升级信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" id="theme" href="/static/joli/css/theme-default.css" />
+</head>
+<body>
+	<div>
+		<ul class="breadcrumb">
+			<li><a href="/admin/index">管理中心首页</a></li>
+			<li><a href="index">系统升级管理</a></li>
+			<li class="active">发布升级信息</li>
+		</ul>
+		<div class="page-content">
+			<div class="page-content-wrap">
+				<form id="form" class="form-horizontal" action="#(upgrade.id ?? ? 'update' : 'save' )" method="post">
+					<input type="hidden" name="upgrade.id" value="#(upgrade.id ??)">
+					<div class="row">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>发布升级信息</strong>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">版本号</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="v1.0.1" class="form-control" name="upgrade.verName" value="#(upgrade.verName ??)"/>
+									</div>
+								</div>
+<!-- 								<div class="form-group"> -->
+<!-- 									<label class="col-md-1 col-xs-12 control-label">版本版本顺序</label> -->
+<!-- 									<div class="col-md-3 col-xs-12"> -->
+<!-- 										<input type="text" placeholder="2018052201-纯数字" class="form-control" name="upgrade.verCode" value="#(upgrade.verCode ??)"/> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">升级描述</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="1.修改了xxx" class="form-control" name="upgrade.verDesc" value="#(upgrade.verDesc ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">苹果下载地址</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="http://xxx.com/ios" class="form-control" name="upgrade.iosUrl" value="#(upgrade.iosUrl ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">安卓下载地址</label>
+									<div class="col-md-3 col-xs-12">
+										<input type="text" placeholder="http://xxx.com/android" class="form-control" name="upgrade.aosUrl" value="#(upgrade.aosUrl ??)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-1 col-xs-12 control-label">更新方式</label>
+									<div class="col-md-3 col-xs-12">
+										<select class="form-control select" name="upgrade.upType">
+											<option value="">----选择更新方式----</option> 
+											<option value="1" #((1==upgrade.upType ??) ? 'selected="selected"':'')>部分更新</option> 
+											<option value="2" #((2==upgrade.upType ??) ? 'selected="selected"':'')>强制更新</option> 
+											<option value="3" #((3==upgrade.upType ??) ? 'selected="selected"':'')>非强制更新</option> 
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<button class="btn btn-primary" type="submit" onclick= "if(confirm( '确定发布?')==false)return   false; ">发布</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="/static/laydate/laydate.js"></script>
+<script>
+laydate.render({
+  elem: '#verDate' //指定元素
+});
+</script>

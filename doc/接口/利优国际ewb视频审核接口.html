@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>利优国际ewb视频审核接口(都是登录后获取的jwt，要传jwt)</title>
+
+<style>
+.new {
+	color: red;
+}
+</style>
+
+</head>
+<body>
+ <pre>
+	<a href="#0001">0001  分页查询待审核的视频接口</a>
+	<a href="#0002">0002  修改审核视频状态</a>
+
+	
+	<b>0001  分页查询待审核的视频接口</b>
+	<i id='0001'>
+	  请求URI：http://192.168.1.200:10003/manage/video/examineVideo
+	  请求报文:
+		param：{"pageNumber":1,"pageSize":10,"state":0} //state扩展说明（如果要其它页面的情况）：state： 1--审核通过，0--待审核，2--审核不通过，3--删除
+	  返回报文：
+	    {
+			"data": {
+				"list": [
+					{
+						"count": 2,
+						"createTime": "2018-08-28 10:31:28",
+						"id": 1,
+						"isThumb": false,
+						"path": "test",
+						"state": 1,
+						"title": "dd",
+						"updateTime": "2018-08-28 10:31:28",
+						"userId": 1
+					},
+					{
+						"count": 0,
+						"createTime": "2018-08-28 10:19:20",
+						"id": 4,
+						"isThumb": false,
+						"path": "tt",
+						"state": 1,
+						"title": "ff",
+						"updateTime": "2018-08-28 10:19:09",
+						"userId": 2
+					}
+				],
+				"pageNumber": 1,
+				"pageSize": 10,
+				"totalCount": 3,
+				"totalPage": 1
+			},
+			"message": "OK",
+			"result": 0
+		}
+	</i>
+
+	<b>0002  修改审核视频状态</b>
+	<i id='0002'>
+	  请求URI：http://192.168.1.200:10003/manage/video/updateVideo
+	  请求报文:
+		param：{"id":10,"state":1} //state扩展说明（如果要其它页面的情况）：state： 1--审核通过，0--待审核，2--审核不通过，3--删除
+	  返回报文：
+	    {
+			"result": 0,
+			"message": "修改状态成功",
+			"data": {}
+		}
+	</i>
+   
+  </pre>
+ 
+</body>
+</html>
