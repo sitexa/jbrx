@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rxgj</artifactId>
-        <groupId>rxgj</groupId>
+        <artifactId>jbrx</artifactId>
+        <groupId>jbrx</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rxgj-api</artifactId>
+    <artifactId>jbrx-message-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -17,66 +17,108 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.www.mall</groupId>
+            <artifactId>rxmall-common</artifactId>
+            <version>1.02</version>
+        </dependency>
 
-
-        <dependency>
-            <groupId>com.gavin</groupId>
-            <artifactId>gavin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.arronlong</groupId>
-            <artifactId>httpclientutil</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.xiaoleilu</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
         <dependency>
             <groupId>io.jboot</groupId>
             <artifactId>jboot</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-        <!--shiro-->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.3.2</version>
+            <groupId>com.gavin</groupId>
+            <artifactId>gavin</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>1.3.2</version>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <!-- 极光推送 -->
+        <dependency>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jpush-client</artifactId>
+            <version>3.3.2</version>
         </dependency>
         <dependency>
-            <groupId>com.lmax</groupId>
-            <artifactId>disruptor</artifactId>
-            <version>3.3.7</version>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jsms-client</artifactId>
+            <version>1.2.6</version>
         </dependency>
         <dependency>
-            <groupId>rxgj</groupId>
-            <artifactId>rxgj-facade</artifactId>
-            <version>1.0</version>
-        </dependency><dependency>
-        <groupId>rxgj</groupId>
-        <artifactId>rxgj-common</artifactId>
-        <version>1.0</version>
-        <scope>compile</scope>
-    </dependency>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jiguang-common</artifactId>
+            <version>1.0.8</version>
+        </dependency>
         <dependency>
-            <groupId>rxgj</groupId>
-            <artifactId>rxgj-massege-facade</artifactId>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>castor</groupId>
+            <artifactId>castor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jbrx</groupId>
+            <artifactId>jbrx-message-facade</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -100,7 +142,7 @@
                 <version>1.10</version>
                 <configuration>
 
-                    <assembleDirectory>${project.build.directory}/ApiApp</assembleDirectory>
+                    <assembleDirectory>${project.build.directory}/MessageService</assembleDirectory>
                     <repositoryName>lib</repositoryName>
                     <binFolder>bin</binFolder>
                     <configurationDirectory>webRoot</configurationDirectory>
@@ -114,23 +156,20 @@
                     <programs>
                         <!--程序打包 mvn package appassembler:assemble -->
                         <program>
-                            <mainClass>com.www.mall.ApiApp</mainClass>
-                            <id>ApiApp</id>
+                            <mainClass>com.www.mall.service.MessageService</mainClass>
+                            <id>wblogs</id>
                             <platforms>
                                 <platform>windows</platform>
                                 <platform>unix</platform>
                             </platforms>
-                            <!-- <jvmSettings> <extraArguments> <extraArgument>-server</extraArgument>
-                                <extraArgument>-Xmx2G</extraArgument> <extraArgument>-Xms2G</extraArgument>
-                                </extraArguments> </jvmSettings> -->
                         </program>
                     </programs>
 
                     <daemons>
                         <!-- 后台程序打包：mvn clean package appassembler:generate-daemons -->
                         <daemon>
-                            <mainClass>com.www.mall.ApiApp</mainClass>
-                            <id>ApiApp</id>
+                            <mainClass>com.www.mall.service.MessageService</mainClass>
+                            <id>MessageService</id>
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>
@@ -160,7 +199,7 @@
                                         </property>
                                         <property>
                                             <name>wrapper.logfile</name>
-                                            <value>logs/ApiApp.log</value>
+                                            <value>logs/MessageService.log</value>
                                         </property>
                                     </configuration>
                                 </generatorConfiguration>
@@ -171,5 +210,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -2,12 +2,13 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-admin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-common" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-facade" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-message-facade" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-message-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rxgj-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-message-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-message-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbrx-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools" charset="UTF-8" />
   </component>
 </project>

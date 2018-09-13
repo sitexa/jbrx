@@ -3,17 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>rxgj</groupId>
-    <artifactId>rxgj</artifactId>
+    <groupId>jbrx</groupId>
+    <artifactId>jbrx</artifactId>
     <version>1.0</version>
     <modules>
-        <module>rxgj-common</module>
-        <module>rxgj-admin</module>
-        <module>rxgj-facade</module>
-        <module>rxgj-api</module>
-        <module>rxgj-service</module>
-        <module>rxgj-message-facade</module>
-        <module>rxgj-message-service</module>
+        <module>jbrx-admin</module>
+        <module>jbrx-api</module>
+        <module>jbrx-common</module>
+        <module>jbrx-facade</module>
+        <module>jbrx-message-facade</module>
+        <module>jbrx-message-service</module>
+        <module>jbrx-service</module>
+        <module>tools</module>
     </modules>
     <packaging>pom</packaging>
 

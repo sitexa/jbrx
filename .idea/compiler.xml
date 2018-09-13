@@ -6,15 +6,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rxgj-admin" />
-        <module name="rxgj-api" />
-        <module name="rxgj-common" />
-        <module name="rxgj-facade" />
-        <module name="rxgj-message-facade" />
-        <module name="rxgj-message-service" />
-        <module name="rxgj-service" />
+        <module name="jbrx-admin" />
+        <module name="jbrx-api" />
+        <module name="jbrx-common" />
+        <module name="jbrx-facade" />
+        <module name="jbrx-message-facade" />
+        <module name="jbrx-message-service" />
+        <module name="jbrx-service" />
+        <module name="tools" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="jbrx" target="1.5" />
+      <module name="jbrx-admin" target="1.8" />
+      <module name="jbrx-api" target="1.8" />
+      <module name="jbrx-common" target="1.8" />
+      <module name="jbrx-facade" target="1.8" />
+      <module name="jbrx-message-facade" target="1.8" />
+      <module name="jbrx-message-service" target="1.8" />
+      <module name="jbrx-service" target="1.8" />
+      <module name="tools" target="1.8.0_152-release" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rxgj</artifactId>
-        <groupId>rxgj</groupId>
+        <artifactId>jbrx</artifactId>
+        <groupId>jbrx</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rxgj-service</artifactId>
+    <artifactId>jbrx-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -18,8 +18,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>rxgj</groupId>
-            <artifactId>rxgj-common</artifactId>
+            <groupId>jbrx</groupId>
+            <artifactId>jbrx-common</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
@@ -29,6 +29,7 @@
         <dependency>
             <groupId>com.gavin</groupId>
             <artifactId>gavin</artifactId>
+            <version>2.01</version>
         </dependency>
         <dependency>
             <groupId>com.xiaoleilu</groupId>
@@ -93,8 +94,8 @@
             <artifactId>logback-classic</artifactId>
         </dependency>
         <dependency>
-            <groupId>rxgj</groupId>
-            <artifactId>rxgj-facade</artifactId>
+            <groupId>jbrx</groupId>
+            <artifactId>jbrx-facade</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
