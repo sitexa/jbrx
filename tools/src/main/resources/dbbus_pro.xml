@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DBBus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="trans/DBBus.xsd" DataGroupId="jbrx">
+
+    <DataServiceEngine>com.gavin.plugin.database.BigDataEngine</DataServiceEngine>
+
+    <DataGroup Id="readTable" Driver="com.mysql.cj.jdbc.Driver" ClassPath="com.gavin.plugin.database.DataEngine">
+        <Database URI="jdbc:mysql://read.www.rxgj.mysql:3306/jbrx?useUnicode=true&amp;characterEncode=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong&amp;useSSL=false" LoadLevel="100">
+            <User UserName="root" Password="root"/>
+            <ConnectionPool>
+                <MinConnectionCount>1</MinConnectionCount>
+                <MaxConnectionCount>5</MaxConnectionCount>
+            </ConnectionPool>
+        </Database>
+    </DataGroup>
+
+    <DataGroup Id="writeTable" Driver="com.mysql.cj.jdbc.Driver" ClassPath="com.gavin.plugin.database.DataEngine">
+        <Database URI="jdbc:mysql://read.www.rxgj.mysql:3306/jbrx?useUnicode=true&amp;characterEncode=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong&amp;useSSL=false" LoadLevel="100">
+            <User UserName="root" Password="root"/>
+            <ConnectionPool>
+                <MinConnectionCount>1</MinConnectionCount>
+                <MaxConnectionCount>5</MaxConnectionCount>
+            </ConnectionPool>
+        </Database>
+    </DataGroup>
+    <Plugin Resource="trans/table/plugin.xml" Encoding="utf-8"/>
+
+</DBBus>

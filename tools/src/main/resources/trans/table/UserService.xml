@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+
+    <!--根据手机号码查询用户-->
+    <SQLTrans TransFlag="0" TransName="queryByMobilePhone" BigTableGroupId="readTable">
+        <SelectRecord OutputId="{user}">
+            <OutputSQL>select * from user where mobilePhone={mobilePhone}</OutputSQL>
+        </SelectRecord>
+        <OnException>
+            <Return Code="-1" Info="查询User异常" Text="查询异常：UserService.xml.queryByMobilePhone(i)"/>
+        </OnException>
+        <Return Code="0" Info="查询成功" Text="查询成功">
+            <ReturnItem FieldId="{user}" ValueId="{user}"/>
+        </Return>
+    </SQLTrans>
+
+    <SQLTrans TransName="saveUser" TransFlag="1" DataGroupId="writeTable">
+        <SelectField OutputId="{count}">
+            <OutputSQL>select count(id) from user where mobilePhone={mobilePhone}</OutputSQL>
+        </SelectField>
+        <If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+            <Then>
+                <Return Code="1" Info="用户已经注册" Text="用户已经注册"/>
+            </Then>
+        </If>
+        <Insert>
+            <OutputSQL>
+                insert into user (nickName,mobilePhone,password,salt,status,lockTime,createTime,idcard,idcardImg,idcardImgBack,bank,bankch,bankNum,bankImg,bankImgBack,bankcardOwner,mobile,country,cardType)
+                values({nickName},{mobilePhone},{password},{salt},1,{currentTime},{currentTime},{idcard},{idcardImg},{idcardImgBack},{bank},{bankch},{bankNum},{bankImg},{bankImgBack},{bankcardOwner},{mobile},{country},{cardType})
+            </OutputSQL>
+        </Insert>
+        <SelectField OutputId="{userId}">
+            <OutputSQL>select @@IDENTITY user</OutputSQL>
+        </SelectField>
+        <OnException>
+            <Return Code="-1" Info="注册异常" Text="注册异常"/>
+        </OnException>
+        <Return Code="0" Info="注册成功" Text="注册成功">
+            <ReturnItem FieldId="{userId}" ValueId="{userId}"/>
+        </Return>
+    </SQLTrans>
+
+
+</DataService>
