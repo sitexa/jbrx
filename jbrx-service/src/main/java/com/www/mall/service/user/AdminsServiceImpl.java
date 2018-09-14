@@ -5,7 +5,7 @@ import com.gavin.model.Page;
 import com.gavin.model.Request;
 import com.gavin.model.Response;
 import com.www.mall.common.base.BaseService;
-import com.www.mall.common.shiro.principal.Admins;
+import com.www.mall.common.shiro.principal.AdminPrincipal;
 import com.xiaoleilu.hutool.util.RandomUtil;
 import io.jboot.aop.annotation.Bean;
 import io.jboot.core.rpc.annotation.JbootrpcService;
@@ -16,21 +16,21 @@ import javax.inject.Singleton;
 @Bean
 @Singleton
 @JbootrpcService
-public class AdminsService extends BaseService implements com.www.mall.user.interf.AdminsService{
+public class AdminsServiceImpl extends BaseService implements com.www.mall.user.interf.AdminsService{
     @Override
-    public Admins getAdminsByUserName(String adminsName){
+    public AdminPrincipal getAdminsByUserName(String adminsName){
         Request request=Request.build(service, "getAdminsByUserName").set("adminsName", adminsName).currentTime();
-        Admins admins=DBTrans.bean(request,Admins.class);
+        AdminPrincipal admins=DBTrans.bean(request, AdminPrincipal.class);
         return admins;
     }
     @Override
-    public Page<Admins> getAdminsList(int pageNumber, int pageSize, String userName){
+    public Page<AdminPrincipal> getAdminsList(int pageNumber, int pageSize, String userName){
         Request request=Request.build(service, "getAdminsList").page(pageNumber, pageSize).set("userName", userName).currentTime();
-        Page<Admins> page=DBTrans.page(request,Admins.class);
+        Page<AdminPrincipal> page=DBTrans.page(request, AdminPrincipal.class);
         return page;
     }
     @Override
-    public Response insertAdmin(Admins admins){
+    public Response insertAdmin(AdminPrincipal admins){
         String salt=RandomUtil.simpleUUID();
         admins.setSalt(salt);
         admins.setPassword(new Md5Hash(admins.getPassword(),salt,3).toString());
@@ -39,25 +39,25 @@ public class AdminsService extends BaseService implements com.www.mall.user.inte
         return response;
     }
     @Override
-    public Response updateAdmin(Admins admins){
+    public Response updateAdmin(AdminPrincipal admins){
         Request request=Request.build(service, "updateAdmin").from(admins).currentTime();
         Response response=DBTrans.execute(request);
         return response;
     }
     @Override
-    public Response isUsedAdmin(Admins admins){
+    public Response isUsedAdmin(AdminPrincipal admins){
         Request request=Request.build(service, "isUsedAdmin").from(admins).currentTime();
         Response response=DBTrans.execute(request);
         return response;
     }
     @Override
-    public Response delAdmin(Admins admins){
+    public Response delAdmin(AdminPrincipal admins){
         Request request=Request.build(service, "delAdmin").from(admins).currentTime();
         Response response=DBTrans.execute(request);
         return response;
     }
     @Override
-    public Response updateAdminPassword(Admins admins){
+    public Response updateAdminPassword(AdminPrincipal admins){
         String salt=RandomUtil.simpleUUID();
         admins.setSalt(salt);
         admins.setPassword(new Md5Hash(admins.getPassword(),salt,3).toString());

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ServicePlugin
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="/com/gavin/plugin/xsd/ServiceBus.xsd">
-	<ServiceConfig Name="UsersService">
-		<DataService Resource="trans/user/UsersService.xml"
+	xsi:noNamespaceSchemaLocation="../DBBus.xsd">
+	<ServiceConfig Name="UserService">
+		<DataService Resource="trans/user/UserService.xml"
 			Encoding="utf-8" />
 	</ServiceConfig>
 
@@ -36,8 +36,8 @@
 	</ServiceConfig>
 	
 	<!-- web用户 -->
-	<ServiceConfig Name="AdminsService">
-		<DataService Resource="trans/user/AdminsService.xml" Encoding="utf-8"/>
+	<ServiceConfig Name="AdminService">
+		<DataService Resource="trans/user/AdminService.xml" Encoding="utf-8"/>
 	</ServiceConfig>
 
 

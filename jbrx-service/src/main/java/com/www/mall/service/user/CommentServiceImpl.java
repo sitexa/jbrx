@@ -6,12 +6,12 @@ import com.gavin.model.Page;
 import com.gavin.model.Request;
 import com.gavin.model.Response;
 import com.www.mall.common.base.BaseService;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 import com.www.mall.user.dto.Comment;
 import com.www.mall.user.dto.Video;
 import com.www.mall.user.interf.CommentService;
 import com.www.mall.user.interf.ThumbService;
-import com.www.mall.user.interf.UsersService;
+import com.www.mall.user.interf.UserService;
 
 import io.jboot.aop.annotation.Bean;
 import io.jboot.core.rpc.annotation.JbootrpcService;
@@ -32,7 +32,7 @@ public class CommentServiceImpl extends BaseService implements CommentService {
 	ThumbService thumbService;
 	
 	@JbootrpcService
-    private UsersService usersService;
+    private UserService usersService;
 
 	/**
 	 * 保存评论
@@ -64,7 +64,7 @@ public class CommentServiceImpl extends BaseService implements CommentService {
 		Page<Comment> page = DBTrans.page(request, Comment.class);
 		if(page.getList().size() > 0) {
 			for(Comment c:page.getList()) {
-				User u = usersService.queryUsersById(c.getUserId());
+				UserPrincipal u = usersService.queryUsersById(c.getUserId());
 				if(u != null) {
 					c.setUserName(u.getNickName());
 					c.setUserPic(u.getPic());

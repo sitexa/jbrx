@@ -21,7 +21,7 @@ loginAuth=com.www.mall.security.auth.LoginAuth
 dbRealm=com.www.mall.security.shiro.ShiroDbRealm
 dbRealm.credentialsMatcher=$credentialsMatcher
 dbRealm.authorizationCacheName=shiro-authorizationCache
-dbRealm.muitiAuthenticatied=$loginAuth
+dbRealm.multiAuthenticator=$loginAuth
 securityManager.realm=$dbRealm
 
 #session 基于缓存 sessionDao

@@ -1,5 +1,6 @@
 package com.www.mall.controller;
 
+import com.www.mall.common.shiro.principal.AdminPrincipal;
 import com.www.mall.user.interf.AdminsService;
 import io.jboot.Jboot;
 import org.apache.commons.lang3.StringUtils;
@@ -11,7 +12,6 @@ import com.www.mall.common.bean.Ret;
 import com.www.mall.common.bean.UserState;
 import com.www.mall.common.shiro.cache.CacheKey;
 import com.www.mall.common.shiro.cache.ShiroCacheUtils;
-import com.www.mall.common.shiro.principal.Admins;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
 
@@ -43,7 +43,7 @@ public class LoginController extends BaseController{
 	 */
 	public void login() {
 
-		Admins adminDb=getBeanByJsonParam(Admins.class);
+		AdminPrincipal adminDb=getBeanByJsonParam(AdminPrincipal.class);
 		if(adminDb==null){
 			renderJson(Ret.fail("用户名或密码不正确"));
 			return;
@@ -55,7 +55,7 @@ public class LoginController extends BaseController{
 			renderJson(Ret.relogin("账号或密码不能为空!"));
 			return;
 		}
-		Admins admins=null;
+		AdminPrincipal admins=null;
 		try {
 			AdminsService adminsService=Jboot.service(AdminsService.class);
 			admins=adminsService.getAdminsByUserName(username);

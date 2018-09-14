@@ -8,7 +8,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
  * @author Rlax
  * 
  */
-public class MuitiLoginToken extends UsernamePasswordToken {
+public class MultiLoginToken extends UsernamePasswordToken {
 
 	private static final long serialVersionUID = 13810646381777514L;
 
@@ -33,7 +33,7 @@ public class MuitiLoginToken extends UsernamePasswordToken {
 	/**
 	 * 构造方法
 	 */
-	public MuitiLoginToken(String username, String password) {
+	public MultiLoginToken(String username, String password) {
 		super(username, password);
 	}
 

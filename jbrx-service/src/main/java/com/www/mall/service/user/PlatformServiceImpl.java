@@ -19,7 +19,7 @@ import java.util.List;
 @Bean
 @Singleton
 @JbootrpcService
-public class PlatformService extends BaseService implements com.www.mall.user.interf.PlatformService{
+public class PlatformServiceImpl extends BaseService implements com.www.mall.user.interf.PlatformService{
     @Override
     public Page<PlatformVo> getPlatformAppList(int pageNumber, int pageSize,Long userId, String plateformName){
         Request request=Request.build(service, "getPlatformAppList").page(pageNumber, pageSize).set("plateformName", plateformName);

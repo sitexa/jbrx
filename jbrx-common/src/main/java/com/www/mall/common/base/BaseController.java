@@ -8,11 +8,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gavin.model.Response;
 import com.jfinal.log.Log;
-import com.www.mall.common.bean.AdminsVo;
-import com.www.mall.common.bean.Ploy;
-import com.www.mall.common.bean.RC;
-import com.www.mall.common.bean.Ret;
-import com.www.mall.common.bean.UsersVo;
+import com.www.mall.common.bean.*;
+import com.www.mall.common.bean.UserVo;
 import com.www.mall.common.shiro.ShiroUtils;
 import com.www.mall.common.utils.BlankUtil;
 import com.www.mall.common.utils.ParamUtil;
@@ -365,12 +362,12 @@ public class BaseController extends JbootController {
 	/**
 	 * 获取系统管理用户
 	 */
-	public AdminsVo getAdmins(){
+	public AdminVo getAdmins(){
 		Map<String,Object> adminsHm=getJwtPara("admins");
 		if(adminsHm==null){
 			return null;
 		}
-		AdminsVo admins=new AdminsVo();
+		AdminVo admins=new AdminVo();
 		for (Entry<String, Object> entry :adminsHm.entrySet()) {
 			Object value=entry.getValue();
 			if(value instanceof String){
@@ -393,12 +390,12 @@ public class BaseController extends JbootController {
 	 * 获取用户信息
 	 * @return
 	 */
-	public UsersVo getUser(){
+	public UserVo getUser(){
 		Map<String,Object> userHm=getJwtPara("user");
 		if(userHm==null){
 			return null;
 		}
-		UsersVo user=new UsersVo();
+		UserVo user=new UserVo();
 		for (Entry<String, Object> entry :userHm.entrySet()) {
 			Object value=entry.getValue();
 			if(value instanceof String){

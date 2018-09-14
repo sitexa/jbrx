@@ -28,4 +28,15 @@
       <module name="tools" target="1.8.0_152-release" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jbrx-admin" options="-parameters" />
+      <module name="jbrx-api" options="-parameters" />
+      <module name="jbrx-common" options="-parameters" />
+      <module name="jbrx-facade" options="-parameters" />
+      <module name="jbrx-message-facade" options="-parameters" />
+      <module name="jbrx-message-service" options="-parameters" />
+      <module name="jbrx-service" options="-parameters" />
+    </option>
+  </component>
 </project>

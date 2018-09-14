@@ -32,17 +32,13 @@ package com.www.mall.controller;
 
 import com.gavin.model.Page;
 import com.gavin.model.Response;
-import com.gavin.model.RetCode;
 import com.jfinal.aop.Before;
 import com.www.mall.common.base.BaseController;
-import com.www.mall.common.bean.AdminsVo;
 import com.www.mall.interceptor.AuthInterceptor;
 import com.www.mall.user.dto.Banner;
 import com.www.mall.user.interf.BannerService;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
-
-import java.util.List;
 
 @RequestMapping("/manage/banner")
 public class BannerController extends BaseController {

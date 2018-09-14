@@ -4,7 +4,8 @@ import com.gavin.business.DBTrans;
 import com.gavin.model.Request;
 import com.gavin.model.Response;
 import com.www.mall.common.base.BaseService;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.shiro.principal.UserPrincipal;
+import com.www.mall.user.interf.UserService;
 import io.jboot.aop.annotation.Bean;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 
@@ -13,7 +14,7 @@ import javax.inject.Singleton;
 @Bean
 @Singleton
 @JbootrpcService
-public class UsersService extends BaseService implements com.www.mall.user.interf.UsersService{
+public class UserServiceImpl extends BaseService implements UserService {
     @Override
     public Response queryUsersByUsersName(String mobilePhone){
         Request request=Request.build(service, "queryUsersByUsersName").set("mobilePhone", mobilePhone);
@@ -22,7 +23,7 @@ public class UsersService extends BaseService implements com.www.mall.user.inter
     }
 
     @Override
-    public Response saveUsers(User user){
+    public Response saveUsers(UserPrincipal user){
         Request request=Request.build(service, "saveUsers").from(user).currentTime();
         Response response=DBTrans.execute(request);
         return response;
@@ -34,9 +35,9 @@ public class UsersService extends BaseService implements com.www.mall.user.inter
         return response;
     }
     @Override
-    public User queryUsersById(long id){
+    public UserPrincipal queryUsersById(long id){
         Request request=Request.build(service, "queryUsersById").set("id",id);
-        User user=DBTrans.bean(request,User.class);
+        UserPrincipal user=DBTrans.bean(request, UserPrincipal.class);
         return user;
     }
     @Override
@@ -48,7 +49,7 @@ public class UsersService extends BaseService implements com.www.mall.user.inter
 
 
     @Override
-    public Response updateBankInfo(User user){
+    public Response updateBankInfo(UserPrincipal user){
         //Request request=Request.build(service, "updateBankInfo").set("userId",user.getId()).set("bank", user.getBank()).set("bankch", user.getBankch()).set("bank_num", user.getBankNum()).set("bank_img", user.getBankImg()).set("bankcard_owner", user.getBankcardOwner()).set("mobile", user.getMobile()).currentTime();
         Request request=Request.build(service, "updateBankInfo").from(user).currentTime();
         Response response=DBTrans.execute(request);
@@ -56,7 +57,7 @@ public class UsersService extends BaseService implements com.www.mall.user.inter
     }
 
     @Override
-    public Response updateUserIdcardInfo(User user){
+    public Response updateUserIdcardInfo(UserPrincipal user){
         //Request request=Request.build(service, "updateBankInfo").set("userId",user.getId()).set("bank", user.getBank()).set("bankch", user.getBankch()).set("bank_num", user.getBankNum()).set("bank_img", user.getBankImg()).set("bankcard_owner", user.getBankcardOwner()).set("mobile", user.getMobile()).currentTime();
         Request request=Request.build(service, "updateUserIdcardInfo").from(user).currentTime();
         Response response=DBTrans.execute(request);
@@ -69,7 +70,7 @@ public class UsersService extends BaseService implements com.www.mall.user.inter
         return response;
     }
     @Override
-    public Response updateUserAddress(User user){
+    public Response updateUserAddress(UserPrincipal user){
         //Request request=Request.build(service, "updateBankInfo").set("userId",user.getId()).set("bank", user.getBank()).set("bankch", user.getBankch()).set("bank_num", user.getBankNum()).set("bank_img", user.getBankImg()).set("bankcard_owner", user.getBankcardOwner()).set("mobile", user.getMobile()).currentTime();
         Request request=Request.build(service, "updateUserAddress").from(user).currentTime();
         Response response=DBTrans.execute(request);

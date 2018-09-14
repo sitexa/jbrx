@@ -1,11 +1,11 @@
-package com.www.mall.common.constans;
+package com.www.mall.common.constants;
 
 import com.www.mall.common.bean.ESInfo;
 import com.www.mall.common.bean.SSOInfo;
 
 import io.jboot.Jboot;
 
-public class Constans {
+public class RxConstants {
 	//------------------------------------------------------------------------------
 	/**
      * 首次请求

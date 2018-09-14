@@ -4,7 +4,7 @@ import com.gavin.model.Page;
 import com.gavin.model.Response;
 import com.www.mall.common.base.BaseController;
 import com.www.mall.common.bean.RC;
-import com.www.mall.common.constans.HttpImgContans;
+import com.www.mall.common.constants.HttpImgContants;
 import com.www.mall.common.validator.VGroup;
 import com.www.mall.common.validator.Validator;
 import com.www.mall.user.dto.Comment;
@@ -43,8 +43,8 @@ public class VideoManageController extends BaseController {
 			return;
 		}
 		video.setUserId(userId);
-		video.setPath(HttpImgContans.IMG_URL + video.getPath());
-		video.setImg(HttpImgContans.IMG_URL + video.getImg());
+		video.setPath(HttpImgContants.IMG_URL + video.getPath());
+		video.setImg(HttpImgContants.IMG_URL + video.getImg());
 		result(videoService.saveVideo(video));
 	}
 

@@ -4,10 +4,10 @@ import com.gavin.model.Model;
 
 import java.io.Serializable;
 
-public class AdminsVo extends Model implements Serializable {
+public class AdminVo extends Model implements Serializable {
     private static final long serialVersionUID = -758439056156155606L;
 
-    public AdminsVo() {
+    public AdminVo() {
     }
     public Long getId() {
         return getLong("id");

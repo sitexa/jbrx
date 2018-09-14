@@ -4,13 +4,12 @@ import com.gavin.model.Page;
 import com.www.mall.common.base.BaseController;
 import com.www.mall.common.bean.RC;
 import com.www.mall.common.bean.Ret;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 import com.www.mall.common.utils.WebServiceUtils;
 import com.www.mall.common.utils.http.HttpRequest;
-import com.www.mall.user.dto.UploadUserPlatform;
 import com.www.mall.user.dto.UploadUserTactics;
 import com.www.mall.user.interf.UploadUserTacticsService;
-import com.www.mall.user.interf.UsersService;
+import com.www.mall.user.interf.UserService;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
 
@@ -22,7 +21,7 @@ public class UploadUserTacticsController extends BaseController {
     @JbootrpcService
     private UploadUserTacticsService uploadUserTacticsService;
     @JbootrpcService
-    private UsersService usersService;
+    private UserService usersService;
     /**
      * 上传策略用户 新增/修改
      */
@@ -45,7 +44,7 @@ public class UploadUserTacticsController extends BaseController {
         //获取接口地址
         String httpUrl="https://www.sojson.com/open/api/weather/json.shtml";
         //获取用户信息
-        User user=usersService.queryUsersById(getUserId());
+        UserPrincipal user=usersService.queryUsersById(getUserId());
         if(user==null){
             result(RC.REQUEST_FAIL, "查询用户信息失败");
             return;

@@ -6,8 +6,8 @@ import com.www.mall.common.base.BaseController;
 import com.www.mall.common.base.BaseImgUrl;
 import com.www.mall.common.bean.RC;
 import com.www.mall.common.bean.Ret;
-import com.www.mall.common.bean.UsersVo;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.bean.UserVo;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 import com.www.mall.common.utils.RegexUtils;
 import com.www.mall.common.utils.StringUtils;
 import com.www.mall.common.validator.VGroup;
@@ -17,7 +17,7 @@ import com.www.mall.message.dto.MessageRecord;
 import com.www.mall.message.dto.TemplateType;
 import com.www.mall.message.interf.MessageService;
 import com.www.mall.user.dto.Register;
-import com.www.mall.user.interf.UsersService;
+import com.www.mall.user.interf.UserService;
 import com.xiaoleilu.hutool.util.RandomUtil;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
@@ -26,7 +26,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 @RequestMapping("/api/user")
 public class UserController extends BaseController {
     @JbootrpcService
-    private UsersService usersService;
+    private UserService usersService;
     @JbootrpcService
     private MessageService messageService;
 
@@ -63,7 +63,7 @@ public class UserController extends BaseController {
         String password=register.getPassword();
         String salt=RandomUtil.simpleUUID();
         String saltPassword=new Md5Hash(password,salt,3).toString();
-        User users=new User();
+        UserPrincipal users=new UserPrincipal();
         users.setMobilePhone(register.getMobilePhone());
         users.setPassword(saltPassword);
         users.setSalt(salt);
@@ -136,7 +136,7 @@ public class UserController extends BaseController {
             return;
         }
 
-        User user=usersService.queryUsersById(getUserId());
+        UserPrincipal user=usersService.queryUsersById(getUserId());
         if(user==null){
             result(RC.REQUEST_FAIL, "查询用户信息失败");
             return;
@@ -234,7 +234,7 @@ public class UserController extends BaseController {
      */
     public void sendCodeByLoginUserForgetPassword(){
 
-        UsersVo user=getUser();
+        UserVo user=getUser();
         String mobilePhone=null;
         if(user==null){
             mobilePhone=getParam("mobilePhone");
@@ -265,7 +265,7 @@ public class UserController extends BaseController {
             result(RC.REQUEST_FAIL, "用户未登录，请先登录.");
             return;
         }
-        User user=usersService.queryUsersById(userId);
+        UserPrincipal user=usersService.queryUsersById(userId);
         if(user==null){
             result(RC.REQUEST_FAIL, "查询用户信息失败");
             return;
@@ -320,7 +320,7 @@ public class UserController extends BaseController {
 //            result(RC.BUSINESS_FAIL, "请输入正确的手机号码.");
 //            return;
 //        }
-        User user=new User();
+        UserPrincipal user=new UserPrincipal();
         user.setId(userId);
         user.setBank(bank);
         user.setBankch(bankch);
@@ -377,7 +377,7 @@ public class UserController extends BaseController {
             result(RC.BUSINESS_FAIL, "请输入正确的身份证号码.");
             return;
         }
-        User user=new User();
+        UserPrincipal user=new UserPrincipal();
         user.setId(userId);
         user.setRealName(realName);
         user.setIdcard(idcard);
@@ -416,7 +416,7 @@ public class UserController extends BaseController {
             return;
         }
 
-        User user=new User();
+        UserPrincipal user=new UserPrincipal();
         user.setId(userId);
         user.setPro(pro);
         user.setCity(city);
