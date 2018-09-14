@@ -2,7 +2,7 @@ package com.www.mall.common.shiro.sso;
 
 import org.apache.shiro.authc.AuthenticationToken;
 
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 
 public class SSOAuthenticationToken implements AuthenticationToken{
 
@@ -15,7 +15,7 @@ public class SSOAuthenticationToken implements AuthenticationToken{
     private String token;
     
     
-    private User user;
+    private UserPrincipal user;
     
 //    private String userName;
 //    private String password;
@@ -81,11 +81,11 @@ public class SSOAuthenticationToken implements AuthenticationToken{
 		return token;
 	}
 
-	public User getUser() {
+	public UserPrincipal getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserPrincipal user) {
 		this.user = user;
 	}
 	

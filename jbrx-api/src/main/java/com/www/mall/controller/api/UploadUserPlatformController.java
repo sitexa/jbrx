@@ -3,21 +3,12 @@ package com.www.mall.controller.api;
 import com.gavin.model.Page;
 import com.www.mall.common.base.BaseController;
 import com.www.mall.common.bean.RC;
-import com.www.mall.common.bean.Ret;
-import com.www.mall.common.constans.Constans;
-import com.www.mall.common.shiro.principal.User;
-import com.www.mall.common.utils.MD5;
-import com.www.mall.common.utils.StringUtils;
-import com.www.mall.common.utils.WebServiceUtils;
-import com.www.mall.common.utils.http.HttpRequest;
+import com.www.mall.common.constants.RxConstants;
 import com.www.mall.user.dto.UploadUserPlatform;
 import com.www.mall.user.interf.UploadUserPlatformService;
-import com.www.mall.user.interf.UsersService;
+import com.www.mall.user.interf.UserService;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.www.mall.common.bean.Ret.result;
 
@@ -27,7 +18,7 @@ public class UploadUserPlatformController extends BaseController {
     @JbootrpcService
     private UploadUserPlatformService uploadUserPlatformService;
     @JbootrpcService
-    private UsersService usersService;
+    private UserService usersService;
 
     /**
      * 上传平台用户 新增/修改
@@ -47,15 +38,15 @@ public class UploadUserPlatformController extends BaseController {
             result(RC.REQUEST_FAIL, "当前用户不存在，请先登录再进行修改.");
             return;
         }
-        if(this.getSession().getAttribute(Constans.LW_LOGIN_TOKEN)==null){
+        if(this.getSession().getAttribute(RxConstants.LW_LOGIN_TOKEN)==null){
             result(RC.BUSINESS_FAIL, "请先进行利万系统登录认证.");
             return;
         }
-        if(this.getSession().getAttribute(Constans.LW_REGISTER_PLATID)==null){
+        if(this.getSession().getAttribute(RxConstants.LW_REGISTER_PLATID)==null){
             result(RC.BUSINESS_FAIL, "请先进行利万系统登录认证.");
             return;
         }
-        Long platId=Long.parseLong(this.getSession().getAttribute(Constans.LW_REGISTER_PLATID).toString());
+        Long platId=Long.parseLong(this.getSession().getAttribute(RxConstants.LW_REGISTER_PLATID).toString());
         result(uploadUserPlatformService.followUploadUserPlatform(userId,platId));
     }
 

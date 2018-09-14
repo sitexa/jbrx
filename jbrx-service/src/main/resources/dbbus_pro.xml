@@ -26,7 +26,7 @@
 	
 	
 	<!--MongoDB DefaultDBId="mongoUser">
-		<DB Id="mongoUser" URI="mongo://User.www.mongo:40000/User" UserName="www" Password="www@123"/>
+		<DB Id="mongoUser" URI="mongo://UserPrincipal.www.mongo:40000/UserPrincipal" UserName="www" Password="www@123"/>
 	</MongoDB-->
 
 	<Plugin Resource="trans/user/plugin.xml" Encoding="utf-8"/>

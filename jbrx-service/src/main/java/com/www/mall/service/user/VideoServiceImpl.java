@@ -6,11 +6,11 @@ import com.gavin.model.Page;
 import com.gavin.model.Request;
 import com.gavin.model.Response;
 import com.www.mall.common.base.BaseService;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 import com.www.mall.user.dto.Video;
 import com.www.mall.user.interf.CommentService;
 import com.www.mall.user.interf.ThumbService;
-import com.www.mall.user.interf.UsersService;
+import com.www.mall.user.interf.UserService;
 import com.www.mall.user.interf.VideoService;
 
 import io.jboot.aop.annotation.Bean;
@@ -34,7 +34,7 @@ public class VideoServiceImpl extends BaseService implements VideoService {
 	CommentService commentService;
 	
 	@JbootrpcService
-    private UsersService usersService;
+    private UserService usersService;
 
 	/**
 	 * 保存视频地址
@@ -71,7 +71,7 @@ public class VideoServiceImpl extends BaseService implements VideoService {
 		Page<Video> page = DBTrans.page(request, Video.class);
 		if (page.getList().size() > 0) {
 			for (Video video : page.getList()) {
-				User u = usersService.queryUsersById(video.getUserId());
+				UserPrincipal u = usersService.queryUsersById(video.getUserId());
 				if(u != null) {
 					video.setUserName(u.getNickName());
 					video.setUserPic(u.getPic());
@@ -116,7 +116,7 @@ public class VideoServiceImpl extends BaseService implements VideoService {
 		Page<Video> page = DBTrans.page(request, Video.class);
 		if(page.getList().size() > 0) {
 			for(Video v:page.getList()) {
-				User user = usersService.queryUsersById(v.getUserId());
+				UserPrincipal user = usersService.queryUsersById(v.getUserId());
 				if(user != null) {
 					v.setUserName(user.getNickName());
 					v.setUserPic(user.getPic());

@@ -13,11 +13,11 @@ import io.swagger.models.auth.In;
  * @author wdm  @date 2018年01月26日
  * @version 1.0
  */
-public class UsersVo extends Model implements Serializable{
+public class UserVo extends Model implements Serializable{
 
 	private static final long serialVersionUID = -758439056156155606L;
 
-	public UsersVo(){}
+	public UserVo(){}
 	
 	 
 	public void setId(Long id) {

@@ -5,15 +5,15 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.util.Map;
 
+import com.www.mall.common.shiro.principal.AdminPrincipal;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.subject.Subject;
 
-import com.www.mall.common.shiro.principal.Admins;
 import com.www.mall.common.shiro.principal.ShiroPrincipal;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 
 /**
  * Shiro 工具类
@@ -239,7 +239,7 @@ public class ShiroUtils {
      *返回当前登录的认证实体Users
      * @return
      */
-    public static User getLoginUser() {
+    public static UserPrincipal getLoginUser() {
     	ShiroPrincipal principal = getPrincipal();
     	if (principal != null)
     		return principal.getUser();
@@ -250,7 +250,7 @@ public class ShiroUtils {
      * 返回当前登录的认证实体Admin
      * @return
      */
-    public static Admins getAdmins() {
+    public static AdminPrincipal getAdmins() {
     	ShiroPrincipal principal = getPrincipal();
     	if (principal != null)
     		return principal.getAdmins();

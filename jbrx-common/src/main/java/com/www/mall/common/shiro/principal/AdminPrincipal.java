@@ -2,7 +2,7 @@ package com.www.mall.common.shiro.principal;
 
 import java.io.Serializable;
 
-public class Admins implements Serializable{
+public class AdminPrincipal implements Serializable{
 	private static final long serialVersionUID = -1071298478680735026L;
 	private Long id;   	//管理员ID
 	private Long plateformId;//商家ID  ID为0则为管理员，1以上为商家
@@ -15,10 +15,10 @@ public class Admins implements Serializable{
 	private String createTime;  	//创建时间
 	private String updateTime;	//修改时间
 
-	public Admins() {
+	public AdminPrincipal() {
 	}
 
-	public Admins(Long id, Long plateformId, String userName, String avatar, String password, String salt, int status, String loginTime, String createTime, String updateTime) {
+	public AdminPrincipal(Long id, Long plateformId, String userName, String avatar, String password, String salt, int status, String loginTime, String createTime, String updateTime) {
 		this.id = id;
 		this.plateformId = plateformId;
 		this.userName = userName;

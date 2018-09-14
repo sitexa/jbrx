@@ -10,7 +10,7 @@ import org.apache.shiro.subject.PrincipalCollection;
  * @author Rlax
  *
  */
-public interface MuitiAuthenticatied {
+public interface MultiAuthenticator {
 
     /**
      * token 是否存在，如果不存在将抛出异常

@@ -3,7 +3,7 @@ package com.www.mall.common.shiro.principal;
 import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
+public class UserPrincipal implements Serializable {
     private static final long serialVersionUID = -758439056156155606L;
     private Long id;
     private String pic;//用户头像
@@ -39,10 +39,10 @@ public class User implements Serializable {
     private int idcardIsA; //身份证是否认证  1认证  2未认证
     private int bankIsA;  //银行卡是否认证  1认证  2未认证
 
-    public User() {
+    public UserPrincipal() {
     }
 
-    public User(Long id, String pic, String nickName, String realName, Integer sex, String mobilePhone, String password, String salt, Integer failCount, Date lockTime, Integer status, String createTime, String updateTime, String idcard, String idcardImg, String idcardImgBack, String bank, String bankch, String bankNum, String bankImg, String bankImgBack, String bankcardOwner, String mobile, String country, int cardType, String addr, String email, String birthday, String pro, String city, String area,int idcardIsA,int bankIsA) {
+    public UserPrincipal(Long id, String pic, String nickName, String realName, Integer sex, String mobilePhone, String password, String salt, Integer failCount, Date lockTime, Integer status, String createTime, String updateTime, String idcard, String idcardImg, String idcardImgBack, String bank, String bankch, String bankNum, String bankImg, String bankImgBack, String bankcardOwner, String mobile, String country, int cardType, String addr, String email, String birthday, String pro, String city, String area, int idcardIsA, int bankIsA) {
         this.id = id;
         this.pic = pic;
         this.nickName = nickName;

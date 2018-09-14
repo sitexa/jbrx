@@ -11,7 +11,7 @@ import org.apache.shiro.cache.Cache;
 
 import com.www.mall.common.shiro.cache.CacheKey;
 import com.www.mall.common.shiro.cache.ShiroCacheUtils;
-import com.www.mall.common.shiro.principal.MuitiLoginToken;
+import com.www.mall.common.shiro.principal.MultiLoginToken;
 
 /**
  * 密码重试认证
@@ -25,7 +25,7 @@ public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher
 	@Override
 	public boolean doCredentialsMatch(AuthenticationToken _token, AuthenticationInfo info) {
 		Cache<String, AtomicInteger> passwordRetryCache = ShiroCacheUtils.getCacheManager().getCache(CacheKey.CACHE_SHIRO_PASSWORDRETRY);
-		MuitiLoginToken token = (MuitiLoginToken) _token;
+		MultiLoginToken token = (MultiLoginToken) _token;
 		
 		String username = (String) token.getPrincipal();
 
@@ -40,9 +40,9 @@ public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher
 
 		boolean matches = false;
 		
-		if (token.getLoginType().equals(MuitiLoginToken.USERPASSWORD_MODE)) {
+		if (token.getLoginType().equals(MultiLoginToken.USERPASSWORD_MODE)) {
 			matches = super.doCredentialsMatch(token, info);
-		} else if (token.getLoginType().equals(MuitiLoginToken.TOKEN_MODE)) {
+		} else if (token.getLoginType().equals(MultiLoginToken.TOKEN_MODE)) {
 			SimpleCredentialsMatcher simpleMatcher = new SimpleCredentialsMatcher();
 			matches = simpleMatcher.doCredentialsMatch(token, info);
 		} else {

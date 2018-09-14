@@ -3,17 +3,15 @@ package com.www.mall.controller.api;
 import com.www.mall.common.base.BaseController;
 import com.www.mall.common.bean.RC;
 import com.www.mall.common.bean.Ret;
-import com.www.mall.common.constans.Constans;
-import com.www.mall.common.shiro.principal.User;
+import com.www.mall.common.constants.RxConstants;
+import com.www.mall.common.shiro.principal.UserPrincipal;
 import com.www.mall.common.utils.MD5;
 import com.www.mall.common.utils.StringUtils;
 import com.www.mall.common.utils.WebServiceUtils;
 import com.www.mall.common.utils.http.HttpRequest;
-import com.www.mall.user.interf.UsersService;
-import io.jboot.core.http.JbootHttp;
+import com.www.mall.user.interf.UserService;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
-import io.jboot.web.handler.JbootHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,13 +19,13 @@ import java.util.Map;
 @RequestMapping(value = "app/lw")
 public class LwController extends BaseController {
     @JbootrpcService
-    private UsersService usersService;
+    private UserService usersService;
     /**
      * 获取项目的登录token
      */
     public void hkLoginToken(){
         //获取接口地址
-        String httpUrl=Constans.LW_HTTP_URL+"getToken?";
+        String httpUrl= RxConstants.LW_HTTP_URL+"getToken?";
         Long platId=getParamToLong("platId");  //平台ID
         String login = getParam("login");   //登录账号
         String password = getParam("password");   //密钥
@@ -58,10 +56,10 @@ public class LwController extends BaseController {
         //调用接口
         Ret br=WebServiceUtils.sendHttp(httpUrl,HttpRequest.METHOD_GET);
         if(br.getResult()==0) {
-            //this.getSession().setAttribute(Constans.LW_LOGIN_TOKEN, br.getData());
-            //this.getSession().setAttribute(Constans.LW_REGISTER_PLATID, platId);
-            setJwtAttr(Constans.LW_LOGIN_TOKEN, br.getData());
-            setJwtAttr(Constans.LW_REGISTER_PLATID, platId);
+            //this.getSession().setAttribute(RxConstants.LW_LOGIN_TOKEN, br.getData());
+            //this.getSession().setAttribute(RxConstants.LW_REGISTER_PLATID, platId);
+            setJwtAttr(RxConstants.LW_LOGIN_TOKEN, br.getData());
+            setJwtAttr(RxConstants.LW_REGISTER_PLATID, platId);
         }
 
         result(br);
@@ -72,9 +70,9 @@ public class LwController extends BaseController {
      */
     public void registerUserToPlatform(){
         //获取接口地址
-        String httpUrl=Constans.LW_HTTP_URL+"reg";
+        String httpUrl= RxConstants.LW_HTTP_URL+"reg";
         //获取用户信息
-        User user=usersService.queryUsersById(getUserId());
+        UserPrincipal user=usersService.queryUsersById(getUserId());
         if(user==null){
             result(RC.REQUEST_FAIL, "查询用户信息失败");
             return;
@@ -82,15 +80,15 @@ public class LwController extends BaseController {
         //平台ID
         //Long platformId=getParamToLong("platformId");
         //验证是否已经进行利万系统认证过了没
-        if(getJwtPara(Constans.LW_LOGIN_TOKEN)==null){
-            System.out.println("=====fff====="+getJwtPara(Constans.LW_LOGIN_TOKEN));
+        if(getJwtPara(RxConstants.LW_LOGIN_TOKEN)==null){
+            System.out.println("=====fff====="+getJwtPara(RxConstants.LW_LOGIN_TOKEN));
             //result(RC.BUSINESS_FAIL, "请先进行利万系统登录认证.");
             //return;
         }
-        System.out.println("=========="+getJwtPara(Constans.LW_LOGIN_TOKEN));
-        System.out.println("=========="+getJwtPara(Constans.LW_REGISTER_PLATID));
+        System.out.println("=========="+getJwtPara(RxConstants.LW_LOGIN_TOKEN));
+        System.out.println("=========="+getJwtPara(RxConstants.LW_REGISTER_PLATID));
 
-        //String token=this.getSession().getAttribute(Constans.LW_LOGIN_TOKEN).toString();
+        //String token=this.getSession().getAttribute(RxConstants.LW_LOGIN_TOKEN).toString();
         String token=getParam("token");
         // httpUrl+="platId="+platformId;
         //设置参数

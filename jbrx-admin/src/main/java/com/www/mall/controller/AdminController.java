@@ -3,7 +3,7 @@ package com.www.mall.controller;
 import com.gavin.model.Page;
 import com.jfinal.aop.Before;
 import com.www.mall.common.base.BaseController;
-import com.www.mall.common.shiro.principal.Admins;
+import com.www.mall.common.shiro.principal.AdminPrincipal;
 import com.www.mall.interceptor.AuthInterceptor;
 import com.www.mall.user.dto.Platform;
 import com.www.mall.user.interf.AdminsService;
@@ -24,7 +24,7 @@ public class AdminController extends BaseController {
      */
     @Before(AuthInterceptor.class)
     public void getAdminList(){
-        Page<Admins> page=adminsService.getAdminsList(pageNumber(),pageSize(),getParam("userName"));
+        Page<AdminPrincipal> page=adminsService.getAdminsList(pageNumber(),pageSize(),getParam("userName"));
         result(page);
     }
     /**
@@ -40,7 +40,7 @@ public class AdminController extends BaseController {
      */
     @Before(AuthInterceptor.class)
     public void insertAdmin(){
-        Admins admins=getBeanByJsonParam(Admins.class);
+        AdminPrincipal admins=getBeanByJsonParam(AdminPrincipal.class);
         result(adminsService.insertAdmin(admins));
     }
     /**
@@ -48,7 +48,7 @@ public class AdminController extends BaseController {
      */
     @Before(AuthInterceptor.class)
     public void updateAdmin(){
-        Admins admins=getBeanByJsonParam(Admins.class);
+        AdminPrincipal admins=getBeanByJsonParam(AdminPrincipal.class);
         result(adminsService.updateAdmin(admins));
     }
     /**
@@ -56,7 +56,7 @@ public class AdminController extends BaseController {
      */
     @Before(AuthInterceptor.class)
     public void isUsedAdmin(){
-        Admins admins=getBeanByJsonParam(Admins.class);
+        AdminPrincipal admins=getBeanByJsonParam(AdminPrincipal.class);
         result(adminsService.isUsedAdmin(admins));
     }
     /**
@@ -64,7 +64,7 @@ public class AdminController extends BaseController {
      */
     @Before(AuthInterceptor.class)
     public void delAdmin(){
-        Admins admins=getBeanByJsonParam(Admins.class);
+        AdminPrincipal admins=getBeanByJsonParam(AdminPrincipal.class);
         result(adminsService.delAdmin(admins));
     }
     /**
@@ -72,7 +72,7 @@ public class AdminController extends BaseController {
      */
     @Before(AuthInterceptor.class)
     public void updateAdminPassword(){
-        Admins admins=getBeanByJsonParam(Admins.class);
+        AdminPrincipal admins=getBeanByJsonParam(AdminPrincipal.class);
         result(adminsService.updateAdminPassword(admins));
 
     }

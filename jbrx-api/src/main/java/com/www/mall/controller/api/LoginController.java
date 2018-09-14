@@ -1,7 +1,8 @@
 package com.www.mall.controller.api;
 
 import com.www.mall.common.base.BaseImgUrl;
-import com.www.mall.user.interf.UsersService;
+import com.www.mall.common.shiro.principal.UserPrincipal;
+import com.www.mall.user.interf.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import com.gavin.model.Response;
@@ -9,11 +10,9 @@ import com.jfinal.aop.Clear;
 import com.www.mall.common.base.BaseController;
 import com.www.mall.common.bean.Ret;
 import com.www.mall.common.bean.UserState;
-import com.www.mall.common.bean.UsersVo;
+import com.www.mall.common.bean.UserVo;
 import com.www.mall.common.shiro.cache.CacheKey;
 import com.www.mall.common.shiro.cache.ShiroCacheUtils;
-import com.www.mall.common.shiro.principal.User;
-import com.xiaoleilu.hutool.util.RandomUtil;
 
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
@@ -28,7 +27,7 @@ import io.jboot.web.controller.annotation.RequestMapping;
 public class LoginController extends BaseController {
 
 	@JbootrpcService
-	private UsersService userService;
+	private UserService userService;
 
 	/**
 	 * 登录后的主页面
@@ -48,7 +47,7 @@ public class LoginController extends BaseController {
 	 */
 	public void login() {
 
-		User users = getBeanByJsonParam(User.class);
+		UserPrincipal users = getBeanByJsonParam(UserPrincipal.class);
 		if (users == null) {
 			renderJson(Ret.fail("用户名或密码不正确"));
 			return;
@@ -74,7 +73,7 @@ public class LoginController extends BaseController {
 			renderJson(Ret.fail("登录失败，请稍后再试"));
 			return;
 		}
-		User dbUsers = response.bean(User.class);
+		UserPrincipal dbUsers = response.bean(UserPrincipal.class);
 		if (dbUsers == null) {
 			renderJson(Ret.fail("你的用户名或密码错误"));
 			return;
@@ -93,7 +92,7 @@ public class LoginController extends BaseController {
 			renderJson(Ret.fail("你的用户名或密码错误"));
 			return;
 		}
-		UsersVo usersVo = new UsersVo();
+		UserVo usersVo = new UserVo();
 		usersVo.copy(response);
 
 		setJwtAttr("user", usersVo);

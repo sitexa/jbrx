@@ -30,12 +30,9 @@
  */
 package com.www.mall.controller.api;
 
-import com.gavin.model.Page;
 import com.gavin.model.Response;
-import com.gavin.model.RetCode;
 import com.jfinal.aop.Before;
 import com.www.mall.common.base.BaseController;
-import com.www.mall.common.bean.AdminsVo;
 import com.www.mall.interceptor.AuthInterceptor;
 import com.www.mall.user.dto.Banner;
 import com.www.mall.user.interf.BannerService;

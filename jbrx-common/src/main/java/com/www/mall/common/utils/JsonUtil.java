@@ -249,30 +249,30 @@ public class JsonUtil {
 		// name='北京'><item>东城区</item><item>西城区</item><item>崇文区</item><item>宣武区</item><item>朝阳区</item><item>丰台区</item><item>石景山区</item><item>海淀区</item><item>门头沟区</item><item>房山区</item><item>通州区</item><item>顺义区</item><item>昌平区</item><item>大兴区</item><item>怀柔区</item><item>平谷区</item><item>密云县</item><item>延庆县</item></province></cities>"));
 
 		/*
-		 * User u = new User(); u.setName("wxw"); u.setAge(12); u.setSex(1);
+		 * UserPrincipal u = new UserPrincipal(); u.setName("wxw"); u.setAge(12); u.setSex(1);
 		 * System.out.println(object2JsonObject(u));
 		 */
 
 		/*
-		 * User u = new User(); u.setName("wxw"); u.setAge(12); u.setSex(1);
+		 * UserPrincipal u = new UserPrincipal(); u.setName("wxw"); u.setAge(12); u.setSex(1);
 		 * System.out.println(object2Json(u));
 		 */
 
 		/*
-		 * User us = json2Ojbect(object2Json(u), User.class);
+		 * UserPrincipal us = json2Ojbect(object2Json(u), UserPrincipal.class);
 		 * System.out.println(us);
 		 */
 
 		/*
-		 * List<User> list = new ArrayList<User>(); User u = new User();
+		 * List<UserPrincipal> list = new ArrayList<UserPrincipal>(); UserPrincipal u = new UserPrincipal();
 		 * u.setName("wxw"); u.setAge(12); u.setSex(1); list.add(u); u = new
-		 * User(); u.setName("zmx"); u.setAge(12); u.setSex(0); list.add(u); u =
-		 * new User(); u.setName("arnold"); u.setAge(12); u.setSex(1);
+		 * UserPrincipal(); u.setName("zmx"); u.setAge(12); u.setSex(0); list.add(u); u =
+		 * new UserPrincipal(); u.setName("arnold"); u.setAge(12); u.setSex(1);
 		 * list.add(u); String str = list2Json(list); System.out.println(str);
 		 */
 
 		/*
-		 * List<User> userList = converAnswerFormString(str, User.class);
+		 * List<UserPrincipal> userList = converAnswerFormString(str, UserPrincipal.class);
 		 * System.out.println(userList);
 		 */
 

@@ -18,7 +18,7 @@ import java.util.List;
 @Bean
 @Singleton
 @JbootrpcService
-public class TacticsService extends BaseService implements com.www.mall.user.interf.TacticsService{
+public class TacticsServiceImpl extends BaseService implements com.www.mall.user.interf.TacticsService{
     @Override
     public Page<TacticsVo> getTacticsAppList(int pageNumber, int pageSize, Long userId, String tacticsName, String minRate, String topRisk){
         Request request=Request.build(service, "getTacticsAppList").page(pageNumber, pageSize).set("tacticsName", tacticsName).set("minRate", minRate).set("topRisk", topRisk);
