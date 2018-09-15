@@ -1,55 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cca642d-4a16-4d3e-a107-c6e6f95b48e8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/DBBus.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5cca642d-4a16-4d3e-a107-c6e6f95b48e8" name="Default" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dubbo/dubbo-registry-rxgj.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dubbo/dubbo-registry-rxgj.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/controller/BannerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/controller/BannerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/shiro.ini.bak" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/shiro.ini.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/BannerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/BannerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/LwController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/LwController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UploadUserPlatformController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UploadUserPlatformController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UploadUserTacticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UploadUserTacticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/VideoManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/VideoManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/base/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/base/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/AdminsVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/AdminVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/UsersVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/UserVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/constans/Constans.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/constants/RxConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/constans/HttpImgContans.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/constants/HttpImgContants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/ShiroDbRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/ShiroDbRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/ShiroUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/ShiroUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/auth/MuitiAuthenticatied.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/auth/MultiAuthenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/handler/RetryLimitHashedCredentialsMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/handler/RetryLimitHashedCredentialsMatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/Admins.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/AdminPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/MuitiLoginToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/MultiLoginToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/ShiroPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/ShiroPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/UserPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/sso/SSOAuthenticationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/sso/SSOAuthenticationToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/utils/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/utils/JsonUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/utils/http/impl/HttpImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/utils/http/impl/HttpImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/interf/AdminsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/interf/AdminsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/interf/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/interf/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/AdminsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/AdminsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/PlatformService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/PlatformServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/TacticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/TacticsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/VideoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/dbbus_pro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/dbbus_pro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/dbbus_test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/dbbus_test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/AdminsService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/AdminService.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/CommentService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/CommentService.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/ThumbService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/ThumbService.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UsersService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UserService.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/plugin.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/tools/target/" />
@@ -70,26 +23,29 @@
     <session id="-1327033333">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
           <entry key="gitignore" value="3" />
+          <entry key="html" value="3" />
           <entry key="java" value="41" />
-          <entry key="xml" value="14" />
+          <entry key="xml" value="16" />
           <entry key="xsd" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
+          <entry key="HTML" value="3" />
           <entry key="JAVA" value="41" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="XML" value="15" />
+          <entry key="XML" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -109,62 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/BannerService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/PlatformService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/TacticsService.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-225" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UploadUserPlatformService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UploadUserTacticsService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/UsersService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/LoginRecordService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/plugin.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UserService.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="739">
+              <caret line="123" column="79" lean-forward="true" selection-start-line="123" selection-start-column="79" selection-end-line="123" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -277,7 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,330 +189,12 @@
               <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
               <item name="jbrx" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="trans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="trans" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="render" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="jwt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="principal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="interf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-facade" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="trans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jbrx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jbrx" type="462c0819:PsiDirectoryNode" />
-              <item name="jbrx-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="trans" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -616,7 +202,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/open/wuwei/jbrx/jbrx-common/pom.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536891309285" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536907530739" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v8.2.1/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -691,17 +277,27 @@
       <updated>1536842986031</updated>
       <workItem from="1536842987621" duration="2008000" />
       <workItem from="1536887016854" duration="30000" />
-      <workItem from="1536887064543" duration="4111000" />
+      <workItem from="1536887064543" duration="5654000" />
+      <workItem from="1536908618342" duration="29000" />
+      <workItem from="1536994702226" duration="536000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor">
+      <created>1536891879215</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536891879215</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6149000" />
+    <option name="totallyTimeSpent" value="8257000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22739726" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23287672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -721,6 +317,7 @@
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32972974" />
+      <window_info anchor="bottom" id="SmartIM" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -747,34 +344,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/UserPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/shiro/principal/AdminPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/ESInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/Ploy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/bean/JMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1025,15 +594,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UserService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/DBBus.xsd">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="74" lean-forward="true" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/goods/CartService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/LoginRecordService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/UsersService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UploadUserTacticsService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UploadUserPlatformService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/TacticsService.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/PlatformService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/BannerService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1042,33 +641,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/BannerService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/PlatformService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/TacticsService.xml">
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/view/users/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225" />
+        <state relative-caret-position="681">
+          <caret line="74" column="22" lean-forward="true" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UploadUserPlatformService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UploadUserTacticsService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/UsersService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/LoginRecordService.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/trans/user/plugin.xml">
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/view/banner/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="450">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-admin/src/main/resources/view/admin/admin_center.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/resources/trans/user/UserService.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="123" column="79" lean-forward="true" selection-start-line="123" selection-start-column="79" selection-end-line="123" selection-end-column="79" />
         </state>
       </provider>
     </entry>
