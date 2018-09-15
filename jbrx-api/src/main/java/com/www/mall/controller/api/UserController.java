@@ -45,20 +45,6 @@ public class UserController extends BaseController {
             return;
         }
 
-        //2.1验证身份证和银行信息是否合法
-        if(!RegexUtils.checkIdCard(register.getIdCard())){
-            result(RC.BUSINESS_FAIL, "身份证号码不正确.");
-            return;
-        }
-        if(register.getMobile()==null || !RegexUtils.checkMobile(register.getMobile())){
-            result(RC.BUSINESS_FAIL, "电话号码不正确.");
-            return;
-        }
-        if(!RegexUtils.checkBankCard(register.getBankNum())){
-            result(RC.BUSINESS_FAIL, "银行卡号不正确.");
-            return;
-        }
-
         //3.保存用户
         String password=register.getPassword();
         String salt=RandomUtil.simpleUUID();
@@ -68,19 +54,6 @@ public class UserController extends BaseController {
         users.setPassword(saltPassword);
         users.setSalt(salt);
         users.setNickName(register.getNickName());
-        //增加身份证有银行卡信息
-        users.setIdcard(register.getIdCard());
-        users.setIdcardImg(register.getIdCardImg());
-        users.setIdcardImgBack(register.getIdCardImgBack());
-        users.setBank(register.getBank());
-        users.setBankch(register.getBankch());
-        users.setBankNum(register.getBankNum());
-        users.setBankImg(register.getBankImg());
-        users.setBankImgBack(register.getBankImgBack());
-        users.setBankcardOwner(register.getBankCardOwner());
-        users.setMobile(register.getMobile());
-        users.setCountry(register.getCountry());
-        users.setCardType(register.getCardType());
 
         Response response=usersService.saveUsers(users);
         result(response);
