@@ -65,7 +65,6 @@ public class ValidatorInterceptor implements Interceptor {
                 try {
                     verifyVersion = Integer.valueOf(versionStr);
                 } catch (Exception e) {
-                    //版本信息错误  必须是int类型数字
                     e.printStackTrace();
                 }
             }
