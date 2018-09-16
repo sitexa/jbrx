@@ -127,9 +127,6 @@ public class ValidatorInterceptor implements Interceptor {
 
     /**
      * 初始化验证规则
-     *
-     * @param isInit
-     * @param bean
      */
     private void initValidatorRule(String validatorBeanName, Class<?> clazz) {
         Boolean isInit = IVRule.IS_INIT_VALIDATOT_RULE.get(validatorBeanName);
@@ -208,24 +205,17 @@ public class ValidatorInterceptor implements Interceptor {
                 if (StringUtils.isNotBlank(redirect)) {
                     controller.redirect(redirect);
                 }
-//            	 ((JbootController) controller).setFlashAttr("message", message);
-//            	 ((JbootController) controller).setFlashAttr("result", result);
                 controller.renderJson(Ret.result(result.getState(), message));
             } else if (vRenderType == VRenderType.render) {
                 controller.keepPara();
                 if (StringUtils.isNotBlank(redirect)) {
                     controller.render(redirect);
                 }
-//            	 ((JbootController) controller).setFlashAttr("message", message);
-//            	 ((JbootController) controller).setFlashAttr("result", result);
                 controller.renderJson(Ret.result(result.getState(), message));
             } else {
                 if (StringUtils.isNotBlank(redirect)) {
                     controller.redirect(redirect);
                 }
-
-//            	 ((JbootController) controller).setFlashAttr("message", message);
-//            	 ((JbootController) controller).setFlashAttr("result", result);
                 controller.renderJson(Ret.result(result.getState(), message));
             }
         }
