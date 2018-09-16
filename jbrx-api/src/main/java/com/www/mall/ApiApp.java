@@ -26,8 +26,6 @@ public class ApiApp extends JbootAppListenerBase {
     @Override
     public void onJfinalEngineConfig(Engine engine) {
     	engine.setDevMode(false);
-//    	engine.setSourceFactory(new ClassPathSourceFactory());
-//    	engine.setBaseTemplatePath("view");
     	super.onJfinalEngineConfig(engine);
     }
     
@@ -35,11 +33,11 @@ public class ApiApp extends JbootAppListenerBase {
     public void onJfinalConstantConfig(Constants constants) {
 		constants.setErrorView(RC.REQUEST_FAIL.getState(), RC.REQUEST_FAIL.getDesc());
 		constants.setErrorView(RC.NO_PERMISSION.getState(), RC.NO_PERMISSION.getDesc());
-		constants.setErrorView(RC.RELOGIN.getState(), "登录信息过期,请重新登录");    	
+		constants.setErrorView(RC.RELOGIN.getState(), "登录过期,请重新登录");
 		constants.setError401View("401");
-		constants.setError403View("没有访问权限");//没有访问权限
-		constants.setError404View("没有找到相关的服务");//没有找到相关的服务
-		constants.setError500View("系统异常");//系统异常
+		constants.setError403View("没有访问权限");
+		constants.setError404View("没有找到相关的服务");
+		constants.setError500View("系统异常");
         constants.setRenderFactory(new AppRenderFactory());
         constants.setJsonFactory(new JFinalJsonFactory());		
 		
