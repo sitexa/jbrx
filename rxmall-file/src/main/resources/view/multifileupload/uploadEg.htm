@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>文件上传例子</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" charset="utf-8" src="/common/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/ueditor/editor_all.js"></script>
+<link rel="stylesheet" type="text/css" href="/common/ueditor/themes/default/ueditor.css"/>
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+			function uploadFileInit(){
+					 
+					loadUpload1();//加载第一个上传控件
+					//给第一个上传控件设置初始数据
+					//第一个参数为显示数据 第二个参数为要对第几个上传控件做数据初始化
+					//setInitData("[{\"lId\":\"12345324544\",\"strFileName\":\"aaa.jpg\",\"strFilePath\":\"http://file.carr.org/file/201210/asdflwefwefwefwef.jpg\"},{\"lId\":\"326464\",\"strFileName\":\"bbbb.jpg\",\"strFilePath\":\"http://file.carr.org/file/201210/asdflwefwefwefwef.jpg\"}]",1);
+					setInitData("[{\"lId\":\"12345324544\",\"strFileName\":\"aaa.jpg\",\"strFilePath\":\"http://file.carr.org/file/201210/asdflwefwefwefwef.jpg\"}]",1);
+					loadUpload2();//加载第二个上传控件
+			}
+			
+			 
+</script>
+  </head>
+  
+  <body  onload="uploadFileInit();">
+  <script type="text/javascript">
+ 		 
+    	//获得第一个文件上传控件信息 保存在_swfu1.settings.fileInfoMap(已定义)变量 只需处理value即可 
+    	/**
+    	具体格式"
+    	{"strServiceName":"FileService","strTransName":"saveFile","strFilePath":"http://file.dafy.com.cn/file/201210/","strFileName":"b37873e3bb984b199b9a986972291cf9.jpg","strSourceFileName":"2-1","nFileCode":34,"lId":"13400003"}"
+    		
+    		获得上传后的文件信息 例子
+    		var fileArray=new Array();
+			for(var i=0;i<_swfu1.settings.fileInfoMap.getKeys().length;i++){
+				var jsonData = eval("(" + _swfu1.settings.fileInfoMap.get(_swfu1.settings.fileInfoMap.getKeys()[i]) + ")");
+				var strFilePath = jsonData.strFilePath;
+				var strFileName = jsonData.strFileName;
+				var strSourceFileName = jsonData.strSourceFileName;
+			    var fileCDO = new CDO();
+			    fileCDO.setStringValue("strFileUrl",strFilePath+strFileName);
+			    fileCDO.setStringValue("strFileName",strSourceFileName);
+			    fileArray[i]=fileCDO;
+			}
+    	
+    	*/
+    	
+    	/**
+		第1个上件控件上传成功事件 如果没有要在此事件发生时要处理的可以不定义此函数
+		*/
+    	var l_uploadSucesssAfter1=function(serverData){//此处为上传的文件信息
+			alert("第1个上传控件上传成功事件:"+serverData);
+			document.getElementById("upload1").value=serverData;
+		}
+		
+		/**
+		第2个上件控件上传成功事件  如果没有要在此事件发生时要处理的可以不定义此函数
+		*/
+		var l_uploadSucesssAfter2=function(serverData){//此处为上传的文件信息
+			alert("第2个上传控件上传成功事件:"+serverData);
+			document.getElementById("upload2").value=serverData;
+
+		}
+		
+		/**
+		第1个上件控件删除成功事件  如果没有要在此事件发生时要处理的可以不定义此函数
+		*/
+		var l_deleteSucesssAfter1=function(serverData){//此处返回的值 可以用它做key 到fileInfoMap中找对应文件信息
+			alert("第1个上传控件删除成功事件:"+serverData);
+
+		}
+		
+		/**
+		第2个上件控件删除成功事件  如果没有要在此事件发生时要处理的可以不定义此函数
+		*/
+		var l_deleteSucesssAfter2=function(serverData){//此处返回的值 可以用它做key 到fileInfoMap中找对应文件信息
+			alert("第2个上传控件删除成功事件:"+serverData);
+
+		}
+		
+		/**
+		第1个上传控件的初始化数据删除事件  如果没有要在此事件发生时要处理的可以不定义此函数
+		*/
+		var l_deleTableUploadRowAfter1=function(lId){
+				alert("第1个上传控件的初始化数据删除事件:"+lId);
+		
+		}
+		
+		/**
+		第2个上传控件的初始化数据删除事件  如果没有要在此事件发生时要处理的可以不定义此函数
+		*/
+		var l_deleTableUploadRowAfter2=function(lId){
+				alert("第2个上传控件的初始化数据删除事件:"+lId);
+		
+		}
+    </script>
+    <input type="text" id="upload1">
+     #set ($swfuInstanceCount=1)
+     #set ($perMaxSize="5MB")
+     #set ($ext="*.*")
+     #set ($file_upload_limit=1)
+     #set ($servletUrl="/Servlet/imageUpload.svl?imageSizes=100x100;500x500;1000x1000") 
+     #parse("/common/uploadfile.htm")
+  	 
+  	  <input type="text" id="upload2">
+     #set ($swfuInstanceCount=2)
+     #set ($perMaxSize="50MB")
+     #set ($ext="*.jpg;*.flv;*.zip;*.rar;*.jsp;*.pdf")
+     #set ($file_upload_limit=5)
+     #set ($servletUrl="/Servlet/fileUpload.svl")
+     #parse("/common/uploadfile.htm")
+     <div>
+     
+      <script type="text/plain" id="editor" style="width:625px;"></script>
+					           <script type="text/javascript">
+							    /** var ue = new UE.ui.Editor( {
+							
+							    } );
+							   	文件上传控件结合uEditor时  采用此方法来初始文件上传控件  并去除 boyd标签中的onload事件注册
+							    ue.ready(function (o){
+							    	 
+							    	uploadFileInit();
+							    })
+							    ue.render( 'editor' );
+							    */
+							    </script>
+     </div>
+  </body>
+</html>

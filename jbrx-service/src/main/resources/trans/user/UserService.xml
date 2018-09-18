@@ -25,8 +25,12 @@
 		</If>
 		<Insert>
 			<OutputSQL>
+				insert into user (nickName,mobilePhone,password,salt,status,lockTime,createTime)
+				values({nickName},{mobilePhone},{password},{salt},1,{currentTime},{currentTime})
+<!--
 				insert into user (nickName,mobilePhone,password,salt,status,lockTime,createTime,idcard,idcardImg,idcardImgBack,bank,bankch,bankNum,bankImg,bankImgBack,bankcardOwner,mobile,country,cardType)
 				values({nickName},{mobilePhone},{password},{salt},1,{currentTime},{currentTime},{idcard},{idcardImg},{idcardImgBack},{bank},{bankch},{bankNum},{bankImg},{bankImgBack},{bankcardOwner},{mobile},{country},{cardType})
+-->
 			</OutputSQL>
 		</Insert>
 		<SelectField OutputId="{userId}">
