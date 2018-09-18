@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+./start-service
+sleep 5
+
+./start-msg
+sleep 5
+
+./start-api
+sleep 5
+
+./start-admin
+sleep 5

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $# -ne 1 ]; then
-    echo "usage:./cp.sh 'lib directory'"
+    echo "usage:./cpath 'lib directory'"
     exit 1
 fi
 

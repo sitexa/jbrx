@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+./stop-service
+./stop-msg
+./stop-admin
+./stop-api
+
+zkServer.sh stop
