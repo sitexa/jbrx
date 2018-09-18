@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+    echo "usage:./cp.sh 'lib directory'"
+    exit 1
+fi
+
+java_lib=`find $JAVA_HOME/jre/lib -name *.jar|xargs|sed "s/ /:/g"`
+jar_lib=`find $1 -name *.jar|xargs|sed "s/ /:/g"`
+cp=$java_lib:$jar_lib
+
+echo $cp
+export cp
