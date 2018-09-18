@@ -10,6 +10,3 @@ jar_lib=`find $1/lib -name *.jar|xargs|sed "s/ /:/g"`
 cp=$java_lib:$jar_lib
 
 java -cp $cp:$1/target/classes com.www.mall.ApiApp & echo $! > api.pid
-
-
-
