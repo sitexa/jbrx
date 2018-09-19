@@ -35,6 +35,12 @@ public class JwtShiroInvokeListener implements JbootShiroInvokeListener {
         JbootController controller = (JbootController) inv.getController();
         String jwtToken = controller.getHeader(JwtManager.me().getHttpHeaderName());
 
+        //过滤登陆相关的请求，不做处理
+        String path = controller.getRequest().getPathInfo();
+        if(String.valueOf(path).startsWith("/admin/login")){
+            return;
+        }
+
         if (StringUtils.isBlank(jwtToken)) {
         	log.warn("没有Jwt登录信息");
             inv.invoke();
