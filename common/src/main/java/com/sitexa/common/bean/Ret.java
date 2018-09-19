@@ -1,7 +1,8 @@
 package com.sitexa.common.bean;
 
 import com.gavin.model.Response;
-import com.www.mall.common.utils.JSONUtils;
+import com.sitexa.common.constants.RC;
+import com.sitexa.common.utils.JSONUtils;
 
 import java.io.Serializable;
 

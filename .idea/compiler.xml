@@ -6,6 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+        <module name="facade" />
         <module name="jbrx-admin" />
         <module name="jbrx-api" />
         <module name="jbrx-common" />
@@ -13,10 +15,14 @@
         <module name="jbrx-message-facade" />
         <module name="jbrx-message-service" />
         <module name="jbrx-service" />
+        <module name="rxmall-file" />
+        <module name="service" />
         <module name="tools" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="common" target="1.8" />
+      <module name="facade" target="1.8" />
       <module name="jbrx" target="1.5" />
       <module name="jbrx-admin" target="1.8" />
       <module name="jbrx-api" target="1.8" />
@@ -25,11 +31,15 @@
       <module name="jbrx-message-facade" target="1.8" />
       <module name="jbrx-message-service" target="1.8" />
       <module name="jbrx-service" target="1.8" />
+      <module name="rxmall-file" target="1.8" />
+      <module name="service" target="1.8.0_152-release" />
       <module name="tools" target="1.8.0_152-release" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common" options="-parameters" />
+      <module name="facade" options="-parameters" />
       <module name="jbrx-admin" options="-parameters" />
       <module name="jbrx-api" options="-parameters" />
       <module name="jbrx-common" options="-parameters" />
@@ -37,6 +47,7 @@
       <module name="jbrx-message-facade" options="-parameters" />
       <module name="jbrx-message-service" options="-parameters" />
       <module name="jbrx-service" options="-parameters" />
+      <module name="rxmall-file" options="-parameters" />
     </option>
   </component>
 </project>

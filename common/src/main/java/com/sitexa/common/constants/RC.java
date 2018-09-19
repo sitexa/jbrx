@@ -1,4 +1,4 @@
-package com.sitexa.common.bean;
+package com.sitexa.common.constants;
 
 /**
  * <pre>

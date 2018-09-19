@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.gavin.model.Response;
 import com.jfinal.log.Log;
 import com.sitexa.common.bean.*;
+import com.sitexa.common.constants.Ploy;
+import com.sitexa.common.constants.RC;
 import com.sitexa.common.shiro.ShiroUtils;
 import com.sitexa.common.utils.BlankUtil;
 import com.sitexa.common.utils.ParamUtil;
