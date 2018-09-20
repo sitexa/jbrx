@@ -160,7 +160,7 @@
                     <programs>
                         <!--程序打包 mvn package appassembler:assemble -->
                         <program>
-                            <mainClass>com.sitexa.msg.impl.MessageServiceImpl</mainClass>
+                            <mainClass>com.sitexa.msg.MsgApp</mainClass>
                             <id>wblogs</id>
                             <platforms>
                                 <platform>windows</platform>
@@ -172,8 +172,8 @@
                     <daemons>
                         <!-- 后台程序打包：mvn clean package appassembler:generate-daemons -->
                         <daemon>
-                            <mainClass>com.sitexa.msg.impl.MessageServiceImpl</mainClass>
-                            <id>MessageService</id>
+                            <mainClass>com.sitexa.msg.MsgApp</mainClass>
+                            <id>NsgApp</id>
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>

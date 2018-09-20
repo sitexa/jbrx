@@ -5,6 +5,8 @@ import com.sitexa.msg.vo.MessageRecord;
 
 public interface MessageService {
 
+    public final static String service=MessageService.class.getSimpleName();
+
     public Ret sendCode(MessageRecord messageRecord);
 
     public Ret verifyCode(String messageId, String code);

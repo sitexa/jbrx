@@ -15,7 +15,7 @@
 			</OutputSQL>
 		</Insert>
 		<OnException>
-			<Return Code="-4" Text="创建订单异常" Info="创建订单异常"></Return>
+			<Return Code="-4" Text="创建订单异常" Info="创建订单异常"/>
 		</OnException>
 		<Return Code="0" Text="创建订单成功" Info="创建订单成功"/>
 	</SQLTrans>	
@@ -25,7 +25,7 @@
 			<OutputSQL>update messageRecord set thirdSn={thirdSn},status=1,sendTime={currentTime} where messageSn={messageSn}</OutputSQL>
 		</Update>
 		<OnException>
-			<Return Code="-4" Text="创建订单异常" Info="创建订单异常"></Return>
+			<Return Code="-4" Text="创建订单异常" Info="创建订单异常"/>
 		</OnException>
 		<Return Code="0" Text="创建订单成功" Info="创建订单成功"/>
 	</SQLTrans>		

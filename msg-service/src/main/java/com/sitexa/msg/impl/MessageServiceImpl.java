@@ -20,14 +20,14 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Ret sendCode(MessageRecord messageRecord) {
         //1.新增短信记录
-        Request request = Request.build("MessageServiceImpl", "insertMessageRecord").currentTime().from(messageRecord);
+        Request request = Request.build(service, "insertMessageRecord").currentTime().from(messageRecord);
         Response response = DBTrans.execute(request);
         if (response.fail()) {
             return Ret.result(response.result, response.message);
         }
         Ret ret = SmsUtils.sendCode(messageRecord.getReceiver(), messageRecord.getServiceType());
         if (ret.success()) {//2.更新三方短信结果
-            Request updateRequest = Request.build("MessageServiceImpl", "updateMessageRecord").currentTime()
+            Request updateRequest = Request.build(service, "updateMessageRecord").currentTime()
                     .set("thirdSn", ret.getData() + "")
                     .set("messageSn", messageRecord.getMessageSn());
             DBTrans.execute(updateRequest);
