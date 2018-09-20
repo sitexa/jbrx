@@ -140,7 +140,7 @@
                     "alertTextLoad": "* 正在確認帳號名稱是否有其他人使用，請稍等。"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* 此名稱可以使用",
@@ -150,7 +150,7 @@
                     "alertTextLoad": "* 正在確認名稱是否有其他人使用，請稍等。"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* 此名稱已經被其他人使用",

@@ -1,8 +1,8 @@
 package com.sitexa.common.render;
 
 import com.jfinal.render.RenderException;
-import com.www.mall.common.bean.RC;
-import com.www.mall.common.bean.Ret;
+import com.sitexa.common.bean.Ret;
+import com.sitexa.common.constants.RC;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,7 @@ public class JsonErrorRender extends BaseErrorRender {
 
     @Override
     public void render() {
-        response.setStatus((getResult()==RC.NO_PERMISSION.getState()||getResult()==RC.RELOGIN.getState()||getResult()==RC.REQUEST_FAIL.getState())?200:getResult());
+        response.setStatus((getResult()== RC.NO_PERMISSION.getState()||getResult()==RC.RELOGIN.getState()||getResult()==RC.REQUEST_FAIL.getState())?200:getResult());
 
         PrintWriter writer = null;
         try {

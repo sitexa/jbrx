@@ -140,7 +140,7 @@
                     "alertTextLoad": "* Ověřování, prosím čekejte"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Uživatelské jméno je již použito",

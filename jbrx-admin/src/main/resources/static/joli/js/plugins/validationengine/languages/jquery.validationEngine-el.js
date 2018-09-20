@@ -149,7 +149,7 @@
                     "alertTextLoad": "* Validating, please wait"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* This name is already taken",
@@ -159,7 +159,7 @@
                     "alertTextLoad": "* Validating, please wait"
                 },
 				 "ajaxNameCallPhp": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "phpajax/ajaxValidateFieldName.php",
                     // error
                     "alertText": "* This name is already taken",

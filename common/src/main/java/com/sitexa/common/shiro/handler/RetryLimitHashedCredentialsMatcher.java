@@ -1,8 +1,8 @@
 package com.sitexa.common.shiro.handler;
 
-import com.www.mall.common.shiro.cache.CacheKey;
-import com.www.mall.common.shiro.cache.ShiroCacheUtils;
-import com.www.mall.common.shiro.principal.MultiLoginToken;
+import com.sitexa.common.shiro.cache.CacheKey;
+import com.sitexa.common.shiro.cache.ShiroCacheUtils;
+import com.sitexa.common.shiro.principal.MultiLoginToken;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.ExcessiveAttemptsException;

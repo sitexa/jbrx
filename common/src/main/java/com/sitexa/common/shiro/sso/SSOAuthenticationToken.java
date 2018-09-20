@@ -1,6 +1,6 @@
 package com.sitexa.common.shiro.sso;
 
-import com.www.mall.common.shiro.principal.UserPrincipal;
+import com.sitexa.common.shiro.principal.UserPrincipal;
 import org.apache.shiro.authc.AuthenticationToken;
 
 public class SSOAuthenticationToken implements AuthenticationToken{

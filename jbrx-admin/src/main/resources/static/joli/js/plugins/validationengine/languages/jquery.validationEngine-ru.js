@@ -115,7 +115,7 @@
                     "alertTextLoad": "* Проверка, подождите..."
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Это имя уже занято",

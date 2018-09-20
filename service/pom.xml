@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service</artifactId>
-
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -139,7 +139,7 @@
                     <programs>
                         <!--程序打包 mvn package appassembler:assemble -->
                         <program>
-                            <mainClass>com.www.mall.service.UserService</mainClass>
+                            <mainClass>com.sitexa.facade.interfaces.UserService</mainClass>
                             <id>wblogs</id>
                             <platforms>
                                 <platform>windows</platform>
@@ -151,7 +151,7 @@
                     <daemons>
                         <!-- 后台程序打包：mvn clean package appassembler:generate-daemons -->
                         <daemon>
-                            <mainClass>com.www.mall.service.UserService</mainClass>
+                            <mainClass>com.sitexa.facade.interfaces.UserService</mainClass>
                             <id>UserService</id>
                             <platforms>
                                 <platform>jsw</platform>

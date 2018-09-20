@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServicePlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DBBus.xsd">
+	<ServiceConfig Name="UserService">
+		<DataService Resource="trans/service/UserService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+
+	<!-- 视频评论 -->
+	<ServiceConfig Name="CommentService">
+		<DataService Resource="trans/service/CommentService.xml"
+			Encoding="utf-8" />
+	</ServiceConfig>
+	
+	<!-- web用户 -->
+	<ServiceConfig Name="AdminService">
+		<DataService Resource="trans/service/AdminService.xml" Encoding="utf-8"/>
+	</ServiceConfig>
+
+</ServicePlugin>

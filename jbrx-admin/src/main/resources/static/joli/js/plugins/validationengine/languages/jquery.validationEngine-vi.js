@@ -140,7 +140,7 @@
                     "alertTextLoad": "* Đang xác nhận, vui lòng chờ"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Tên này được dùng",
@@ -150,7 +150,7 @@
                     "alertTextLoad": "* Đang xác nhận, vui lòng chờ"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* Tên này được dùng",

@@ -59,7 +59,7 @@ public class JwtAuthorizingRealm extends AuthorizingRealm {
 		try {
 			if(uidCache==null) {
 				//根据用户名称，获取该用户所有的权限列表
-//				List<Menu> menus = Jboot.service(MenuService.class).queryMenuByUser(Long.valueOf(subject+""));
+//				List<Menu> menus = Jboot.impl(MenuService.class).queryMenuByUser(Long.valueOf(subject+""));
 				List<String> authorities=new ArrayList<String>();
 //				for (int i = 0; i < menus.size(); i++) {
 //					Menu menu=menus.get(i);
@@ -69,7 +69,7 @@ public class JwtAuthorizingRealm extends AuthorizingRealm {
 //					}
 //				}
 				
-//				List<Role> roles = Jboot.service(RoleService.class).queryRoleByUser(admins);
+//				List<Role> roles = Jboot.impl(RoleService.class).queryRoleByUser(admins);
 //				List<String> rolelist=new ArrayList<String>();
 //				for (int i = 0; i < roles.size(); i++) {
 //					Role role=roles.get(i);

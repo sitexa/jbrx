@@ -2,7 +2,7 @@ create database message;
 use message;
 
 CREATE TABLE `channel` (
-  `channel` varchar(50) NOT NULL COMMENT '通道账户（唯一） 如邮件：service@wxh.mall.com  ,极光短信：jpushsms1 ，极光推送账户为：jpush1',
+  `channel` varchar(50) NOT NULL COMMENT '通道账户（唯一） 如邮件：impl@wxh.mall.com  ,极光短信：jpushsms1 ，极光推送账户为：jpush1',
   `channelName` varchar(50) NOT NULL DEFAULT '' COMMENT '第3方发送短信平台名称或邮件名称',
   `rate` int(10) NOT NULL DEFAULT '0' COMMENT '速率',
   `maxSendCount` int(4) NOT NULL DEFAULT '0' COMMENT '单位时间最大发送次数,0代表无限制',

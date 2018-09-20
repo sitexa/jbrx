@@ -2,25 +2,121 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cca642d-4a16-4d3e-a107-c6e6f95b48e8" name="Default" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/LoginCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/ApiApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/BannerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/interceptor/AuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/security/jwt/JwtAuthorizingRealm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/security/jwt/JwtShiroInvokeListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/utils/TreeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/dbbus_dev.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/dbbus_pro.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/dbbus_test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/ehcache.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/jboot.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/shiro.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/oauth2-redirect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-standalone-preset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-standalone-preset.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseImgUrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/ValidatorInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/BannerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/ThumbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Banner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Thumb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/AdminServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/BannerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/ThumbServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dbbus_dev.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dbbus_pro.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dbbus_test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dubbo.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/jboot.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/DBBus.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/DataService.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/AdminService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/BannerService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/CommentService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/ThumbService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/UserService.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/conf/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/test/java/proxy/UserServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/Ploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/Ploy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/RC.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/RC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/Ret.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/Ret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/UserState.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/UserState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/render/JsonErrorRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/render/JsonErrorRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroDbRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroDbRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/handler/RetryLimitHashedCredentialsMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/handler/RetryLimitHashedCredentialsMatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/jwt/JwtSubjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/jwt/JwtSubjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/Permissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/sso/SSOAuthenticationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/sso/SSOAuthenticationToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/scripts/start-service" beforeDir="false" afterPath="$PROJECT_DIR$/doc/scripts/start-service" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facade/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/facade/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/ecl/ecl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/ecl/ecl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/puppet/puppet.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/puppet/puppet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/shell/shell.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/shell/shell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/sparql/sparql.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/sparql/sparql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-cz.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-cz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-da.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-da.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-de.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-el.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-el.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-en.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-es.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-fa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ja.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-nl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-no.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-no.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Cyrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Cyrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Latn.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Latn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-tr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-vi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/base/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/base/BaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-message-facade/src/main/resources/database/wmall-message.sql" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-message-facade/src/main/resources/database/wmall-message.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rxmall-file/src/main/test/com/www/mall/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/rxmall-file/src/main/test/com/www/mall/service/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/ServiceApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/ServiceApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/tools/target/" />
@@ -35,6 +131,9 @@
     <ignored path="$PROJECT_DIR$/common/target/" />
     <ignored path="$PROJECT_DIR$/service/target/" />
     <ignored path="$PROJECT_DIR$/facade/target/" />
+    <ignored path="$PROJECT_DIR$/api/target/" />
+    <ignored path="$PROJECT_DIR$/msg-service/target/" />
+    <ignored path="$PROJECT_DIR$/msg-facade/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,81 +174,92 @@
     <session id="-1327033333">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="6" />
+          <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="7" />
+          <entry key="Filter" value="3" />
+          <entry key="ProxyFactory" value="2" />
+          <entry key="RegistryFactory" value="1" />
+          <entry key="Serialization" value="1" />
+          <entry key="class" value="40" />
           <entry key="gitignore" value="7" />
           <entry key="html" value="3" />
-          <entry key="ini" value="1" />
-          <entry key="java" value="253" />
-          <entry key="messageRecord" value="1" />
-          <entry key="properties" value="6" />
+          <entry key="ini" value="2" />
+          <entry key="java" value="404" />
+          <entry key="messageRecord" value="4" />
+          <entry key="properties" value="21" />
           <entry key="sh" value="13" />
-          <entry key="sql" value="12" />
+          <entry key="sql" value="15" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="38" />
-          <entry key="xsd" value="1" />
+          <entry key="user" value="2" />
+          <entry key="xml" value="105" />
+          <entry key="xsd" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="8" />
-          <entry key="CLASS" value="7" />
-          <entry key="Database Element" value="1" />
+          <entry key="CLASS" value="40" />
+          <entry key="Database Element" value="6" />
           <entry key="HTML" value="3" />
-          <entry key="JAVA" value="253" />
-          <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Properties" value="6" />
-          <entry key="SQL" value="3" />
+          <entry key="JAVA" value="404" />
+          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="Properties" value="21" />
+          <entry key="SPI" value="1" />
+          <entry key="SQL" value="6" />
           <entry key="Scratch" value="9" />
-          <entry key="XML" value="39" />
+          <entry key="XML" value="108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="42" />
+          <entry key="dummy" value="46" />
           <entry key="gitignore" value="23" />
-          <entry key="java" value="158" />
+          <entry key="ini" value="16" />
+          <entry key="java" value="1888" />
+          <entry key="properties" value="19" />
           <entry key="sh" value="1" />
           <entry key="sql" value="21" />
-          <entry key="txt" value="105" />
-          <entry key="xml" value="80" />
+          <entry key="txt" value="146" />
+          <entry key="xml" value="353" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="158" />
-          <entry key="PLAIN_TEXT" value="171" />
+          <entry key="JAVA" value="1888" />
+          <entry key="PLAIN_TEXT" value="232" />
+          <entry key="Properties" value="19" />
           <entry key="Scratch" value="21" />
-          <entry key="XML" value="80" />
+          <entry key="XML" value="353" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>code</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -176,57 +286,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/rxmall-file/pom.xml" />
-        <option value="$PROJECT_DIR$/rxmall-file/.gitignore" />
-        <option value="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/security/jwt/JwtShiroInvokeListener.java" />
-        <option value="$PROJECT_DIR$/common/pom.xml" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/ESInfo.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/JMap.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/Menu.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/Ploy.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/RC.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/Ret.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/SSOInfo.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/TreeModel.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/UserState.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/UserVo.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/APIData.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/BlankUtil.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/MoneyUtil.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/RegexUtils.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/SerializableUtil.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/TemplateUtil.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/WebServiceUtils.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/XMLUtil.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/http/impl/Http.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/http/HttpBase.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/http/impl/HttpImpl.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/http/impl/OKHttpImpl.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/http/HttpManager.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/encrypt/AESType.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/utils/ParamUtil.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseController.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/IVRule.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/Validator.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/ValidatorRule.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/Version.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VGroup.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VRule.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VRules.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VType.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/RxConstants.java" />
+        <option value="$PROJECT_DIR$/service/src/main/resources/trans/service/UserService.xml" />
+        <option value="$PROJECT_DIR$/service/src/main/resources/dbbus_dev.xml" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/UserService.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/UserPrincipal.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/UserVo.java" />
+        <option value="$PROJECT_DIR$/service/src/test/java/proxy/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/ValidatorInterceptor.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/ApiApp.java" />
+        <option value="$PROJECT_DIR$/msg-facade/src/main/java/com/sitexa/msg/MsgApp.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/MsgApp.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/service/MessageService.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/service/MessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/api/ISms.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/api/JPushSms.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/api/IMessage.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/api/SmsUtils.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/resources/trans/message/plugin.xml" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/resources/dbbus_dev.xml" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/resources/dbbus_pro.xml" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/interceptor/AuthInterceptor.java" />
+        <option value="$PROJECT_DIR$/msg-facade/pom.xml" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/resources/jboot.properties" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/security/jwt/JwtAuthorizingRealm.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/security/jwt/JwtShiroInvokeListener.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/utils/TreeUtil.java" />
+        <option value="$PROJECT_DIR$/api/pom.xml" />
         <option value="$PROJECT_DIR$/facade/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/api/src/main/resources/jboot.properties" />
+        <option value="$PROJECT_DIR$/api/src/main/resources/shiro.ini" />
         <option value="$PROJECT_DIR$/service/pom.xml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2877b56c-8938-43e4-84a9-f74aed3e7a52/console.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2877b56c-8938-43e4-84a9-f74aed3e7a52/console_1.sql" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/Ploy.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/RC.java" />
-        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/dto/Comment.java" />
-        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/dto/Register.java" />
-        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/Ret.java" />
-        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Register.java" />
-        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Video.java" />
-        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/CommentService.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/resources/trans/message/MessageService.xml" />
+        <option value="$PROJECT_DIR$/msg-service/pom.xml" />
+        <option value="$PROJECT_DIR$/msg-service/src/test/java/proxy/MessgeaServiceTest.java" />
+        <option value="$PROJECT_DIR$/msg-facade/src/main/java/com/sitexa/msg/interfaces/MessageService.java" />
+        <option value="$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/impl/MessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseImgUrl.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/FileController.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/BannerService.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/BannerController.java" />
+        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/AdminService.java" />
+        <option value="$PROJECT_DIR$/service/src/main/resources/trans/service/BannerService.xml" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/AdminsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/BannerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/ThumbService.java" />
+        <option value="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Thumb.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/CommentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/ThumbServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -259,15 +369,21 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="jbrx" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="jbrx-api" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="tools" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="jbrx" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -310,6 +426,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,7 +438,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -330,7 +446,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/open/wuwei/jbrx/jbrx-common/pom.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537351577410" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537436065401" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v8.2.1/bin/node" />
@@ -342,19 +458,22 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sitexa.msg.vo" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.sitexa.facade.vo" />
-      <recent name="com.sitexa.facade.interfaces" />
-      <recent name="com.sitexa.facade.dto" />
-      <recent name="com.sitexa.common.constants" />
-      <recent name="com.sitexa.common.base" />
+      <recent name="com.sitexa.api.controller" />
+      <recent name="conf" />
+      <recent name="com.sitexa.api.interceptor" />
+      <recent name="com.sitexa.msg.service" />
+      <recent name="com.sitexa.msg.interfaces" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/service" />
-      <recent name="$PROJECT_DIR$/facade" />
-      <recent name="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants" />
-      <recent name="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator" />
-      <recent name="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/render" />
+      <recent name="$PROJECT_DIR$/service/src/main/resources/trans/service" />
+      <recent name="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo" />
+      <recent name="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces" />
+      <recent name="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl" />
+      <recent name="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -369,34 +488,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AdminApp">
+  <component name="RunManager" selected="Application.ApiApp">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.www.mall.AdminApp" />
-      <module name="jbrx-admin" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.www.mall.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ApiApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.www.mall.ApiApp" />
-      <module name="jbrx-api" />
+      <option name="MAIN_CLASS_NAME" value="com.sitexa.api.ApiApp" />
+      <module name="api" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.www.mall.*" />
+          <option name="PATTERN" value="com.sitexa.api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -404,13 +509,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MessageService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.www.mall.service.MessageService" />
-      <module name="jbrx-message-service" />
+    <configuration name="MsgApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sitexa.msg.MsgApp" />
+      <module name="msg-service" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.www.mall.service.*" />
+          <option name="PATTERN" value="com.sitexa.msg.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -418,13 +523,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.www.mall.service.UserService" />
-      <module name="jbrx-service" />
+    <configuration name="ServiceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sitexa.service.ServiceApp" />
+      <module name="service" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.www.mall.service.*" />
+          <option name="PATTERN" value="com.sitexa.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -434,6 +539,40 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessgeaServiceTest.TestSendCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="msg-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="proxy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="proxy" />
+      <option name="MAIN_CLASS_NAME" value="proxy.MessgeaServiceTest" />
+      <option name="METHOD_NAME" value="TestSendCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testqueryUsersById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="proxy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="proxy" />
+      <option name="MAIN_CLASS_NAME" value="proxy.UserServiceTest" />
+      <option name="METHOD_NAME" value="testqueryUsersById" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -462,17 +601,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.UserService" />
+      <item itemvalue="JUnit.UserServiceTest.testqueryUsersById" />
+      <item itemvalue="Application.MsgApp" />
+      <item itemvalue="Application.ServiceApp" />
       <item itemvalue="Application.ApiApp" />
-      <item itemvalue="Application.MessageService" />
-      <item itemvalue="Application.AdminApp" />
+      <item itemvalue="JUnit.MessgeaServiceTest.TestSendCode" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdminApp" />
         <item itemvalue="Application.ApiApp" />
-        <item itemvalue="Application.UserService" />
-        <item itemvalue="Application.MessageService" />
+        <item itemvalue="Application.MsgApp" />
+        <item itemvalue="Application.ServiceApp" />
+        <item itemvalue="JUnit.MessgeaServiceTest.TestSendCode" />
+        <item itemvalue="JUnit.UserServiceTest.testqueryUsersById" />
       </list>
     </recent_temporary>
   </component>
@@ -502,7 +643,8 @@
       <workItem from="1537232384999" duration="1376000" />
       <workItem from="1537253023840" duration="3253000" />
       <workItem from="1537319634626" duration="1242000" />
-      <workItem from="1537344063083" duration="7502000" />
+      <workItem from="1537344063083" duration="8154000" />
+      <workItem from="1537405011332" duration="24578000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1536891879215</created>
@@ -637,16 +779,76 @@
       <option name="project" value="LOCAL" />
       <updated>1537349384864</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="refactor">
+      <created>1537351669257</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1537351669257</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor">
+      <created>1537352211774</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1537352211774</updated>
+    </task>
+    <task id="LOCAL-00022" summary="refactor">
+      <created>1537425112426</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1537425112426</updated>
+    </task>
+    <task id="LOCAL-00023" summary="finish test send message module.">
+      <created>1537432412980</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1537432412980</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="UserServiceTest_testQueryUserByMobile - 2018.09.20 at 10h 20m 12s.xml">
+      <configuration name="UserServiceTest.testQueryUserByMobile" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_testQueryUserByMobile - 2018.09.20 at 10h 28m 59s.xml">
+      <configuration name="UserServiceTest.testQueryUserByMobile" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_testqueryUserNameExist - 2018.09.20 at 10h 31m 36s.xml">
+      <configuration name="UserServiceTest.testqueryUserNameExist" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_testqueryUserNameExist - 2018.09.20 at 10h 32m 09s.xml">
+      <configuration name="UserServiceTest.testqueryUserNameExist" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_testqueryUsersById - 2018.09.20 at 10h 34m 30s.xml">
+      <configuration name="UserServiceTest.testqueryUsersById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MessgeaServiceTest_TestSendCode - 2018.09.20 at 16h 09m 57s.xml">
+      <configuration name="MessgeaServiceTest.TestSendCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MessgeaServiceTest_TestSendCode - 2018.09.20 at 16h 16m 11s.xml">
+      <configuration name="MessgeaServiceTest.TestSendCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MessgeaServiceTest_TestSendCode - 2018.09.20 at 16h 19m 08s.xml">
+      <configuration name="MessgeaServiceTest.TestSendCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MessgeaServiceTest_TestSendCode - 2018.09.20 at 16h 20m 50s.xml">
+      <configuration name="MessgeaServiceTest.TestSendCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MessgeaServiceTest_TestSendCode - 2018.09.20 at 16h 21m 40s.xml">
+      <configuration name="MessgeaServiceTest.TestSendCode" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39496000" />
+    <option name="totallyTimeSpent" value="64726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26246575" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26575342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -656,14 +858,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4918919" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972974" />
       <window_info anchor="bottom" id="Docker" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32972974" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32972974" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32901832" />
       <window_info anchor="bottom" id="SmartIM" order="13" />
@@ -697,373 +899,400 @@
     <MESSAGE value="rxmall-file" />
     <MESSAGE value="过滤登录相关的请求，不给处理。" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="finish test send message module." />
+    <option name="LAST_COMMIT_MESSAGE" value="finish test send message module." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VType.java">
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/dbbus_dev.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="15">
+          <caret line="1" column="126" selection-start-line="1" selection-start-column="122" selection-end-line="1" selection-end-column="126" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VRules.java">
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/services/com.weibo.api.motan.registry.RegistryFactory">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state>
+          <caret column="59" lean-forward="true" selection-start-column="59" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/services/com.weibo.api.motan.proxy.ProxyFactory">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VRenderType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/services/com.weibo.api.motan.filter.Filter">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/VGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/services/com.weibo.api.motan.codec.Serialization">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/Version.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/services/com.alibaba.dubbo.rpc.ProxyFactory">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/ValidatorRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/services/com.alibaba.dubbo.rpc.Filter">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/Validator.java">
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/trans/message/MessageService.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/validator/IVRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/constants/RxConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/constants/HttpImgContants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/RxConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/HttpImgContants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-common/pom.xml">
+    <entry file="file://$PROJECT_DIR$/jbrx-message-service/src/main/java/com/www/mall/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/msg-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        <state relative-caret-position="1143">
+          <caret line="175" column="38" selection-start-line="175" selection-start-column="38" selection-end-line="175" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="101" column="19" selection-start-line="12" selection-start-column="4" selection-end-line="101" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="12" selection-start-line="12" selection-start-column="4" selection-end-line="51" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/facade/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-message-facade/src/main/resources/database/wmall-message.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-message-facade/src/main/java/com/www/mall/message/interf/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://2877b56c-8938-43e4-84a9-f74aed3e7a52/schema/rxgj/table/comment.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2877b56c-8938-43e4-84a9-f74aed3e7a52/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2877b56c-8938-43e4-84a9-f74aed3e7a52/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://2877b56c-8938-43e4-84a9-f74aed3e7a52/schema/rxgj/table/admin.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="58" lean-forward="true" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/enums/LoginCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/TreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/SSOInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/RC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/Ploy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/JMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/ESInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/UserState.java">
+    <entry file="file://$PROJECT_DIR$/jbrx-message-service/src/main/java/com/www/mall/service/message/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <caret line="17" column="81" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/constants/LoginCode.java">
+    <entry file="file://$PROJECT_DIR$/jbrx-message-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="360">
+          <caret line="162" column="74" selection-start-line="162" selection-start-column="60" selection-end-line="162" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/dto/Register.java">
+    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/dto/Comment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/dto/Banner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-327">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/gavin/gavin/2.01/gavin-2.01.jar!/com/gavin/model/Model.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/Ret.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+        <state relative-caret-position="120">
+          <caret line="8" column="62" lean-forward="true" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/interf/CommentService.java">
+    <entry file="file://$PROJECT_DIR$/msg-service/src/test/java/proxy/MessgeaServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="420">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2877b56c-8938-43e4-84a9-f74aed3e7a52/schema/jbrx/table/messageRecord">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/api/JPushSms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="21" column="61" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg-facade/src/main/java/com/sitexa/msg/vo/TemplateType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding>
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/api/SmsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg-service/src/main/java/com/sitexa/msg/impl/MessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg-facade/src/main/java/com/sitexa/msg/interfaces/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/sitexa/service/ServiceApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="150">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/gavin/gavin/2.01/gavin-2.01.jar!/com/gavin/schema/service/User.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Comment.java">
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="6" selection-end-column="41" />
+        <state relative-caret-position="195">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jfinal/jfinal-java8/3.4/jfinal-java8-3.4.jar!/com/jfinal/core/Controller.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="881" column="19" selection-start-line="881" selection-start-column="19" selection-end-line="881" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#29107#29108#0" expanded="true" />
+            <element signature="e#29182#29183#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/UserVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/bean/AdminVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/vo/TacticsVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/vo/PlatformVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/CommentService.java">
+    <entry file="file://$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="37" lean-forward="true" selection-start-column="37" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jbrx-facade/src/main/java/com/www/mall/user/dto/Video.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Video.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseImgUrl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="67" column="43" lean-forward="true" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2541#2542#0" expanded="true" />
+            <element signature="e#2563#2564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="76" column="46" lean-forward="true" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/BannerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Banner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/BannerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/BannerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/LwController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-657" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/controller/api/PlatformController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/AdminService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/resources/trans/service/BannerService.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/resources/trans/service/UserService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/resources/trans/service/CommentService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/resources/trans/service/AdminService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/BannerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/AdminServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/ThumbServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/ThumbService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/CommentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/resources/trans/service/ThumbService.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/ThumbServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Thumb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

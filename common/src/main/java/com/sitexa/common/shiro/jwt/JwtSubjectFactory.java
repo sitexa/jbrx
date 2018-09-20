@@ -1,6 +1,6 @@
 package com.sitexa.common.shiro.jwt;
 
-import com.www.mall.common.shiro.sso.SSOAuthenticationToken;
+import com.sitexa.common.shiro.sso.SSOAuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.subject.SubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSubjectFactory;

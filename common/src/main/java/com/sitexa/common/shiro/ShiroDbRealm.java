@@ -1,7 +1,7 @@
 package com.sitexa.common.shiro;
 
-import com.www.mall.common.shiro.auth.MultiAuthenticator;
-import com.www.mall.common.shiro.cache.ShiroCacheUtils;
+import com.sitexa.common.shiro.auth.MultiAuthenticator;
+import com.sitexa.common.shiro.cache.ShiroCacheUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.cache.CacheManager;

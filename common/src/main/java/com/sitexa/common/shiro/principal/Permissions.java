@@ -1,6 +1,7 @@
 package com.sitexa.common.shiro.principal;
 
-import com.www.mall.common.bean.Menu;
+
+import com.sitexa.common.bean.Menu;
 
 import java.io.Serializable;
 import java.util.List;

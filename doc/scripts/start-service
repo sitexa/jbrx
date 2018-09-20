@@ -3,11 +3,11 @@
 zkServer.sh start
 
 if [ $# == 0 ]; then
-    home="/home/xnpeng/IdeaProjects/rxgj/rxgj-service"
+    home="/home/xnpeng/IdeaProjects/rxgj/rxgj-impl"
 elif [$# == 1 ];then
     home=$1
 else
-    echo "usage:./start-service 'root directory' like /home/xnpeng/IdeaProjects/rxgj/rxgj-service"
+    echo "usage:./start-impl 'root directory' like /home/xnpeng/IdeaProjects/rxgj/rxgj-impl"
     exit 1
 fi
 

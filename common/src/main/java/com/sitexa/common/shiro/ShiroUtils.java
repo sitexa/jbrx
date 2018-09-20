@@ -1,8 +1,8 @@
 package com.sitexa.common.shiro;
 
-import com.www.mall.common.shiro.principal.AdminPrincipal;
-import com.www.mall.common.shiro.principal.ShiroPrincipal;
-import com.www.mall.common.shiro.principal.UserPrincipal;
+import com.sitexa.common.shiro.principal.AdminPrincipal;
+import com.sitexa.common.shiro.principal.ShiroPrincipal;
+import com.sitexa.common.shiro.principal.UserPrincipal;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.session.Session;

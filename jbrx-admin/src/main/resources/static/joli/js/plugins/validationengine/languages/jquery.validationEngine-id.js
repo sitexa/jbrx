@@ -153,7 +153,7 @@
                     "alertTextLoad": "* Mengesahkan, silahkan tunggu"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Nama ini sudah diambil",
@@ -163,7 +163,7 @@
                     "alertTextLoad": "* Mengesahkan, silahkan tunggu"
                 },
                 "ajaxNameCallPhp": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "phpajax/ajaxValidateFieldName.php",
                     // error
                     "alertText": "* Nama ini sudah diambil",

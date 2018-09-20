@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+
+    <SQLTrans TransFlag="0" TransName="getAdminsByUserName" DataGroupId="readUser" >
+        <SelectRecord OutputId="{users}">
+            <OutputSQL>select * from admin where status!=3 and userName={adminsName} </OutputSQL>
+        </SelectRecord>
+        <OnException>
+            <Return Code="-1" Text="查询Users信息异常" Info="UsersService.xml.queryUsersByName(i)"/>
+        </OnException>
+        <Return Code="0" Text="查询Users信息成功" Info="查询Users信息成功">
+            <ReturnItem FieldId="{users}" ValueId="{users}"/>
+        </Return>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="0" TransName="getAdminsList" DataGroupId="readUser" >
+        <SelectField OutputId="{totalCount}">
+            <OutputSQL>select count(*) from admin where status!=3 </OutputSQL>
+            <SQLIf Value1="{userName}" Type="String" Operator="EXIST">
+                <SQLThen><OutputSQL>  and userName like '%{r:userName}%'</OutputSQL></SQLThen>
+            </SQLIf>
+        </SelectField>
+        <SelectRecordSet OutputId="{users}">
+            <OutputSQL>select * from admin where status!=3 </OutputSQL>
+            <SQLIf Value1="{userName}" Type="String" Operator="EXIST">
+                <SQLThen><OutputSQL>  and userName like '%{r:userName}%'</OutputSQL></SQLThen>
+            </SQLIf>
+            <OutputSQL> limit {startIndex},{pageSize}</OutputSQL>
+        </SelectRecordSet>
+        <OnException>
+            <Return Code="-1" Text="查询异常" Info="查询异常"/>
+        </OnException>
+        <Return Code="0" Text="查询成功" Info="查询成功">
+            <ReturnItem FieldId="{pageNumber}" ValueId="{pageNumber}"/>
+            <ReturnItem FieldId="{pageSize}" ValueId="{pageSize}"/>
+            <ReturnItem FieldId="{totalCount}" ValueId="{totalCount}"/>
+            <ReturnItem FieldId="{list}" ValueId="{users}"/>
+        </Return>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="1" TransName="insertAdmin" DataGroupId="writeUser">
+        <SelectField OutputId="{count}">
+            <OutputSQL>select count(*) from admin where status!=3 and userName={userName}</OutputSQL>
+        </SelectField>
+        <If Value1="{count}" Operator="=" Type="Integer" Value2="0">
+            <Then>
+                <Insert>
+                    <OutputSQL>
+                        insert into admin (plateformId,userName,avatar,password,salt,status,loginTime,createTime,updateTime)
+                        values({plateformId},{userName},{avatar},{password},{salt},1,{currentTime},{currentTime},{currentTime})
+                    </OutputSQL>
+                </Insert>
+            </Then>
+            <Else>
+                <Return Code="-1" Info="用户名已存在" Text="用户名已存在"/>
+            </Else>
+        </If>
+        <OnException>
+            <Return Code="-1" Info="新增异常" Text="新增异常"/>
+        </OnException>
+        <Return Code="0" Info="保存成功" Text="保存成功"/>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="1" TransName="updateAdmin" DataGroupId="writeUser">
+        <Update>
+            <OutputSQL>update admin set plateformId={plateformId},avatar={avatar},updateTime={currentTime} where id={id}</OutputSQL>
+        </Update>
+        <OnException>
+            <Return Code="-1" Info="修改异常" Text="修改异常"/>
+        </OnException>
+        <Return Code="0" Info="保存成功" Text="保存成功"/>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="1" TransName="isUsedAdmin" DataGroupId="writeUser">
+        <Update>
+            <OutputSQL>update admin set status={status},updateTime={currentTime} where id={id}</OutputSQL>
+        </Update>
+        <OnException>
+            <Return Code="-1" Info="修改异常" Text="修改异常"/>
+        </OnException>
+        <Return Code="0" Info="保存成功" Text="保存成功"/>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="1" TransName="delAdmin" DataGroupId="writeUser">
+        <Update>
+            <OutputSQL>update admin set status=3,updateTime={currentTime} where id={id}</OutputSQL>
+        </Update>
+        <OnException>
+            <Return Code="-1" Info="修改异常" Text="修改异常"/>
+        </OnException>
+        <Return Code="0" Info="保存成功" Text="保存成功"/>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="1" TransName="updateAdminPassword" DataGroupId="writeUser">
+        <Update>
+            <OutputSQL>update admin set password={password},salt={salt},updateTime={currentTime} where id={id}</OutputSQL>
+        </Update>
+        <OnException>
+            <Return Code="-1" Info="修改异常" Text="修改异常"/>
+        </OnException>
+        <Return Code="0" Info="保存成功" Text="保存成功"/>
+    </SQLTrans>
+
+</DataService>
