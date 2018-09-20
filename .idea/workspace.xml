@@ -2,121 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cca642d-4a16-4d3e-a107-c6e6f95b48e8" name="Default" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/ApiApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/BannerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/FileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/interceptor/AuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/security/jwt/JwtAuthorizingRealm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/security/jwt/JwtShiroInvokeListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/sitexa/api/utils/TreeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/dbbus_dev.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/dbbus_pro.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/dbbus_test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/ehcache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/jboot.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/shiro.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/oauth2-redirect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-standalone-preset.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui-standalone-preset.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/swaggerui/swagger-ui.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseImgUrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/base/ValidatorInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/BannerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/ThumbService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/interfaces/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Banner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/facade/src/main/java/com/sitexa/facade/vo/Thumb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/AdminServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/BannerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/ThumbServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dbbus_dev.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dbbus_pro.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dbbus_test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/dubbo.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/jboot.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/DBBus.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/DataService.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/AdminService.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/BannerService.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/CommentService.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/ThumbService.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/UserService.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/resources/trans/service/plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/conf/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/test/java/proxy/UserServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/render/JsonErrorRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/render/JsonErrorRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroDbRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroDbRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/ShiroUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/handler/RetryLimitHashedCredentialsMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/handler/RetryLimitHashedCredentialsMatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/jwt/JwtSubjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/jwt/JwtSubjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/principal/UserPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/sso/SSOAuthenticationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/sitexa/common/shiro/sso/SSOAuthenticationToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/scripts/start-service" beforeDir="false" afterPath="$PROJECT_DIR$/doc/scripts/start-service" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facade/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/facade/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/ecl/ecl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/ecl/ecl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/puppet/puppet.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/puppet/puppet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/shell/shell.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/shell/shell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/sparql/sparql.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/codemirror/mode/sparql/sparql.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-cz.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-cz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-da.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-da.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-de.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-de.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-el.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-el.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-en.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-es.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-es.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-fa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-hu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ja.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-nl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-no.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-no.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pt.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-pt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ro.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-ru.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Cyrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Cyrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Latn.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sr_Latn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-sv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-tr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-vi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_CN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-admin/src/main/resources/static/joli/js/plugins/validationengine/languages/jquery.validationEngine-zh_TW.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/java/com/www/mall/security/jwt/JwtAuthorizingRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui-bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-api/src/main/resources/swaggerui/swagger-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/base/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-common/src/main/java/com/www/mall/common/base/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-message-facade/src/main/resources/database/wmall-message.sql" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-message-facade/src/main/resources/database/wmall-message.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jbrx-service/src/main/java/com/www/mall/service/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rxmall-file/src/main/test/com/www/mall/service/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/rxmall-file/src/main/test/com/www/mall/service/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/ServiceApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/ServiceApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/sitexa/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/tools/target/" />
@@ -446,7 +332,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/open/wuwei/jbrx/jbrx-common/pom.xml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537436065401" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537436667678" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v8.2.1/bin/node" />
@@ -644,7 +530,7 @@
       <workItem from="1537253023840" duration="3253000" />
       <workItem from="1537319634626" duration="1242000" />
       <workItem from="1537344063083" duration="8154000" />
-      <workItem from="1537405011332" duration="24578000" />
+      <workItem from="1537405011332" duration="25292000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <created>1536891879215</created>
@@ -807,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537432412980</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="refactor">
+      <created>1537436559036</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1537436559036</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -843,7 +736,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64726000" />
+    <option name="totallyTimeSpent" value="65440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
@@ -898,9 +791,9 @@
     <MESSAGE value="scripts" />
     <MESSAGE value="rxmall-file" />
     <MESSAGE value="过滤登录相关的请求，不给处理。" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="finish test send message module." />
-    <option name="LAST_COMMIT_MESSAGE" value="finish test send message module." />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/msg-service/src/main/resources/dbbus_dev.xml">
