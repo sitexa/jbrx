@@ -163,7 +163,7 @@
                     "alertTextLoad": "* Провера података, молимо сачекајте"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Ово корисничко име је већ заузето",
@@ -173,7 +173,7 @@
                     "alertTextLoad": "* Провера података, молимо сачекајте"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* Ово корисничко име је већ заузето",

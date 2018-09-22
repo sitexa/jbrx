@@ -153,7 +153,7 @@
                     "alertTextLoad": "* Validerer, vennligst vent"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Dette navnet er allerede tatt",
@@ -163,7 +163,7 @@
                     "alertTextLoad": "* Validerer, vennligst vent"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* Dette navnet er allerede tatt",

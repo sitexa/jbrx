@@ -120,7 +120,7 @@
                     "alertText": "* Aquest nom d'usuari ja es troba en ús"
                 },
                 "ajaxNameCall": {
-					// remote json service location
+					// remote json impl location
                     "url": "ajaxValidateFieldName",
 					// error
                     "alertText": "* Aquest nom d'usuari ja es troba en ús",

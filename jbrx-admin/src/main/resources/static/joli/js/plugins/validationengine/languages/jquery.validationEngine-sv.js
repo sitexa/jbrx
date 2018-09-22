@@ -129,7 +129,7 @@
                     "alertTextLoad": "* Validerar, var god vänta"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Användarnamnet är upptaget",
@@ -139,7 +139,7 @@
                     "alertTextLoad": "* Validerar, var god vänta"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* Användarnamnet är upptaget",

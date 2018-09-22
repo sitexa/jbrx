@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+
+	<!-- 保存文件 -->
+	<SQLTrans TransName="saveFile" TransFlag="1" DataGroupId="writeFile" BigTableGroupId="writeFile">
+		<For Count="{files.length}" FromIndex="0" IndexId="{i}">
+			<Insert>
+				<OutputSQL>
+					INSERT INTO files
+					(fileDomain,filePath,fileName,sourceFileName,fileCode,fileSize,createTime,updateTime)
+					VALUES
+					({fileDomain},{files[i].strURIPath},{files[i].strFileName},{files[i].strSourceFileName},{files[i].nFileCode},{files[i].lSize},{createTime},{createTime})
+				</OutputSQL>
+			</Insert>
+		</For>
+		<OnException>
+			<Return Info="FileService.Error" Code="-1" Text="数据库操作发生异常">
+			</Return>
+		</OnException>
+		<Return Info="OK" Code="0" Text="OK"/>
+	</SQLTrans>
+	
+	<SQLTrans  TransName="queryFile" TransFlag="1" DataGroupId="writeFile" BigTableGroupId="writeFile">
+		<SelectRecord  OutputId="{file}">
+			<OutputSQL>select * from files where fileName={fileName}</OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Info="FileService.queryFile.Error" Code="-1" Text="数据库操作发生异常">
+			</Return>
+		</OnException>
+		<Return Info="OK" Code="0" Text="OK"/>		
+	</SQLTrans>
+	 
+</DataService>

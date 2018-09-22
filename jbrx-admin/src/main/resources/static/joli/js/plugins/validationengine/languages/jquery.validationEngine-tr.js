@@ -132,7 +132,7 @@
                     "alertTextLoad": "* Doğrulanıyor, lütfen bekleyiniz"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Bu isim kullanımda",
@@ -142,7 +142,7 @@
                     "alertTextLoad": "* Doğrulanıyor, lütfen bekleyiniz"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* Bu isim kullanımda",

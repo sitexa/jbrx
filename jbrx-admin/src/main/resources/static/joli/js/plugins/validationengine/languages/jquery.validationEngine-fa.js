@@ -138,7 +138,7 @@
                     "alertTextLoad": "* درحال اعتبار سنجی، لطفا صبر کنید"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* این نام پیش‌تر ثبت شده است",
@@ -148,7 +148,7 @@
                     "alertTextLoad": "* درحال اعتبار سنجی، لطفا صبر کنید"
                 },
 				 "ajaxNameCallPhp": {
-	                    // remote json service location
+	                    // remote json impl location
 	                    "url": "phpajax/ajaxValidateFieldName.php",
 	                    // error
 	                    "alertText": "* این نام تکراری است",

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+
+	<SQLTrans TransFlag="0" TransName="queryUsersByUsersName" DataGroupId="readUser" >
+		<SelectRecord OutputId="{users}">
+			<OutputSQL>select * from user where mobilePhone={mobilePhone} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Users信息异常" Info="UsersService.xml.queryUsersByName(i)"/>
+		</OnException>
+		<Return Code="0" Text="查询Users信息成功" Info="查询Users信息成功">
+			<ReturnItem FieldId="{users}" ValueId="{users}"/>
+		</Return>
+	</SQLTrans>
+
+	<!-- 新增Users -->
+	<SQLTrans TransFlag="1" TransName="saveUsers" DataGroupId="writeUser">
+		<SelectField OutputId="{count}">
+			<OutputSQL>select count(id) from user where mobilePhone={mobilePhone}</OutputSQL>
+		</SelectField>
+		<If Value1="{count}" Type="Long" Operator="!=" Value2="0">
+			<Then>
+				<Return Code="1" Info="用户已被注册" Text="用户已被注册"/>
+			</Then>
+		</If>
+		<Insert>
+			<OutputSQL>
+				insert into user (realName,nickName,mobilePhone,password,salt,status,lockTime,createTime)
+				values({realName},{nickName},{mobilePhone},{password},{salt},1,{currentTime},{currentTime})
+<!--
+				insert into user (nickName,mobilePhone,password,salt,status,lockTime,createTime,idcard,idcardImg,idcardImgBack,bank,bankch,bankNum,bankImg,bankImgBack,bankcardOwner,mobile,country,cardType)
+				values({nickName},{mobilePhone},{password},{salt},1,{currentTime},{currentTime},{idcard},{idcardImg},{idcardImgBack},{bank},{bankch},{bankNum},{bankImg},{bankImgBack},{bankcardOwner},{mobile},{country},{cardType})
+-->
+			</OutputSQL>
+		</Insert>
+		<SelectField OutputId="{userId}">
+			<OutputSQL>select @@IDENTITY users</OutputSQL>
+		</SelectField>
+		<OnException>
+			<Return Code="-1" Info="注册异常" Text="注册异常"/>
+		</OnException>
+		<Return Code="0" Info="注册成功" Text="注册成功">
+			<ReturnItem FieldId="{userId}" ValueId="{userId}"/>
+		</Return>
+	</SQLTrans>
+
+	<!-- 根据用户ids获取用户信息 -->
+	<SQLTrans TransFlag="0" TransName="queryUserNameExist" DataGroupId="readUser" >
+		<SelectField OutputId="{userCount}">
+			<OutputSQL>select count(mobilePhone) from user where mobilePhone={userName} </OutputSQL>
+		</SelectField>
+		<OnException>
+			<Return Code="-1" Text="查询用户信息异常" Info="查询用户信息异常"/>
+		</OnException>
+		<Return Code="0" Text="查询用户信息成功" Info="查询用户信息成功">
+			<ReturnItem FieldId="{userCount}" ValueId="{userCount}"/>
+		</Return>
+	</SQLTrans>
+
+	<SQLTrans TransFlag="0" TransName="queryUsersById" DataGroupId="readUser" >
+		<SelectRecord OutputId="{users}">
+			<OutputSQL>select * from user where id={id} </OutputSQL>
+		</SelectRecord>
+		<OnException>
+			<Return Code="-1" Text="查询Users信息异常" Info="UsersService.xml.queryById(i)"/>
+		</OnException>
+		<Return Code="0" Text="查询Users信息成功" Info="查询Users信息成功">
+			<ReturnItem FieldId="{users}" ValueId="{users}"/>
+		</Return>
+	</SQLTrans>
+
+	<SQLTrans TransFlag="1" TransName="updatePassword" DataGroupId="writeUser">
+		<Update>
+			<OutputSQL>update user set password={newPassword},salt={newSalt} where id={userId}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Users数据库异常" Text="修改密码数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Users成功" Text="修改密码成功"/>
+	</SQLTrans>
+
+	<!--修改用户信息 公共方法-->
+	<SQLTrans TransFlag="1" TransName="updateUserInfo" DataGroupId="writeUser">
+		<Update>
+			<OutputSQL>update user set {r:columnName}={columnValue} where id={userId}</OutputSQL>
+		</Update>
+		<OnException>
+			<Return Code="-1" Info="修改Users数据库异常" Text="修改{columnStr}数据库异常"/>
+		</OnException>
+		<Return Code="0" Info="修改Users成功" Text="修改{columnStr}成功"/>
+	</SQLTrans>
+
+</DataService>

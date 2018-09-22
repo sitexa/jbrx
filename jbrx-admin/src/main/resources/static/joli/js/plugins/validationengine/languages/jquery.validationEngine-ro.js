@@ -140,7 +140,7 @@
                     "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Numele nu este disponibil",
@@ -150,7 +150,7 @@
                     "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
                 },
                 "ajaxNameCallPhp": {
-                        // remote json service location
+                        // remote json impl location
                         "url": "phpajax/ajaxValidateFieldName.php",
                         // error
                         "alertText": "* Numele nu este disponibil",

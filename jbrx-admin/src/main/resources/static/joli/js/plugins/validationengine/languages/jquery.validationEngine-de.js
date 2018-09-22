@@ -116,7 +116,7 @@
                     "alertTextLoad": "* Überprüfe Angaben, bitte warten"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Dieser Name ist bereits vergeben",

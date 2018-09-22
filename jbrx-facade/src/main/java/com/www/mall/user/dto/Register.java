@@ -15,15 +15,6 @@ import com.www.mall.common.validator.VType;
 public class Register implements Serializable{
     private static final long serialVersionUID = 7481029910263308438L;
 
-//	static{
-//		List<ValidatorRule> validat=new ArrayList<ValidatorRule>();
-//		validat.add(ValidatorRule.bulid( "mobilePhone", "手机号码有误",ValidatorRule.group(ValidatorGroup.save,ValidatorGroup.excutor), ValidatorRule.type(ValidatorType.mobilePhone)));
-//		validat.add(ValidatorRule.bulid( "password", "密码最少为6位字符",ValidatorRule.group(ValidatorGroup.save), ValidatorRule.type(ValidatorType.password)));
-//		validat.add(ValidatorRule.bulid( "verifyCode", "验证码有误",ValidatorRule.group(ValidatorGroup.save), ValidatorRule.type(ValidatorType.number)));
-//		validat.add(ValidatorRule.bulid( "messageId", "验证码标识有误",ValidatorRule.group(ValidatorGroup.save), ValidatorRule.type(ValidatorType.notnull)));
-//		BEAN_VALIDATOT_RULE.put(Register.class.getName(), validat);
-//	}
-
     private String mobilePhone;
     private String password;
     private String verifyCode;
@@ -54,11 +45,9 @@ public class Register implements Serializable{
     public void setVerifyCode(String verifyCode) {
         this.verifyCode = verifyCode;
     }
-
     public String getNickName() {
         return nickName;
     }
-
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }

@@ -13,7 +13,7 @@ public class AppRenderFactory extends JbootRenderFactory {
 
     @Override
     public Render getErrorRender(int errorCode) {
-        return new JsonErrorRender(errorCode, constants.getErrorView(errorCode));//constants.getErrorView(errorCode)
+        return new JsonErrorRender(errorCode, constants.getErrorView(errorCode));
     }
 
 }

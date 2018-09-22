@@ -5,7 +5,7 @@
 	<!-- mysql连接的依赖包是高版本的情况下 -->
 	<!-- jdbc:mysql://readUser.www.mysql:8084/www?Unicode=true&amp;characterEncoding=utf8 -->
 	<DataGroup Id="readUser" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
-		<Database URI="jdbc:mysql://read.www.rxgj.mysql:3306/rxgj?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong&amp;useSSL=false" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+		<Database URI="jdbc:mysql://read.www.rxgj.mysql:3306/jbrx?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong&amp;useSSL=false" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
 			<User UserName="root" Password="root"/>
 			<ConnectionPool>
 				<MinConnectionCount>1</MinConnectionCount>
@@ -15,7 +15,7 @@
 	</DataGroup>
 	
 	<DataGroup Id="writeUser" ClassPath="com.gavin.plugin.database.DataEngine" Driver="com.mysql.jdbc.Driver">
-		<Database URI="jdbc:mysql://write.www.rxgj.mysql:3306/rxgj?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong&amp;useSSL=false" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
+		<Database URI="jdbc:mysql://write.www.rxgj.mysql:3306/jbrx?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Hongkong&amp;useSSL=false" LoadLevel="100" KeyIV="DECSECURITYKEYABCDEFG|EiJPWIgQQDgoJXlRy91SZncpdZgwQEHi">
 			<User UserName="root" Password="root"/>
 			<ConnectionPool>
 				<MinConnectionCount>1</MinConnectionCount>

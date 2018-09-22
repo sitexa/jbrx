@@ -119,7 +119,7 @@
                     "alertTextLoad": "* Kontrollere, vent venligst"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Dette navn er allerede taget",

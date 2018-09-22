@@ -124,7 +124,7 @@
                     "alertTextLoad": "* Walidacja, proszę czekać"
                 },
                 "ajaxNameCall": {
-                    // remote json service location
+                    // remote json impl location
                     "url": "ajaxValidateFieldName",
                     // error
                     "alertText": "* Nazwa jest już zajęta",

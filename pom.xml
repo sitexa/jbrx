@@ -7,14 +7,13 @@
     <artifactId>jbrx</artifactId>
     <version>1.0</version>
     <modules>
-        <module>jbrx-admin</module>
-        <module>jbrx-api</module>
-        <module>jbrx-common</module>
-        <module>jbrx-facade</module>
-        <module>jbrx-message-facade</module>
-        <module>jbrx-message-service</module>
-        <module>jbrx-service</module>
         <module>tools</module>
+        <module>common</module>
+        <module>service</module>
+        <module>facade</module>
+        <module>api</module>
+        <module>msg-service</module>
+        <module>msg-facade</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -149,11 +148,6 @@
                 <artifactId>xercesImpl</artifactId>
                 <version>2.9.1</version>
             </dependency>
-            <dependency>
-                <groupId>com.www.mall</groupId>
-                <artifactId>rxmall-ireport-facade</artifactId>
-                <version>1.0</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -172,8 +166,8 @@
                         <!--解决 程序包com.sun.image.codec.jpeg不存在 -->
                         <compilerArguments>
                             <verbose />
-                            <!-- <bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath> -->
-                            <!--<bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>-->
+                             <bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>
+                           <!-- <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>-->
                         </compilerArguments>
                     </configuration>
                 </plugin>
