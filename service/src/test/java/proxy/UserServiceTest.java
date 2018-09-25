@@ -4,15 +4,18 @@ import com.gavin.model.Response;
 import com.sitexa.common.bean.UserVo;
 import com.sitexa.common.shiro.principal.UserPrincipal;
 import com.sitexa.facade.interfaces.UserService;
-import com.sitexa.service.impl.UserServiceImpl;
 import com.xiaoleilu.hutool.util.RandomUtil;
 import conf.BaseTest;
+import io.jboot.core.rpc.annotation.JbootrpcService;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.junit.Test;
 
 public class UserServiceTest extends BaseTest {
 
-    UserService userService = new UserServiceImpl();
+    //UserService userService = new UserServiceImpl();
+
+    @JbootrpcService
+    UserService userService;
 
     @Test
     public void testInsert(){
@@ -22,7 +25,7 @@ public class UserServiceTest extends BaseTest {
         String password = new Md5Hash(pwd,salt,3).toString();
 
         UserPrincipal user = new UserPrincipal();
-        user.setMobilePhone("12345678901");
+        user.setMobilePhone("12345678904");
         user.setPic("pic");
         user.setNickName("nicky");
         user.setRealName("realman");

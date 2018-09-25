@@ -56,7 +56,7 @@ public class UserController extends BaseController {
         users.setSalt(salt);
         users.setNickName(register.getNickName());
 
-        Response response = usersService.saveUsers(users);
+        Response response = usersService.saveUser(users);
         result(response);
     }
 
@@ -110,7 +110,7 @@ public class UserController extends BaseController {
             return;
         }
 
-        UserPrincipal user = usersService.queryUsersById(getUserId());
+        UserPrincipal user = usersService.queryUserById(getUserId());
         if (user == null) {
             result(RC.REQUEST_FAIL, "查询用户信息失败");
             return;
@@ -148,7 +148,7 @@ public class UserController extends BaseController {
             result(RC.PARAM_FAIL, "短信验证码失败");
             return;
         }
-        Response response = usersService.queryUsersByUsersName(mobilePhone);
+        Response response = usersService.queryUserByUsersName(mobilePhone);
         if (response == null || response.fail()) {
             result(RC.PARAM_FAIL, "查询用户信息失败，请重试");
             return;
@@ -236,7 +236,7 @@ public class UserController extends BaseController {
             result(RC.REQUEST_FAIL, "用户未登录，请先登录.");
             return;
         }
-        UserPrincipal user = usersService.queryUsersById(userId);
+        UserPrincipal user = usersService.queryUserById(userId);
         if (user == null) {
             result(RC.REQUEST_FAIL, "查询用户信息失败");
             return;

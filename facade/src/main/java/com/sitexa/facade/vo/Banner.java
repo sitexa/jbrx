@@ -13,13 +13,15 @@ public class Banner implements Serializable {
     private String endDate;//结束时间
     private int status;//1可用2删除
     private Long count;//点击次数
+    private Long createUser;
     private String createTime;//创建时间
+    private Long updateUser;
     private String updateTime;//修改时间
 
     public Banner() {
     }
 
-    public Banner(Long id,String name, Integer category,String murl, String aurl, String startDate, String endDate, int status, Long count, String createTime, String updateTime) {
+    public Banner(Long id, String name, Integer category, String murl, String aurl, String startDate, String endDate, int status, Long count, Long createUser, Long updateUser, String createTime, String updateTime) {
         this.id = id;
         this.category = category;
         this.murl = murl;
@@ -28,7 +30,9 @@ public class Banner implements Serializable {
         this.endDate = endDate;
         this.status = status;
         this.count = count;
+        this.createUser = createUser;
         this.createTime = createTime;
+        this.updateUser = updateUser;
         this.updateTime = updateTime;
     }
 
@@ -118,5 +122,21 @@ public class Banner implements Serializable {
 
     public void setCategory(Integer category) {
         this.category = category;
+    }
+
+    public Long getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(Long createUser) {
+        this.createUser = createUser;
+    }
+
+    public Long getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(Long updateUser) {
+        this.updateUser = updateUser;
     }
 }

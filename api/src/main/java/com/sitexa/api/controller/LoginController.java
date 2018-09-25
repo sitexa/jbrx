@@ -41,13 +41,13 @@ public class LoginController extends BaseController {
             renderJson(Ret.relogin("账号或密码不能为空!"));
             return;
         }
-        if (!validateCaptcha("captcha")) {
-            renderJson(Ret.fail("验证码错误"));
-            return;
-        }
+//        if (!validateCaptcha("captcha")) {
+//            renderJson(Ret.fail("验证码错误"));
+//            return;
+//        }
         Response response = null;
         try {
-            response = userService.queryUsersByUsersName(username);
+            response = userService.queryUserByUsersName(username);
         } catch (Exception e) {
             e.printStackTrace();
         }

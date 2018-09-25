@@ -57,7 +57,7 @@ public class CommentServiceImpl extends BaseService implements CommentService {
 		Page<Comment> page = DBTrans.page(request, Comment.class);
 		if(page.getList().size() > 0) {
 			for(Comment c:page.getList()) {
-				UserPrincipal u = usersService.queryUsersById(c.getUserId());
+				UserPrincipal u = usersService.queryUserById(c.getUserId());
 				if(u != null) {
 					c.setUserName(u.getNickName());
 					c.setUserPic(u.getPic());

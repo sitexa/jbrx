@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../DataService.xsd">
+
+    <SQLTrans TransFlag="1" TransName="saveAppVersion" DataGroupId="writeUser">
+        <SelectField OutputId="{totalCount}">
+            <OutputSQL>select count(*) from appVersion</OutputSQL>
+        </SelectField>
+        <If Value1="{totalCount}" Type="Integer" Operator="=" Value2="0">
+            <Then>
+                <Insert>
+                    <OutputSQL>
+                        insert into
+                        appVersion(versionNumber,currentVersion,updateMethod,updateContent,pkgUrl,androidUrl,iosUrl,createUser,createTime)
+                        values({versionNumber},{currentVersion},{updateMethod},{updateContent},{pkgUrl},{androidUrl},{iosUrl},{createUser},{currentTime})
+                    </OutputSQL>
+                </Insert>
+            </Then>
+        </If>
+        <If Value1="{totalCount}" Type="Integer" Operator="&gt;" Value2="0">
+            <Then>
+                <Update>
+                    <OutputSQL>
+                        update appVersion set
+                        versionNumber={versionNumber},currentVersion={currentVersion}+1,updateMethod={updateMethod},updateContent={updateContent},
+                        pkgUrl={pkgUrl},androidUrl={androidUrl},iosUrl={iosUrl},createUser={createUser},createTime={currentTime}
+                        where id={id}
+                    </OutputSQL>
+                </Update>
+            </Then>
+        </If>
+        <OnException>
+            <Return Code="-1" Text="修改异常" Info="修改异常"/>
+        </OnException>
+        <Return Code="0" Text="修改成功" Info="修改成功"/>
+    </SQLTrans>
+
+    <SQLTrans TransFlag="0" TransName="getAppVersion" DataGroupId="readUser">
+        <SelectRecord OutputId="{appVersion}">
+            <OutputSQL>
+                select * from appVersion
+            </OutputSQL>
+        </SelectRecord>
+
+        <OnException>
+            <Return Code="-1" Info="新增异常" Text="新增异常"/>
+        </OnException>
+        <Return Code="0" Info="查询成功" Text="查询成功">
+            <ReturnItem FieldId="{appVersion}" ValueId="{appVersion}"/>
+        </Return>
+    </SQLTrans>
+
+</DataService>
