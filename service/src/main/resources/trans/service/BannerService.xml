@@ -34,8 +34,8 @@
         </If>
         <Insert>
             <OutputSQL>
-                insert into banner (name,category,murl,aurl,startDate,endDate,status,count,createTime,updateTime)
-                values({name},{category},{murl},{aurl},{startDate},{endDate},1,0,{currentTime},{currentTime})
+                insert into banner (name,category,murl,aurl,startDate,endDate,status,count,createUser,createTime)
+                values({name},{category},{murl},{aurl},{startDate},{endDate},1,0,{createUser},{currentTime})
             </OutputSQL>
         </Insert>
         <OnException>
@@ -60,7 +60,7 @@
         </If>
         <Update>
             <OutputSQL>
-                update banner set name={name},category={category},murl={murl},aurl={aurl},startDate={startDate},endDate={endDate},updateTime={currentTime} where id={id}
+                update banner set name={name},category={category},murl={murl},aurl={aurl},startDate={startDate},endDate={endDate},updateUser={updateUser},updateTime={currentTime} where id={id}
             </OutputSQL>
         </Update>
         <OnException>
