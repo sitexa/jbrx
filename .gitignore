@@ -2,6 +2,3 @@
 .idea/*
 **/logs
 **/target
-*.iml
-**/*.iml
-jbrx.iml
