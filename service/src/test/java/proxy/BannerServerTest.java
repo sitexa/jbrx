@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BannerServerTest extends BaseTest {
 
-    BannerService bannerService = new BannerServiceImpl();
+/*    BannerService bannerService = new BannerServiceImpl();
 
     @Test
     public void insertBanner() {
@@ -40,5 +40,5 @@ public class BannerServerTest extends BaseTest {
     public void getBannerInfo(){
         List<Banner> banners = bannerService.getBannerInfo(1);
         result(banners);
-    }
+    }*/
 }

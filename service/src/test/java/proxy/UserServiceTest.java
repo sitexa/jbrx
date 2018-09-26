@@ -11,7 +11,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.junit.Test;
 
 public class UserServiceTest extends BaseTest {
-
+/*
     //UserService userService = new UserServiceImpl();
 
     @JbootrpcService
@@ -66,5 +66,5 @@ public class UserServiceTest extends BaseTest {
     public void testqueryUsersById(){
         UserPrincipal user = userService.queryUserById(3);
         result(user);
-    }
+    }*/
 }

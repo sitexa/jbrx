@@ -11,7 +11,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.junit.Test;
 
 public class AdminServiceTest extends BaseTest {
-
+/*
     AdminService adminService = new AdminServiceImpl();
 
     @Test
@@ -76,5 +76,5 @@ public class AdminServiceTest extends BaseTest {
         Response response = adminService.isUsedAdmin(admin);
 
         result(response);
-    }
+    }*/
 }

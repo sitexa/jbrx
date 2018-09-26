@@ -10,6 +10,7 @@ import conf.BaseTest;
 import org.junit.Test;
 
 public class CommentServiceTest extends BaseTest {
+/*
 
     CommentService commentService = new CommentServiceImpl();
 
@@ -44,4 +45,5 @@ public class CommentServiceTest extends BaseTest {
         Response response = commentService.queryByUserComment(1L, 1L);
         result(response);
     }
+*/
 }

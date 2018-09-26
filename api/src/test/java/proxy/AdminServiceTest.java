@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class AdminServiceTest extends BaseTest {
 
-    @JbootrpcService
+   /* @JbootrpcService
     AdminService adminService;
 
     @Test
@@ -77,5 +77,5 @@ public class AdminServiceTest extends BaseTest {
         Response response = adminService.isUsedAdmin(admin);
 
         result(response);
-    }
+    }*/
 }

@@ -12,7 +12,7 @@ import org.junit.Test;
 public class MessgeaServiceTest extends BaseTest {
     MessageService service = new MessageServiceImpl();
 
-    @Test
+/*    @Test
     public void TestSendCode(){
         MessageRecord msg = new MessageRecord();
 
@@ -26,5 +26,5 @@ public class MessgeaServiceTest extends BaseTest {
         Ret ret = service.sendCode(msg);
 
         result(ret);
-    }
+    }*/
 }
