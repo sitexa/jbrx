@@ -18,8 +18,6 @@
     </properties>
 
     <dependencies>
-
-
         <dependency>
             <groupId>com.gavin</groupId>
             <artifactId>gavin</artifactId>

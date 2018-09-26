@@ -33,14 +33,14 @@ public class UserServiceTest extends BaseTest {
         user.setSalt(salt);
         user.setPassword(password);
 
-        Response response = userService.saveUsers(user);
+        Response response = userService.saveUser(user);
 
         result(response);
     }
 
     @Test
     public void testQueryUserByMobile(){
-        Response response = userService.queryUsersByUsersName("12345678901");
+        Response response = userService.queryUserByUsersName("12345678901");
         result(response);
 
         System.out.println("response.result = " + response.result);
@@ -64,7 +64,7 @@ public class UserServiceTest extends BaseTest {
 
     @Test
     public void testqueryUsersById(){
-        UserPrincipal user = userService.queryUsersById(3);
+        UserPrincipal user = userService.queryUserById(3);
         result(user);
     }
 }

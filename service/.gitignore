@@ -1,2 +1,3 @@
-/target/
-jbrx-service.iml
+target/
+.idea/
+logs/
