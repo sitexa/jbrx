@@ -12,7 +12,7 @@ public class ShiroPrincipal implements Serializable {
 	private static final long serialVersionUID = -5216712981159026254L;
 
 	// 用户对象
-	private AdminPrincipal admins;
+	private AdminPrincipal admin;
 	private UserPrincipal user;
 	
 	// 用户权限列表
@@ -28,8 +28,8 @@ public class ShiroPrincipal implements Serializable {
 	 * 
 	 * @param admin
 	 */
-	public ShiroPrincipal(AdminPrincipal admins) {
-		this.admins = admins;
+	public ShiroPrincipal(AdminPrincipal admin) {
+		this.admin = admin;
 	}
 
 	public List<String> getAuthorities() {
@@ -57,19 +57,19 @@ public class ShiroPrincipal implements Serializable {
 	}
 
 	public AdminPrincipal getAdmins() {
-		return admins;
+		return admin;
 	}
 
 	public void setAdmins(AdminPrincipal admins) {
-		this.admins = admins;
+		this.admin = admins;
 	}
 
 	public String getUsername() {
-		return admins.getUserName();
+		return admin.getUserName();
 	}
 	
 	public String getPassword() {
-		return admins.getPassword();
+		return admin.getPassword();
 	}
 
 	public UserPrincipal getUser() {

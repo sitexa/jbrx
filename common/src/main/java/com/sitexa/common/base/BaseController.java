@@ -21,9 +21,6 @@ import java.util.Map.Entry;
  * ------------------------------
  * 控制器基类
  * ------------------------------
- *
- * @author wdm（l311576@sina.com）  @date 2018年6月5日
- * @version 1.0
  */
 @EnableCORS(exposeHeaders = "Jwt", allowHeaders = "Jwt")
 public class BaseController extends JbootController {
