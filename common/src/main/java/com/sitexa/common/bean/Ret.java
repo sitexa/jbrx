@@ -20,12 +20,14 @@ public class Ret implements Serializable {
     private Object data;            //返回数据结果
     private String message;    //返回数据描述
     private String filePath; //文件路径
+    private int errno = 0;
 
     public Ret() {
     }
 
     public Ret(RC rc) {
         this.result = rc.getState();
+        this.errno = rc.getState();
     }
 
     public Ret(int result, String message) {
@@ -161,6 +163,14 @@ public class Ret implements Serializable {
 
     public boolean success() {
         return this.result == RC.SUCCESS.getState();
+    }
+
+    public int getErrno() {
+        return errno;
+    }
+
+    public void setErrno(int errno) {
+        this.errno = errno;
     }
 
     public static Ret ret(Ret ret) {

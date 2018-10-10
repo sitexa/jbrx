@@ -34,7 +34,9 @@ public class JwtShiroInvokeListener implements JbootShiroInvokeListener {
         if(String.valueOf(path).startsWith("/admin/login/login")){
      	   return;
         }
-        
+        if(String.valueOf(path).startsWith("/manage/file")){
+            return;
+        }
         if (StringUtils.isBlank(jwtToken)) {
         	log.warn("没有Jwt登录信息");
         	doProcessUnauthenticated(controller);
@@ -42,7 +44,7 @@ public class JwtShiroInvokeListener implements JbootShiroInvokeListener {
         }
         log.info("携带Jwt登录信息");
 
-        Map<String,Object> user = JwtManager.me().getPara("admins");
+        Map<String,Object> user = JwtManager.me().getPara("admin");
         if(user==null){
         	log.warn("Jwt登录信息已过期");
         	doProcessUnauthenticated(controller);

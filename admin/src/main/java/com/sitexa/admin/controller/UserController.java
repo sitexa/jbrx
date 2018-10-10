@@ -10,6 +10,7 @@ import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
 
 @RequestMapping(value =  "/manage/user")
+@Before(AuthInterceptor.class)
 public class UserController extends BaseController {
     @JbootrpcService
     private UserService usersService;
