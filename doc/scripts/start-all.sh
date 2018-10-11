@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-./start-service
+start-service.sh
 sleep 5
 
-./start-msg
+start-msg.sh
 sleep 5
 
-./start-api
+start-api.sh
 sleep 5
 
 ./start-admin

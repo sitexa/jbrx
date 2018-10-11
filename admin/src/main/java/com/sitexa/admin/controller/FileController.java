@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static com.sitexa.common.utils.FileUtils.readBytesFromFile;
+
 
 @RequestMapping(value =  "/manage/file")
 public class FileController extends BaseController {
@@ -18,20 +20,7 @@ public class FileController extends BaseController {
         File file=getFile().getFile();
         BufferedImage image = null;
         byte[] buffer = null;
-        try {
-            FileInputStream fis = new FileInputStream(file);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] b = new byte[1024];
-            int n;
-            while ((n = fis.read(b)) != -1) {
-                bos.write(b, 0, n);
-            }
-            fis.close();
-            bos.close();
-            buffer = bos.toByteArray();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        buffer = readBytesFromFile(file);
         // 创建字节数组输入流
         ByteArrayInputStream bis = new ByteArrayInputStream(buffer);
         //图片文件夹名称
