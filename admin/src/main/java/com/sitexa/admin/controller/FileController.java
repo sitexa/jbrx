@@ -56,7 +56,7 @@ public class FileController extends BaseController {
         map.put("picName", picName );
         map.put("hasUpload", true );
 
-        result(picName);
+        result(map);
     }
 
     public void uploadFile(){
