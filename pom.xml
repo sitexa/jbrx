@@ -7,7 +7,6 @@
     <artifactId>jbrx</artifactId>
     <version>1.0</version>
     <modules>
-        <module>tools</module>
         <module>common</module>
         <module>service</module>
         <module>facade</module>
