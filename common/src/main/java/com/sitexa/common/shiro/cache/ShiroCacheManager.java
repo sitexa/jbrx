@@ -17,6 +17,7 @@ public class ShiroCacheManager implements CacheManager {
 
 	private final ConcurrentMap<String, Cache> caches = new ConcurrentHashMap<String, Cache>();
 
+	@Override
 	public <K, V> Cache<K, V> getCache(String name) throws CacheException {
 		Cache c = caches.get(name);
 		if (c == null) {
